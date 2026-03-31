@@ -12,7 +12,7 @@ export default async function handler(request) {
     variant = Math.random() < 0.5 ? 'a' : 'b';
   }
 
-  const target = variant === 'b' ? '/b/index.html' : '/index.html';
+  const target = variant === 'b' ? '/b/index.html' : '/a/index.html';
   const origin = new URL(target, url.origin);
   const response = await fetch(origin);
 
