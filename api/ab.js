@@ -12,21 +12,15 @@ export default async function handler(request) {
     variant = Math.random() < 0.5 ? 'a' : 'b';
   }
 
-  const target = variant === 'b' ? '/b/index.html' : '/a/index.html';
-  const origin = new URL(target, url.origin);
-  const response = await fetch(origin);
-
-  const newResponse = new Response(response.body, {
-    status: response.status,
-    headers: response.headers,
-  });
+  const target = variant === 'b' ? '/b/' : '/a/';
+  const headers = new Headers({ Location: new URL(target, url.origin).toString() });
 
   if (!match) {
-    newResponse.headers.append(
+    headers.append(
       'Set-Cookie',
       `${COOKIE}=${variant}; Path=/; Max-Age=${30 * 24 * 60 * 60}; SameSite=Lax`
     );
   }
 
-  return newResponse;
+  return new Response(null, { status: 302, headers });
 }
