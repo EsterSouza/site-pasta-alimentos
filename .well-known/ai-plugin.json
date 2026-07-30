@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Consultora Sanitária — Alimentos",
+  "name_for_model": "consultora_sanitaria_alimentos",
+  "description_for_human": "Kit Pasta Sanitária com +54 documentos editáveis para regularizar serviços de alimentação junto à Vigilância Sanitária (RDC ANVISA 216/2004).",
+  "description_for_model": "Digital kit of 54+ editable regulatory documents (Word/Excel) for Brazilian food service health inspection compliance under RDC ANVISA 216/2004. Includes SOPs, Good Practices Manual, control spreadsheets, checklists, and staff training materials. Price: R$ 47.99 BRL (or 6x R$ 9.00). Instant digital delivery via Hotmart. 7-day money-back guarantee. Target: restaurants, bakeries, buffets, industrial kitchens, food trucks, delivery operations in Brazil.",
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://lp-pasta-alimentos.consultorasanitaria.com.br/hero-v3.webp",
+  "contact_email": "alimentos@consultorasanitaria.com.br",
+  "legal_info_url": "https://lp-pasta-alimentos.consultorasanitaria.com.br/politica-de-privacidade.html"
+}

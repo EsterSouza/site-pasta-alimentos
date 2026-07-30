@@ -6,20 +6,4 @@ dist/
 build/
 .vscode/
 .idea/
-*.png
-*.webp
-*.jpeg
-*.jpg
-!*.jpg
-!*.png
-!*.webp
-!*.jpeg
-# Keep images that are part of the site
-!restaurante.jpg
-!padaria.jpg
-!buffet.jpg
-!ifood.webp
-!foto da ana.jpeg
-!*.ico
-!*.svg
 .vercel

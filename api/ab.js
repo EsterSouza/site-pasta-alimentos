@@ -1,6 +1,6 @@
 export const config = { runtime: 'edge' };
 
-const COOKIE = 'ab-variant';
+const COOKIE = 'ab-alimentos';
 
 export default async function handler(request) {
   const url = new URL(request.url);
