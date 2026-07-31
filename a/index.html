@@ -139,7 +139,7 @@
 
         <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
           target="_blank" rel="noopener" class="btn-cta hero-btn" id="cta-hero"
-          onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">
+>
           GARANTIR MEU KIT AGORA
         </a>
       </div>
@@ -319,7 +319,7 @@
           <p>A RDC ANVISA 216/2004 exige POPs, Manual de Boas Práticas, planilhas de controle e registros de
             capacitação. Não ter esses documentos <mark class="highlight-anim">pode gerar penalidades, como multa.</mark></p>
           <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
-            target="_blank" rel="noopener" class="btn-cta btn-small-cta" style="margin-top:24px;" onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">VER O KIT COMPLETO</a>
+            target="_blank" rel="noopener" class="btn-cta btn-small-cta" style="margin-top:24px;">VER O KIT COMPLETO</a>
         </div>
       </div>
     </div>
@@ -546,7 +546,7 @@
           <div class="center-btn">
             <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
               class="btn-cta hero-btn btn-pulse-evident" target="_blank" rel="noopener"
-              onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">QUERO TODO ESSE CONTEÚDO AGORA</a>
+    >QUERO TODO ESSE CONTEÚDO AGORA</a>
           </div>
         </div>
 
@@ -604,7 +604,7 @@
       <div class="center-btn" style="margin-top:24px;">
           <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
             id="cta-hero" class="btn-cta hero-btn btn-pulse-evident" target="_blank" rel="noopener"
-            onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">GARANTIR MEU KIT AGORA</a>
+  >GARANTIR MEU KIT AGORA</a>
       </div>
     </div>
   </section>
@@ -644,7 +644,7 @@
         </div>
 
         <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
-          class="btn-cta price-v3-btn" target="_blank" rel="noopener" onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">
+          class="btn-cta price-v3-btn" target="_blank" rel="noopener">
           QUERO MEU ACESSO AGORA
         </a>
 
@@ -694,7 +694,7 @@
           <div class="authority-btns">
             <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
               target="_blank" rel="noopener" id="cta-autoridade" class="btn-cta btn-dark-cta"
-              onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">
+    >
               GARANTIR MEU KIT AGORA</a>
           </div>
         </div>
@@ -815,7 +815,7 @@
   <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
     <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
       target="_blank" rel="noopener" class="btn-cta sticky-cta__btn" id="cta-sticky"
-      onclick="fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:'variante-a'});gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'})">
+>
       GARANTIR MINHA PASTA
     </a>
   </div>
@@ -986,6 +986,36 @@
   ]
 }
 </script>
+  <!-- Tracking: checkout dinâmico + eventos delegados -->
+  <script>
+  (function() {
+    var COOKIE = 'ab-alimentos';
+    var CHECKOUT_BASE = 'https://pay.hotmart.com/H104875140X?checkoutMode=10';
+
+    function getVariant() {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + COOKIE + '=([^;]+)'));
+      return m ? m[1] : 'a';
+    }
+
+    var variant = getVariant();
+    var href = CHECKOUT_BASE + '&sck=alimentos%7C' + variant;
+
+    document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function(a) {
+      a.href = href;
+    });
+
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a[href*="pay.hotmart.com"]');
+      if (!a) return;
+      if (window.fbq) fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:variant});
+      if (window.gtag) {
+        gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});
+        gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'});
+      }
+    });
+  })();
+  </script>
+
   <!-- TYPING EFFECT JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
