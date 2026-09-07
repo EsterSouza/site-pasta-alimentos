@@ -68,7 +68,7 @@
     }
     .hero-btn__price {
       display: block;
-      font-size: 0.85rem;
+      font-size: 14px;
       font-weight: 500;
       opacity: 0.9;
       letter-spacing: 0.02em;
@@ -157,7 +157,7 @@
 
 
         <div class="hero__social-proof">
-          <span class="trust-pill" style="color: #F0F5F1; background: rgba(0,0,0,0.3);">✓ +100 estabelecimentos já
+          <span class="trust-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> +100 estabelecimentos já
             aprovados na vistoria</span>
         </div>
 
@@ -572,7 +572,7 @@
             para a vistoria.</p>
           <div class="center-btn">
             <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|b"
-              class="btn-cta hero-btn btn-pulse-evident" target="_blank" rel="noopener"
+              class="btn-cta hero-btn" target="_blank" rel="noopener"
     >QUERO TODO ESSE CONTEÚDO AGORA</a>
           </div>
         </div>
@@ -630,7 +630,7 @@
         estabelecimento.</p>
       <div class="center-btn" style="margin-top:24px;">
           <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|b"
-            id="cta-hero" class="btn-cta hero-btn btn-pulse-evident" target="_blank" rel="noopener"
+            id="cta-hero" class="btn-cta hero-btn" target="_blank" rel="noopener"
   >GARANTIR MEU KIT AGORA</a>
       </div>
     </div>
@@ -827,7 +827,7 @@
       &nbsp;|&nbsp;
       alimentos@consultorasanitaria.com.br
     </p>
-    <p style="margin-top:12px;font-size:.85rem;opacity:.7">
+    <p style="margin-top:12px">
       HUB TREINAVISA SERVIÇOS LTDA · CNPJ 53.297.694/0001-37<br>
       Av. Embaixador Abelardo Bueno, 1, Sala 153-D, Ed. Lagoa · Barra da Tijuca, Rio de Janeiro – RJ · 22775-022
     </p>
@@ -1003,36 +1003,8 @@
   ]
 }
 </script>
-  <!-- Tracking: checkout dinâmico + eventos delegados -->
-  <script>
-  (function() {
-    var COOKIE = 'ab-alimentos';
-    var CHECKOUT_BASE = 'https://pay.hotmart.com/H104875140X?checkoutMode=10';
-
-    function getVariant() {
-      var m = document.cookie.match(new RegExp('(?:^|; )' + COOKIE + '=([^;]+)'));
-      return m ? m[1] : 'a';
-    }
-
-    var variant = getVariant();
-    var href = CHECKOUT_BASE + '&sck=alimentos%7C' + variant;
-
-    document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function(a) {
-      a.href = href;
-    });
-
-    document.addEventListener('click', function(e) {
-      var a = e.target.closest('a[href*="pay.hotmart.com"]');
-      if (!a) return;
-      if (window.fbq) fbq('track','InitiateCheckout',{value:47.99,currency:'BRL',content_name:variant});
-      if (window.gtag) {
-        gtag('event','conversion',{'send_to':'AW-18030262622/9GECCKmJpo4cEN7yv5VD','value':1.0,'currency':'BRL'});
-        gtag('event','conversion',{'send_to':'AW-18030262622/2sXFCLaXzpIcEN7yv5VD'});
-      }
-    });
-  })();
-  </script>
-
+  <!-- Tracking: checkout dinâmico + eventos delegados (fonte única: ../tracking.js) -->
+  <script defer src="../tracking.js?v=1"></script>
   <!-- TYPING EFFECT JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1073,13 +1045,20 @@
         }
       }
 
-      if (data.length) setTimeout(type, newWordDelay);
+      const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (semMovimento) {
+        articleSpan.textContent = data[0].article;
+        typedTextSpan.textContent = data[0].word;
+      } else if (data.length) {
+        setTimeout(type, newWordDelay);
+      }
     });
   </script>
 
   <!-- FINDER ANIMATION JS -->
   <script>
     (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const filelist = document.getElementById('finder-filelist');
       const cursor = document.getElementById('finder-cursor');
       const clickTarget = document.getElementById('finder-click-target');
