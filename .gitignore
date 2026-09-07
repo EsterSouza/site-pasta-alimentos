@@ -7,3 +7,6 @@ build/
 .vscode/
 .idea/
 .vercel
+
+# Fontes/insumos locais (catálogo de produto, briefings) — não vão para o repositório nem para o deploy
+input/
