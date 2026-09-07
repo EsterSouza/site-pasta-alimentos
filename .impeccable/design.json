@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-07T23:27:49.048Z",
+  "title": "Design System: Kit Pasta Sanitária — Alimentos",
+  "extensions": {
+    "colorMeta": {
+      "lilac": {
+        "role": "primary",
+        "displayName": "Lilás Confiança",
+        "canonical": "oklch(56.5% 0.1487 293)",
+        "tonalRamp": [
+          "#160042",
+          "#2C0063",
+          "#462685",
+          "#6348A8",
+          "#8269CC",
+          "#A38AF2",
+          "#C8B0FF",
+          "#F3DBFF"
+        ]
+      },
+      "lilac-deep": {
+        "role": "primary",
+        "displayName": "Lilás Profundo",
+        "canonical": "oklch(48.9% 0.1571 291)",
+        "tonalRamp": [
+          "#160046",
+          "#2B0067",
+          "#45248A",
+          "#6246AD",
+          "#8068D2",
+          "#A18AF7",
+          "#C6B0FF",
+          "#F0DBFF"
+        ]
+      },
+      "lilac-pale": {
+        "role": "primary",
+        "displayName": "Lilás Sereno",
+        "canonical": "oklch(81.3% 0.0690 301)",
+        "tonalRamp": [
+          "#110223",
+          "#2A1A40",
+          "#46375E",
+          "#64547F",
+          "#8474A0",
+          "#A595C3",
+          "#CBBAEA",
+          "#F6E5FF"
+        ]
+      },
+      "lilac-mist": {
+        "role": "primary",
+        "displayName": "Névoa Lilás",
+        "canonical": "oklch(96.8% 0.0095 299)",
+        "tonalRamp": [
+          "#0C0A0F",
+          "#252328",
+          "#403F44",
+          "#5E5C62",
+          "#7E7C82",
+          "#9F9DA4",
+          "#C5C3C9",
+          "#EFEDF4"
+        ]
+      },
+      "alert-red": {
+        "role": "secondary",
+        "displayName": "Vermelho de Alerta",
+        "canonical": "oklch(57.1% 0.2009 30)",
+        "tonalRamp": [
+          "#3F0000",
+          "#660000",
+          "#8D0000",
+          "#B40000",
+          "#DB3A26",
+          "#FF614A",
+          "#FF8970",
+          "#FFB599"
+        ]
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Navy Arquivo",
+        "canonical": "oklch(24.7% 0.0749 260)",
+        "tonalRamp": [
+          "#00072A",
+          "#0D2248",
+          "#283F67",
+          "#455E88",
+          "#647EAA",
+          "#849FCE",
+          "#A9C5F5",
+          "#D2F0FF"
+        ]
+      },
+      "navy-deep": {
+        "role": "neutral",
+        "displayName": "Navy Fundo de Gaveta",
+        "canonical": "oklch(17.3% 0.0459 263)",
+        "tonalRamp": [
+          "#030A1E",
+          "#18233A",
+          "#334058",
+          "#505E78",
+          "#6F7D99",
+          "#909FBC",
+          "#B5C5E3",
+          "#DFEFFF"
+        ]
+      },
+      "off-white": {
+        "role": "neutral",
+        "displayName": "Off-White Sereno",
+        "canonical": "oklch(96.5% 0.0075 151)",
+        "tonalRamp": [
+          "#090C0A",
+          "#212522",
+          "#3D413E",
+          "#5B5F5B",
+          "#7A7F7B",
+          "#9BA09C",
+          "#C1C5C2",
+          "#EBF0EC"
+        ]
+      },
+      "near-black": {
+        "role": "neutral",
+        "displayName": "Preto Suave",
+        "canonical": "oklch(21.8% 0.0000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#404040",
+          "#5D5D5D",
+          "#7D7D7D",
+          "#9E9E9E",
+          "#C4C4C4",
+          "#EEEEEE"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta Branda",
+        "canonical": "oklch(32.1% 0.0000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#404040",
+          "#5D5D5D",
+          "#7D7D7D",
+          "#9E9E9E",
+          "#C4C4C4",
+          "#EEEEEE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display — Playfair",
+        "purpose": "Somente o número da parcela no card de preço. Cai para 60px em mobile."
+      },
+      "headline": {
+        "displayName": "Headline — Inter Black",
+        "purpose": "Primeira linha do hero, a que anima. Linhas de apoio ficam em clamp(28px,4vw,48px)."
+      },
+      "title": {
+        "displayName": "Title — Inter 800",
+        "purpose": "h2 de seção: navy sobre claro, off-white sobre navy."
+      },
+      "body": {
+        "displayName": "Body — Inter",
+        "purpose": "Parágrafos e listas. Base de 18px: 1.1rem = 19,8px."
+      },
+      "label": {
+        "displayName": "Label — Inter 600",
+        "purpose": "Degrau dominante de rotulo (14px): rodape, selos, badge do hero, rotulo de funcao."
+      },
+      "label-sm": {
+        "displayName": "Label-sm — Inter caixa alta",
+        "purpose": "12px, ate quatro palavras, tracking 1,5px: selo do preco e cromo da janela de arquivos."
+      }
+    },
+    "shadows": [
+      {
+        "name": "repouso",
+        "value": "0 10px 30px rgba(10,31,68,0.05)",
+        "purpose": "Cartões e listas em repouso sobre fundo claro. A borda trabalha mais que a sombra."
+      },
+      {
+        "name": "flutuante",
+        "value": "0 16px 40px rgba(10,31,68,0.10)",
+        "purpose": "Janela de documentos e superfícies que se destacam do fundo claro."
+      },
+      {
+        "name": "elevado",
+        "value": "0 24px 48px rgba(10,31,68,0.16)",
+        "purpose": "Degrau mais forte sobre claro. Um elemento por seção."
+      },
+      {
+        "name": "sobre-navy",
+        "value": "0 32px 64px rgba(0,0,0,0.5)",
+        "purpose": "Única sombra em preto puro: tinta navy sobre navy é invisível."
+      },
+      {
+        "name": "brilho-interativo",
+        "value": "0 8px 24px rgba(123,97,196,0.4)",
+        "purpose": "Hover em elemento primário. Escala para 0 16px 40px rgba(123,97,196,0.35) no hero."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-padrao",
+        "value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "purpose": "Transição padrão de estado em botões (0.3s)."
+      },
+      {
+        "name": "ease-revelacao",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Revelação de marca-texto animado (1.2s)."
+      },
+      {
+        "name": "fade-in-up",
+        "value": "fadeInUp 0.7s ease backwards",
+        "purpose": "Entrada escalonada do hero: 0.1s, 0.2s, 0.25s, 0.3s, 0.35s."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce)",
+        "purpose": "Tudo para: animacoes, transicoes e a digitacao da headline, que passa a nascer escrita."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "sm",
+        "value": "480px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão Primário",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "O único elemento de ação do sistema. Sobe e brilha na própria cor.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">GARANTIR MEU KIT AGORA</a>",
+      "css": ".ds-btn-primary{display:inline-block;background:#7B61C4;color:#fff;font-family:Inter,sans-serif;font-weight:800;font-size:1.1rem;padding:18px 36px;border-radius:6px;border:none;cursor:pointer;text-align:center;line-height:1.2;letter-spacing:.02em;text-decoration:none;transition:all .3s cubic-bezier(.25,.46,.45,.94)}.ds-btn-primary:hover{background:#6449B0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(123,97,196,.4)}.ds-btn-primary:focus-visible{outline:2px solid #C9B8E8;outline-offset:3px}"
+    },
+    {
+      "name": "Botão do Hero",
+      "kind": "button",
+      "refersTo": "button-hero",
+      "description": "Variante ampliada do primário. Escala 1,03 no hover, além de subir.",
+      "html": "<a class=\"ds-btn-hero\" href=\"#\">QUERO MINHA PASTA PRONTA</a>",
+      "css": ".ds-btn-hero{display:inline-block;background:#7B61C4;color:#fff;font-family:Inter,sans-serif;font-weight:800;font-size:20px;padding:20px 48px;border-radius:6px;border:none;cursor:pointer;line-height:1.2;letter-spacing:.02em;text-decoration:none;transition:all .3s cubic-bezier(.25,.46,.45,.94)}.ds-btn-hero:hover{background:#6449B0;transform:translateY(-2px) scale(1.03);box-shadow:0 16px 40px rgba(123,97,196,.35)}.ds-btn-hero:focus-visible{outline:2px solid #C9B8E8;outline-offset:3px}"
+    },
+    {
+      "name": "Botão de Preço",
+      "kind": "button",
+      "refersTo": "button-price",
+      "description": "Largura total dentro do card de preco. Sobe 2px e brilha no hover, como todos os outros — sem pulso.",
+      "html": "<a class=\"ds-btn-price\" href=\"#\">COMPRAR AGORA</a>",
+      "css": ".ds-btn-price{width:100%;display:block;box-sizing:border-box;background:#7B61C4;color:#fff;font-family:Inter,sans-serif;padding:22px;font-size:20px;font-weight:800;border-radius:8px;border:none;text-align:center;text-decoration:none;cursor:pointer;transition:all .3s cubic-bezier(.25,.46,.45,.94)}.ds-btn-price:hover{background:#6449B0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(123,97,196,.4)}.ds-btn-price:focus-visible{outline:3px solid #C9B8E8;outline-offset:3px}"
+    },
+    {
+      "name": "Chip de Aba",
+      "kind": "chip",
+      "refersTo": "chip-tab",
+      "description": "Navegação das categorias de documento. Ativo inverte para navy.",
+      "html": "<div style=\"display:flex;gap:10px;flex-wrap:wrap\"><button class=\"ds-chip-tab ds-chip-tab--active\">POPs</button><button class=\"ds-chip-tab\">Planilhas</button><button class=\"ds-chip-tab\">Checklists</button></div>",
+      "css": ".ds-chip-tab{background:#F5F3FA;color:#0A1F44;border:1px solid #C9B8E8;border-radius:6px;padding:12px 24px;font-family:Inter,sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:all .2s cubic-bezier(.25,.46,.45,.94)}.ds-chip-tab:hover{border-color:#7B61C4}.ds-chip-tab:focus-visible{outline:2px solid #7B61C4;outline-offset:2px}.ds-chip-tab--active{background:#0A1F44;color:#F0F5F1;border-color:#0A1F44}"
+    },
+    {
+      "name": "Pílula de Prova",
+      "kind": "chip",
+      "refersTo": "pill-trust",
+      "description": "Prova social sobre navy. Mesma linguagem do badge do hero e do selo de preco — borda fina, sem bloco de cor, sem pulso.",
+      "html": "<div style=\"background:#0A1F44;padding:24px\"><span class=\"ds-pill-trust\"><span class=\"ds-pill-trust__dot\"></span>+100 estabelecimentos já aprovados</span></div>",
+      "css": ".ds-pill-trust{background:rgba(201,184,232,.08);border:1px solid rgba(201,184,232,.25);padding:8px 18px;border-radius:4px;color:#C9B8E8;font-family:Inter,sans-serif;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px}.ds-pill-trust__dot{width:10px;height:10px;border-radius:50%;background:#C9B8E8;flex-shrink:0}"
+    },
+    {
+      "name": "Card de Preço",
+      "kind": "card",
+      "refersTo": "card-price",
+      "description": "Vidro sobre navy, o raio mais aberto do sistema (20px). Sobe 8px no hover.",
+      "html": "<div style=\"background:#0A1F44;padding:40px\"><div class=\"ds-card-price\"><span class=\"ds-card-price__badge\">ACESSO IMEDIATO</span><span class=\"ds-card-price__prefix\">A PARTIR DE</span><div class=\"ds-card-price__value\">6x R$ 9,00</div><span class=\"ds-card-price__cash\">ou <strong>R$ 47,99</strong> à vista</span></div></div>",
+      "css": ".ds-card-price{max-width:540px;margin-inline:auto;background:rgba(255,255,255,.04);border:1.5px solid #C9B8E8;border-radius:20px;padding:48px;box-shadow:0 32px 64px rgba(0,0,0,.5);text-align:center;font-family:Inter,sans-serif;color:#fff;transition:transform .3s cubic-bezier(.25,.46,.45,.94)}.ds-card-price:hover{transform:translateY(-8px)}.ds-card-price__badge{background:rgba(201,184,232,.08);color:#C9B8E8;border:1px solid rgba(201,184,232,.35);font-size:12px;font-weight:800;letter-spacing:2px;padding:8px 20px;border-radius:4px;display:inline-block;margin-bottom:32px}.ds-card-price__prefix{font-size:14px;color:rgba(240,245,241,.5);text-transform:uppercase;letter-spacing:2px;display:block;margin-bottom:4px}.ds-card-price__value{font-family:\"Playfair Display\",Georgia,serif;font-size:80px;font-weight:700;color:#C9B8E8;line-height:1}.ds-card-price__cash{font-size:18px;color:rgba(240,245,241,.6);margin-top:12px;display:block}.ds-card-price__cash strong{color:#F0F5F1}"
+    },
+    {
+      "name": "Item de FAQ",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Acordeão de borda lilás. A resposta abre por max-height em 0.4s.",
+      "html": "<div class=\"ds-faq-item ds-faq-item--open\"><button class=\"ds-faq-q\">Preciso ter algum conhecimento técnico?<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7B61C4\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M6 9l6 6 6-6\"/></svg></button><div class=\"ds-faq-a\"><p>Não. Os documentos já estão escritos e formatados. Basta abrir no Word e substituir os campos indicados.</p></div></div>",
+      "css": ".ds-faq-item{border:1.5px solid #C9B8E8;border-radius:12px;font-family:Inter,sans-serif;background:#fff}.ds-faq-q{width:100%;background:none;border:none;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:1.1rem;font-weight:700;color:#1A1A1A;cursor:pointer;text-align:left;font-family:inherit}.ds-faq-q:focus-visible{outline:2px solid #7B61C4;outline-offset:-2px;border-radius:12px}.ds-faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.25,.46,.45,.94)}.ds-faq-item--open .ds-faq-a{max-height:400px}.ds-faq-a p{padding:0 24px 24px;color:#555;font-size:1rem;line-height:1.6;margin:0}"
+    },
+    {
+      "name": "Janela de Arquivos (assinatura)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A peça que define o sistema: prova o conteúdo mostrando os arquivos reais. Some abaixo de 1024px.",
+      "html": "<div class=\"ds-finder\"><div class=\"ds-finder__bar\"><span class=\"ds-finder__dot\" style=\"background:#FF5F57\"></span><span class=\"ds-finder__dot\" style=\"background:#FFBD2E\"></span><span class=\"ds-finder__dot\" style=\"background:#28C840\"></span><span class=\"ds-finder__title\">Pasta Sanitária — 54 itens</span></div><div class=\"ds-finder__body\"><div class=\"ds-finder__row\"><span class=\"ds-finder__ico\" style=\"background:#2B5EBF\"></span>Manual de Boas Práticas<span class=\"ds-finder__ext\">DOCX</span></div><div class=\"ds-finder__row ds-finder__row--on\"><span class=\"ds-finder__ico\" style=\"background:#1E7E45\"></span>Controle de Temperatura<span class=\"ds-finder__ext\">XLSX</span></div><div class=\"ds-finder__row\"><span class=\"ds-finder__ico\" style=\"background:#D93025\"></span>Checklist de Auditoria<span class=\"ds-finder__ext\">PDF</span></div></div></div>",
+      "css": ".ds-finder{width:100%;max-width:560px;background:rgba(28,28,36,.97);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(24px);font-family:Inter,sans-serif;box-shadow:0 24px 48px rgba(10,31,68,.16)}.ds-finder__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(55,55,65,.95);border-bottom:1px solid rgba(255,255,255,.08)}.ds-finder__dot{width:12px;height:12px;border-radius:50%}.ds-finder__title{font-size:12px;color:rgba(255,255,255,.7);margin-left:8px}.ds-finder__row{display:flex;align-items:center;gap:8px;padding:8px 16px;font-size:12px;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.04)}.ds-finder__row--on{background:rgba(123,97,196,.3);color:#fff}.ds-finder__ico{width:16px;height:18px;border-radius:3px;flex-shrink:0}.ds-finder__ext{font-size:10px;background:rgba(255,255,255,.1);padding:2px 4px;border-radius:2px;margin-left:auto}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Arquivo Aberto",
+    "overview": "O sistema existe para resolver uma desconfiança específica: ninguém compra 54 documentos que não pode ver. Por isso a peça central não é uma promessa — é uma janela de arquivos, inclinada em 3D no hero, rolando os nomes reais dos POPs e das planilhas. O navy é o arquivo fechado; o lilás é a linha selecionada dentro dele. Todo o resto do sistema se organiza em torno desse gesto: mostrar o conteúdo antes de pedir a decisão.\n\nO caráter é técnico, mas acolhedor. O rigor vem do navy dominante, da hierarquia firme e do vocabulário de janela de sistema operacional — pontos de semáforo, ícones de extensão, linhas de arquivo. O acolhimento vem do lilás e do serif Playfair, que entram justamente onde o comprador precisa sentir que há uma pessoa do outro lado: o nome da Ana, o título das perguntas, o número do preço. O sistema nunca intimida quem não é técnico, porque o produto se vende exatamente por não exigir conhecimento técnico.\n\nA superfície alterna deliberadamente entre escuro e claro, e essa alternância é estrutural, não decorativa: navy onde o sistema afirma (hero, para-quem, preço), claro onde ele explica (problema, conteúdo, autoridade, FAQ). O vermelho é o único elemento de urgência e aparece contado.",
+    "keyCharacteristics": [
+      "Janela de arquivos como prova de conteúdo, não como ilustração",
+      "Alternância escuro/claro marcando afirmação versus explicação",
+      "Lilás como única cor interativa do sistema",
+      "Serif pontual sobre sans pesado — três aparições por página, no máximo",
+      "Base tipográfica de 18px: 1rem vale 18px, não 16px",
+      "Interação tátil: sobe, brilha na própria cor, respira"
+    ],
+    "rules": [
+      {
+        "name": "A Regra da Voz Única",
+        "body": "O lilás é a única cor interativa. Nada mais no sistema pode sinalizar \"clique aqui\" — nem o vermelho, nem o verde do WhatsApp, nem o navy. Um segundo tom clicável divide a atenção e a página tem um só objetivo.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Vermelho Contado",
+        "body": "O vermelho aparece no máximo duas vezes por página, sempre como estado (selo, verificação), nunca como superfície. No momento em que virar fundo de botão, deixa de significar urgência e passa a significar \"infoproduto\".",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Playfair Contado",
+        "body": "O serif aparece no máximo três vezes por página. Ele marca o humano e o preço; espalhado, vira enfeite e o contraste com o Inter se dissolve.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra da Caixa Alta Curta",
+        "body": "Caixa alta só em rótulos de até quatro palavras, sempre com letter-spacing de 1,5px ou mais. Frase inteira em caixa alta é o registro de LP agressiva que este sistema recusa.",
+        "section": "typography"
+      },
+      {
+        "name": "A Regra do Brilho Colorido",
+        "body": "Interação nunca escurece: ela ilumina na própria cor do elemento. Hover em botão lilás produz brilho lilás, jamais uma sombra preta mais forte.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra da Luz de Cima",
+        "body": "A sombra cai reta para baixo, sem deslocamento horizontal.",
+        "section": "elevation"
+      },
+      {
+        "name": "A Regra do Momento Unico",
+        "body": "A pagina tem um movimento autoral: a entrada escalonada do hero e a palavra que digita no h1. Nada mais anima em repouso. Quem pede prefers-reduced-motion recebe a pagina parada, com a headline ja escrita.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar o lilás (#7B61C4) como única cor de ação. Se um elemento novo é clicável, ele é lilás.",
+      "Do tingir sombras de navy sobre fundo claro (rgba(10,31,68,…)) e reservar preto puro para superfícies sobre navy.",
+      "Do responder à interação subindo 2px e iluminando na própria cor do elemento.",
+      "Do alternar escuro e claro por função: navy onde a página afirma, claro onde ela explica.",
+      "Do calcular medidas em rem a partir de 18px, não de 16px.",
+      "Do manter os nomes de arquivo da janela reais e verificáveis.",
+      "Do deixar a janela do Finder sumir abaixo de 1024px em vez de comprimi-la.",
+      "Do vestir as superfícies do navegador com a paleta: ::selection em Lilás Sereno e um :focus-visible visível. outline: none sem substituto é proibido."
+    ],
+    "donts": [
+      "Don't adotar o registro de LP de lançamento agressiva: contador regressivo, setas amarelas, frase inteira em caixa alta, \"últimas vagas\". O produto é documentação séria e a autoridade da autora é o ativo — esse registro a destrói.",
+      "Don't transformar o vermelho em fundo de botão ou em segunda cor de ação.",
+      "Don't espalhar o Playfair além de três aparições por página.",
+      "Don't aplicar sombra com deslocamento horizontal; a luz vem de cima.",
+      "Don't usar #FFFFFF puro para texto corrido sobre navy — o off-white (#F0F5F1) existe para amaciar esse contraste.",
+      "Don't introduzir uma cor de ação nova sem aposentar o lilás — o sistema tem uma voz só.",
+      "Don't usar animação infinita. Nenhuma. O sistema é tátil no toque, parado em repouso.",
+      "Don't usar sombra de raio zero (0 0 0 Npx) como realce — é halo decorativo, não profundidade.",
+      "Don't dar cursor: pointer ou hover de escala a algo que não navega para lugar nenhum."
+    ]
+  }
+}

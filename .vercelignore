@@ -1,0 +1,5 @@
+# Arquivos-fonte que não devem ir para o deploy
+input/
+scratchpad/
+node_modules/
+*.md
