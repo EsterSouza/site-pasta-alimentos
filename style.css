@@ -11,6 +11,7 @@
 /* === TOKENS === */
 :root {
   --navy: #0A1F44;
+  --navy-deep: #060F24;   /* um degrau abaixo do navy: rodapé e o chão da notícia */
   --lilac-light: #C9B8E8;
   --lilac-mid: #7B61C4;
   --lilac-dark: #6449B0;
@@ -438,7 +439,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ============================================================
    FOOTER
 ============================================================ */
-.footer { background: #060f24; padding-block: 60px; padding-bottom: 120px; text-align: center; color: rgba(240,245,241,0.66); font-size: 14px; }
+.footer { background: var(--navy-deep); padding-block: 60px; padding-bottom: 120px; text-align: center; color: rgba(240,245,241,0.66); font-size: 14px; }
 .footer a { color: var(--lilac-mid); font-weight: 600; }
 .footer p + p { margin-top: 20px; }
 
@@ -748,15 +749,22 @@ mark.highlight-anim.active {
 
 /* ============================================================
    FAIXA DA NOTÍCIA  (variante B)
-   Segue a gramática da página: duas colunas, uma "peça" de um lado e
-   o texto do outro — como o hero (55/45), o problema (60/40) e a
-   autoridade (40/60). Sem isso a seção lia como cartão avulso jogado
-   no meio da rolagem, sem pertencer a nada.
 
-   Fundo BRANCO de propósito: a seção do problema logo abaixo é Névoa
-   Lilás, e duas claras iguais coladas se borram numa só.
+   Ela lia flat porque abria mão dos três movimentos mais fortes da
+   própria página: afirmar sobre escuro, usar a escala de display
+   cheia, e mostrar um documento real como objeto claro sobre o navy —
+   que é exatamente o papel da janela de arquivos no hero.
+
+   Agora o chão é Navy Fundo de Gaveta, um degrau abaixo do hero: o
+   bloco continua o mesmo compasso ("a fiscalização não avisa" → a
+   prova disso) e só depois a página quebra para o claro, onde explica
+   a exigência legal.
+
+   O vermelho vive DENTRO do recorte, nunca sobre o navy: sobre o
+   escuro ele mede 3,31:1 e reprova no AA. Os números seguem o
+   precedente do valor da parcela — Lilás Sereno sobre escuro.
 ============================================================ */
-.sec-noticia { background: var(--white); padding-block: var(--section-pad-v); }
+.sec-noticia { background: var(--navy-deep); padding-block: var(--section-pad-v); }
 .noticia-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 56px; align-items: center; }
 /* Precisa vir logo abaixo da regra base: este bloco foi acrescentado no fim do
    arquivo, então a media query de 1024px lá de cima perde por ordem de fonte. */
@@ -764,15 +772,18 @@ mark.highlight-anim.active {
   .noticia-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
-/* --- o recorte: a matéria como objeto citado --- */
+/* --- o recorte: um documento claro sobre o escuro, como a janela de arquivos --- */
 .recorte {
-  background: var(--lilac-bg);
-  border: 1px solid rgba(201,184,232,0.5);
+  background: var(--white);
   border-radius: 12px;
-  padding: 28px;
-  box-shadow: 0 10px 30px rgba(10,31,68,0.05);
+  padding: 32px;
+  box-shadow: 0 32px 48px rgba(0,0,0,0.5);   /* a sombra "Sobre Navy" do sistema */
 }
-.recorte__cabeca { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.recorte__cabeca {
+  display: flex; align-items: center; gap: 10px;
+  padding-bottom: 14px; margin-bottom: 18px;
+  border-bottom: 2px solid var(--navy);
+}
 .recorte__veiculo {
   background: #C4170C;              /* vermelho do g1 — cromo citado, nunca cor da marca */
   color: var(--white);
@@ -781,35 +792,34 @@ mark.highlight-anim.active {
 }
 .recorte__data { font-size: 14px; color: var(--ink-muted); }
 .recorte__manchete {
-  font-size: 22px; font-weight: 700; line-height: 1.35;
-  color: var(--navy); margin-bottom: 18px;
+  font-size: 28px; font-weight: 800; line-height: 1.25;
+  letter-spacing: -0.5px;
+  color: var(--navy); margin-bottom: 20px;
 }
 .recorte__manchete::before { content: "\201C"; }
 .recorte__manchete::after  { content: "\201D"; }
 .recorte__rodape { font-size: 14px; color: var(--ink-muted); }
-
-/* --- a leitura: os números vivem DENTRO da frase, não em caixas --- */
-.leitura__titulo {
-  font-size: 40px; font-weight: 800; line-height: 1.15;
-  color: var(--navy); margin-bottom: 24px;
-}
-.leitura__numeros { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-.leitura__numeros span { font-size: 20px; line-height: 1.4; color: var(--ink-soft); }
-.leitura__numeros b {
-  font-size: 32px; font-weight: 900; color: var(--accent-red);
-  margin-right: 4px; letter-spacing: -0.5px;
-}
-.leitura__texto { font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin-bottom: 20px; }
-.leitura__texto strong { color: var(--navy); font-weight: 700; }
-.leitura__aviso {
-  font-size: 14px; line-height: 1.55; color: var(--ink-muted);
-  padding-top: 16px; border-top: 1px solid rgba(201,184,232,0.5);
-}
-.leitura__aviso strong { color: var(--ink-soft); }
-/* Lilás Profundo, não o Confiança: sobre a Névoa Lilás do recorte o #7B61C4 mede
-   4,39:1 e reprova no AA por pouco. O #6449B0 dá 6,11:1 e segue sendo lilás,
-   então a Regra da Voz Única continua valendo. */
 .noticia__link { color: var(--lilac-dark); font-weight: 600; text-decoration: underline; }
+
+/* --- a leitura: escala cheia, números na frase, nunca em caixas --- */
+.leitura__titulo {
+  font-size: 44px; font-weight: 800; line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--off-white); margin-bottom: 28px;
+}
+.leitura__numeros { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.leitura__numeros span { font-size: 20px; line-height: 1.4; color: rgba(240,245,241,0.8); }
+.leitura__numeros b {
+  font-size: 36px; font-weight: 900; color: var(--lilac-light);
+  margin-right: 6px; letter-spacing: -1px;
+}
+.leitura__texto { font-size: 1.1rem; line-height: 1.6; color: rgba(240,245,241,0.8); margin-bottom: 24px; }
+.leitura__texto strong { color: var(--off-white); font-weight: 700; }
+.leitura__aviso {
+  font-size: 14px; line-height: 1.55; color: rgba(240,245,241,0.6);
+  padding-top: 18px; border-top: 1px solid rgba(201,184,232,0.25);
+}
+.leitura__aviso strong { color: rgba(240,245,241,0.85); }
 
 /* ============================================================
    ANCORAGEM E GARANTIA NO PONTO DE COMPRA  (variante B)
@@ -843,10 +853,10 @@ mark.highlight-anim.active {
 @media (max-width: 768px) {
   .preco-ancora { font-size: 16px; }
   .leitura__titulo { font-size: 32px; }
-  .leitura__numeros b { font-size: 28px; }
+  .leitura__numeros b { font-size: 32px; }
   .leitura__numeros span { font-size: 18px; }
-  .recorte { padding: 22px; }
-  .recorte__manchete { font-size: 20px; }
+  .recorte { padding: 24px; }
+  .recorte__manchete { font-size: 22px; }
 }
 
 /* ============================================================

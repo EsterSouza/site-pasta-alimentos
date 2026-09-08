@@ -3,7 +3,7 @@ name: Kit Pasta Sanitária — Alimentos
 description: Navy institucional e lilás sereno em torno de uma janela de arquivos que mostra o produto antes da compra.
 colors:
   navy: "#0A1F44"
-  navy-deep: "#060F24"
+  navy-deep: "#060F24"   # token no CSS desde a amplificação da faixa; antes era literal no rodapé
   lilac: "#7B61C4"
   lilac-deep: "#6449B0"
   lilac-pale: "#C9B8E8"
@@ -272,7 +272,8 @@ Existem só dentro do componente:
   de arquivo. São as cores dos programas de verdade; alterá-las quebra o reconhecimento.
 - **Superfícies da janela** (`rgba(28,28,36,0.97)`, `rgba(55,55,65,0.95)` na encarnação escura;
   `#EBEBEB`, `#F8F9FA`, `#EEEEEE` na clara).
-- **Vermelho do g1** (`#C4170C`): fundo da etiqueta do veículo na faixa de notícia. É a cor da marca
+- **Vermelho do g1** (`#C4170C`): fundo da etiqueta do veículo na faixa de notícia, sempre sobre o
+  branco do recorte. É a cor da marca
   do jornal, citada para que a fonte seja reconhecível — e é justamente por ser reconhecível que ela
   não pode aparecer em nenhum outro lugar da página.
 
@@ -519,12 +520,25 @@ O realismo é o argumento — os nomes de arquivo são reais. Falsificar o conte
 
 ### Faixa de Notícia (variante B)
 
-Prova social do **problema**, não do produto. Um cartão branco sobre Névoa Lilás citando uma
-fiscalização real: etiqueta do veículo, data, manchete entre aspas, três números e a ressalva.
+Prova social do **problema**, não do produto: uma fiscalização real, citada.
 
-- **Os três números são o argumento** — 11 fiscalizados, 10 multados, ~R$ 4 mil por multa — em
-  Vermelho de Alerta a 28px. É a segunda e última aparição do vermelho na página, e é **estado**
-  (urgência medida), nunca superfície. O bloco de preço depois retoma esses R$ 4 mil como âncora.
+**Ela afirma, então vive no escuro.** O chão é Navy Fundo de Gaveta (`#060F24`), um degrau abaixo do
+hero. O bloco continua o mesmo compasso — "a fiscalização não avisa" seguido da prova disso — e só
+depois a página quebra para o claro, onde explica a exigência legal. Duas seções claras coladas se
+borravam numa só; duas escuras em degraus diferentes leem como uma passagem contínua.
+
+**O recorte é um documento claro sobre o escuro** — o mesmo papel que a janela de arquivos cumpre no
+hero, e a mesma sombra `Sobre Navy`. Etiqueta do veículo, filete navy sob o cabeçalho, manchete entre
+aspas a 28px. Não é screenshot: é a citação tipografada na voz da página.
+
+**O vermelho vive dentro do recorte, nunca sobre o navy.** Sobre o escuro ele mede 3,31:1 e reprova
+no AA; sobre o branco do recorte, 4,91:1 e passa. Os números da leitura seguem o precedente do valor
+da parcela: Lilás Sereno sobre escuro, a 36px.
+
+- **Os números vivem dentro da frase, nunca em caixas.** "11 estabelecimentos fiscalizados. 10 saíram
+  multados. Cerca de R$ 4 mil cada multa." O craft-floor recusa o template de métrica — número grande,
+  rótulo pequeno, fileira de caixas iguais —, e foi exatamente nele que a primeira versão caiu. O
+  bloco de preço depois retoma esses R$ 4 mil como âncora.
 - **A ressalva não é rodapé, é parte do componente.** "Não é endosso ao produto — nem o veículo nem
   a Vigilância Sanitária têm qualquer relação com este kit." Sem ela, citar jornalismo ao lado de um
   botão de compra sugere um aval que não existe.
