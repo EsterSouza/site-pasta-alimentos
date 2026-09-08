@@ -421,18 +421,24 @@ img { max-width: 100%; height: auto; display: block; }
    sem ela, o leitor de tela lia as seis respostas de uma vez, contrariando o
    aria-expanded="false" do botão. O atraso de 0.4s no visibility deixa a
    animação de altura terminar antes de a resposta sumir. */
+/* 0fr → 1fr em vez de um teto em pixels: a linha do grid mede a altura real da
+   resposta, então copy que cresce (revisão, tradução) nunca é cortada em silêncio.
+   `visibility` continua porque só ela tira a resposta fechada do foco e do leitor
+   de tela — altura zero não faz isso. */
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 0fr);   /* `0fr` puro deixa piso de 24px: ver nota abaixo */
   visibility: hidden;
-  transition: max-height 0.4s, visibility 0s 0.4s;
+  transition: grid-template-rows 0.4s, visibility 0s 0.4s;
 }
-/* Teto com folga: a resposta mais longa mede 427px a 320px de largura, e copy
-   cresce (revisão, tradução). Um teto justo corta o texto sem avisar. */
+/* O `minmax(0, ...)` é obrigatório: sem ele a trilha herda mínimo automático igual
+   à contribuição min-content do <p>, e o `padding-bottom: 24px` — que `overflow:
+   hidden` não remove — deixa a resposta fechada com 24px de altura. Medido. */
+.faq-answer > p { overflow: hidden; }
 .faq-item.open .faq-answer {
-  max-height: 720px;
+  grid-template-rows: minmax(0, 1fr);
   visibility: visible;
-  transition: max-height 0.4s, visibility 0s;
+  transition: grid-template-rows 0.4s, visibility 0s;
 }
 .faq-answer p { padding: 0 24px 24px; color: var(--ink-muted); font-size: 1rem; }
 
@@ -803,7 +809,12 @@ mark.highlight-anim.active {
 
 /* --- a leitura: escala cheia, números na frase, nunca em caixas --- */
 .leitura__titulo {
-  font-size: 44px; font-weight: 800; line-height: 1.15;
+  /* 36px, não 44: a 44 a frase quebrava e sobrava "do Rio." sozinho a 25% da
+     largura da coluna. A 36 ela cabe inteira numa linha (576px de 603px).
+     `balance` cobre as larguras intermediárias, entre 1025px e 1280px, onde a
+     coluna estreita e a quebra volta — ali ela sai equilibrada, não órfã. */
+  font-size: 36px; font-weight: 800; line-height: 1.15;
+  text-wrap: balance;
   letter-spacing: -1px;
   color: var(--off-white); margin-bottom: 28px;
 }

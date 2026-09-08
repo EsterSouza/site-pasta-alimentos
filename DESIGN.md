@@ -522,6 +522,11 @@ O realismo é o argumento — os nomes de arquivo são reais. Falsificar o conte
 
 Prova social do **problema**, não do produto: uma fiscalização real, citada.
 
+**O título mede uma linha, não um degrau da escala.** "Num único dia, na Zona Sul do Rio." tem oito
+palavras; a 44px ela quebrava e deixava "do Rio." sozinho numa segunda linha a 25% da largura da
+coluna. A 36px cabe inteira (576px de 603px). O tamanho saiu da medição da frase real, não do topo
+da escala — e `text-wrap: balance` cobre as larguras onde a coluna estreita e a quebra volta.
+
 **Ela afirma, então vive no escuro.** O chão é Navy Fundo de Gaveta (`#060F24`), um degrau abaixo do
 hero. O bloco continua o mesmo compasso — "a fiscalização não avisa" seguido da prova disso — e só
 depois a página quebra para o claro, onde explica a exigência legal. Duas seções claras coladas se
