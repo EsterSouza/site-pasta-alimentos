@@ -30,6 +30,7 @@ colors:
   chrome-word: "#2B5EBF"
   chrome-excel: "#1E7E45"
   chrome-pdf: "#D93025"
+  chrome-g1: "#C4170C"
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -271,6 +272,9 @@ Existem só dentro do componente:
   de arquivo. São as cores dos programas de verdade; alterá-las quebra o reconhecimento.
 - **Superfícies da janela** (`rgba(28,28,36,0.97)`, `rgba(55,55,65,0.95)` na encarnação escura;
   `#EBEBEB`, `#F8F9FA`, `#EEEEEE` na clara).
+- **Vermelho do g1** (`#C4170C`): fundo da etiqueta do veículo na faixa de notícia. É a cor da marca
+  do jornal, citada para que a fonte seja reconhecível — e é justamente por ser reconhecível que ela
+  não pode aparecer em nenhum outro lugar da página.
 
 **A Regra do Cromo Emprestado.** Nenhuma cor desta lista pode migrar para fora da janela de arquivos.
 O vermelho do PDF não é um vermelho de marca; o verde do Excel não é um verde de sucesso. Elas são
@@ -512,6 +516,24 @@ e rodapé `#F8F9FA`. Aqui a janela é navegável de verdade, com as abas trocand
 
 O realismo é o argumento — os nomes de arquivo são reais. Falsificar o conteúdo dessa janela quebra a
 única prova que a página oferece.
+
+### Faixa de Notícia (variante B)
+
+Prova social do **problema**, não do produto. Um cartão branco sobre Névoa Lilás citando uma
+fiscalização real: etiqueta do veículo, data, manchete entre aspas, três números e a ressalva.
+
+- **Os três números são o argumento** — 11 fiscalizados, 10 multados, ~R$ 4 mil por multa — em
+  Vermelho de Alerta a 28px. É a segunda e última aparição do vermelho na página, e é **estado**
+  (urgência medida), nunca superfície. O bloco de preço depois retoma esses R$ 4 mil como âncora.
+- **A ressalva não é rodapé, é parte do componente.** "Não é endosso ao produto — nem o veículo nem
+  a Vigilância Sanitária têm qualquer relação com este kit." Sem ela, citar jornalismo ao lado de um
+  botão de compra sugere um aval que não existe.
+- **A fonte é clicável e verificável.** Veículo, data e manchete literal. Um número sem link de
+  volta à matéria é uma estatística inventada do ponto de vista de quem lê.
+
+**A Regra da Notícia Emprestada.** A página pode citar um fato externo, nunca vesti-lo de aval.
+Manchete entre aspas, veículo nomeado, link para a origem e a ressalva no mesmo bloco — os quatro,
+sempre juntos. Retirar qualquer um transforma reportagem em endosso.
 
 ## Do's and Don'ts
 

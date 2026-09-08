@@ -55,7 +55,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=24" />
+  <link rel="stylesheet" href="../style.css?v=26" />
   <link rel="preload" as="image" href="../hero-v3.webp" />
 
   <style>
@@ -156,15 +156,15 @@
         </div>
 
         <h1 class="hero__headline">
-          <span class="hero__line1"><span id="hero-article">Seu</span> <span class="type-wrap"><span class="type-word"
-                id="typed-text"></span><span class="cursor">|</span></span></span>
-          <span class="hero__line2">com uma pasta</span>
-          <span class="hero__line3">pronta em minutos.</span>
+          <span class="hero__line1">A fiscalização não avisa.</span>
+          <span class="hero__line2">Ela chega <span id="hero-article">no seu</span> <span class="type-wrap"><span
+                class="type-word" id="typed-text"></span><span class="cursor">|</span></span></span>
+          <span class="hero__line3">e pede a pasta na hora.</span>
         </h1>
 
         <p class="hero__sub">
-          POPs, Manual de Boas Práticas, planilhas e checklists conforme RDC ANVISA 216/2004, todos editáveis em Word e
-          Excel.
+          54 documentos prontos — POPs, Manual de Boas Práticas, planilhas e checklists conforme a RDC ANVISA 216/2004,
+          todos editáveis em Word e Excel.
         </p>
 
 
@@ -314,6 +314,39 @@
     </div>
   </section>
 
+
+
+  <!-- ============================================================
+     BLOCO 1.5 . FAIXA DA NOTÍCIA (prova social do problema)
+============================================================ -->
+  <section class="sec-noticia" aria-labelledby="noticia-titulo">
+    <div class="container">
+      <article class="noticia">
+        <div class="noticia__fonte">
+          <span class="noticia__veiculo">g1</span>
+          <span class="noticia__meta">Rio de Janeiro &middot; 6 de dezembro de 2025</span>
+        </div>
+
+        <h2 class="noticia__titulo" id="noticia-titulo">
+          &ldquo;Com baratas e fezes de roedores, dois bares e restaurante japonês são interditados em Botafogo&rdquo;
+        </h2>
+
+        <ul class="noticia__numeros">
+          <li><strong>11</strong><span>locais fiscalizados</span></li>
+          <li><strong>10</strong><span>foram multados</span></li>
+          <li><strong>~R$&nbsp;4&nbsp;mil</strong><span>por multa</span></li>
+        </ul>
+
+        <p class="noticia__aviso">
+          Matéria do g1 sobre fiscalização sanitária na Zona Sul do Rio.
+          <strong>Não é endosso ao produto</strong> &mdash; nem o veículo nem a Vigilância Sanitária têm qualquer
+          relação com este kit.
+          <a class="noticia__link" href="#" data-preencher="url-da-materia" target="_blank" rel="noopener nofollow">Ler
+            a matéria no g1</a>
+        </p>
+      </article>
+    </div>
+  </section>
 
   <!-- ============================================================
      BLOCO 2 . O PROBLEMA
@@ -636,6 +669,11 @@
       <h2 class="price-v3-title">Sua pasta sanitária pronta hoje.</h2>
       <p class="price-v3-subtitle">Acesso imediato. Arquivos em Word. Sem mensalidade.</p>
 
+      <p class="preco-ancora">
+        Uma multa da fiscalização sai por cerca de <strong>R$&nbsp;4&nbsp;mil</strong>.<br>
+        O kit completo custa <strong>R$&nbsp;47,99</strong>.
+      </p>
+
       <div class="price-v3-card">
         <span class="price-v3-badge">KIT PASTA SANITÁRIA COMPLETO</span>
         <ul class="price-v3-list">
@@ -663,6 +701,13 @@
           class="btn-cta price-v3-btn" target="_blank" rel="noopener">
           GARANTIR MEU KIT AGORA
         </a>
+
+        <p class="preco-garantia">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          <span><strong>7 dias de garantia.</strong> Se não for o que você precisava, o reembolso sai direto pela
+            Hotmart, sem burocracia.</span>
+        </p>
 
         <div class="price-v3-seals">
           <div class="seal">
@@ -774,17 +819,6 @@
             <p>O kit foi desenvolvido para serviços de alimentação em geral: restaurantes, lanchonetes, padarias,
               buffets, cozinhas industriais e similares. Não é indicado para indústria de alimentos, que segue
               legislação específica diferente.</p>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button class="faq-question" aria-expanded="false" aria-controls="faqresp5" id="faqbtn5">
-            E se eu não gostar?
-            <span class="arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="faq-answer" id="faqresp5" role="region" aria-labelledby="faqbtn5">
-            <p>Você tem 7 dias de garantia. Se acessar o material e entender que não é o que precisava, solicite o
-              reembolso direto na plataforma da Hotmart. Sem burocracia.</p>
           </div>
         </li>
 
@@ -999,14 +1033,6 @@
     },
     {
       "@type": "Question",
-      "name": "E se eu não gostar?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Você tem 7 dias de garantia. Se acessar o material e entender que não é o que precisava, solicite o reembolso direto na plataforma da Hotmart. Sem burocracia."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Posso usar em mais de um estabelecimento?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -1022,12 +1048,12 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const data = [
-        { word: "restaurante", article: "Seu" },
-        { word: "bar", article: "Seu" },
-        { word: "delivery", article: "Seu" },
-        { word: "food truck", article: "Seu" },
-        { word: "padaria", article: "Sua" },
-        { word: "confeitaria", article: "Sua" }
+        { word: "restaurante", article: "no seu" },
+        { word: "bar", article: "no seu" },
+        { word: "delivery", article: "no seu" },
+        { word: "food truck", article: "no seu" },
+        { word: "padaria", article: "na sua" },
+        { word: "confeitaria", article: "na sua" }
       ];
       let i = 0;
       let timer;

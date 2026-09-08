@@ -690,9 +690,10 @@ mark.highlight-anim.active {
   .tabs-nav,
   .list-finder-window .tabs-nav { gap: 12px; }
 
-  /* Links do rodapé: 17px de altura em linha de texto. Viram alvos
-     próprios sem esticar o bloco, porque o padding cresce só na vertical. */
-  .footer a {
+  /* Links dentro de linha de texto: 17px de altura. Viram alvos próprios sem
+     esticar o bloco, porque o padding cresce só na vertical. */
+  .footer a,
+  .noticia__link {
     display: inline-block;
     padding: 12px 6px;
     margin: -6px 0;
@@ -743,4 +744,102 @@ mark.highlight-anim.active {
   .sticky-cta { padding-block: 6px; }
   .sticky-cta__btn { padding: 10px 24px; }
   .footer { padding-bottom: 88px; }
+}
+
+/* ============================================================
+   FAIXA DA NOTÍCIA  (variante B)
+   Prova social do PROBLEMA, não do produto: uma fiscalização real,
+   citada com veículo, data e manchete. O vermelho do g1 é cor de
+   CROMO — citação de outra marca, como os ícones de Word e Excel
+   na janela de arquivos — e nunca migra para fora deste bloco.
+============================================================ */
+.sec-noticia { background: var(--lilac-bg); padding-block: var(--section-pad-v); }
+
+.noticia {
+  max-width: 760px;
+  margin-inline: auto;
+  background: var(--white);
+  border: 1px solid rgba(201,184,232,0.4);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(10,31,68,0.05);
+}
+
+.noticia__fonte { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.noticia__veiculo {
+  background: #C4170C;              /* vermelho do g1 — cromo citado, não cor da marca */
+  color: var(--white);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.noticia__meta { font-size: 14px; color: var(--ink-muted); }
+
+.noticia__titulo {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+/* Os três números são o argumento: é a ancoragem que o bloco de preço
+   depois retoma. Vermelho aqui é ESTADO (urgência), nunca superfície. */
+.noticia__numeros { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+.noticia__numeros li {
+  flex: 1;
+  min-width: 128px;
+  background: var(--lilac-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.noticia__numeros strong {
+  display: block;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--accent-red);
+}
+.noticia__numeros span { font-size: 14px; color: var(--ink-soft); }
+
+.noticia__aviso { font-size: 14px; line-height: 1.6; color: var(--ink-muted); }
+.noticia__aviso strong { color: var(--ink-soft); }
+.noticia__link { color: var(--lilac-mid); font-weight: 600; text-decoration: underline; }
+
+/* ============================================================
+   ANCORAGEM E GARANTIA NO PONTO DE COMPRA  (variante B)
+============================================================ */
+.preco-ancora {
+  max-width: 540px;
+  margin: 0 auto 32px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(240,245,241,0.85);
+}
+.preco-ancora strong { color: var(--off-white); font-weight: 800; }
+
+.preco-garantia {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: rgba(201,184,232,0.08);
+  border: 1px solid rgba(201,184,232,0.25);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(240,245,241,0.85);
+}
+.preco-garantia svg { flex-shrink: 0; margin-top: 2px; color: var(--lilac-light); }
+.preco-garantia strong { color: var(--lilac-light); }
+
+@media (max-width: 768px) {
+  .noticia { padding: 24px 20px; }
+  .noticia__titulo { font-size: 20px; }
+  .noticia__numeros li { min-width: 100%; }
+  .preco-ancora { font-size: 16px; }
 }

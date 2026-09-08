@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T02:06:03.290Z",
+  "generatedAt": "2026-09-08T16:27:58.510Z",
   "title": "Design System: Kit Pasta Sanitária — Alimentos",
   "extensions": {
     "colorMeta": {
@@ -243,6 +243,11 @@
         "role": "chrome",
         "displayName": "Ícone PDF",
         "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-g1": {
+        "role": "chrome",
+        "displayName": "Vermelho do g1",
+        "note": "Cor de marca do jornal, citada para que a fonte seja reconhecível na faixa de notícia. Não aparece em nenhum outro lugar."
       }
     },
     "typographyMeta": {
@@ -481,6 +486,11 @@
       {
         "name": "A Regra da Vitrine Fechada",
         "body": "A lista nunca é rolável pelo usuário: overflow: hidden obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo do visitante por ~2.500px de conteúdo antes de a página voltar a andar. Rolagem programática segue funcionando com overflow: hidden; é ela que anima a gravação.",
+        "section": "components"
+      },
+      {
+        "name": "A Regra da Notícia Emprestada",
+        "body": "A página pode citar um fato externo, nunca vesti-lo de aval. Manchete entre aspas, veículo nomeado, link para a origem e a ressalva de não-endosso no mesmo bloco — os quatro, sempre juntos. Retirar qualquer um transforma reportagem em endosso.",
         "section": "components"
       }
     ],
