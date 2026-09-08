@@ -570,10 +570,11 @@ confortável. O título fica a 32px, um degrau abaixo do problema (40px) e das a
 credencia, não faz o pitch, e não deve competir com eles.
 
 **A Regra da Citação Intocada.** Texto de avaliação real nunca é editado para caber na página. Uma
-das avaliações cita "Ester", e a página apresenta Ana Roberta — trocar o nome resolveria a estranheza
-e produziria um depoimento falso, ainda por cima checável contra o original, que segue público no
-Google. A saída é contexto, não edição: a nota de origem explica que Treinavisa tem duas sócias e que
-os atendimentos são feitos por ambas. O incômodo some sem que uma vírgula do relato mude.
+das avaliações citava "Ester" — sócia da Treinavisa, mas não a profissional que a página apresenta.
+Trocar o nome resolveria a estranheza e produziria um depoimento falso, ainda por cima checável
+contra o original, que segue público no Google. **A avaliação foi removida, não reescrita.** Quando
+um relato verdadeiro não serve à página, ele sai; o que não acontece é ele mudar de texto para
+servir. Restam duas avaliações, e a seção ficou menor — esse é o preço, e é o preço certo.
 
 **A Regra da Foto Creditada.** Imagem de terceiro nesta página só entra com origem declarada ao lado
 dela, e qualquer marcação nossa sobre ela é identificada como nossa.
