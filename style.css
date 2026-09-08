@@ -466,26 +466,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* ============================================================
-   WHATSAPP FLOAT
-============================================================ */
-.wa-float {
-  position: fixed; bottom: 72px; right: 24px; width: 56px; height: 56px;
-  background: #25D366; border-radius: 50%; display: flex;
-  align-items: center; justify-content: center; z-index: 1000;
-  box-shadow: 0 8px 24px rgba(10,31,68,0.25);
-  transition: transform 0.2s;
-}
-.wa-float:hover { transform: scale(1.1); }
-.wa-tooltip {
-  position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
-  background: var(--near-black); color: var(--white); font-size: 13px; font-weight: 600;
-  padding: 8px 16px; border-radius: 6px; white-space: nowrap;
-  opacity: 0; pointer-events: none; transition: opacity 0.3s;
-}
-.wa-float:hover .wa-tooltip { opacity: 1; }
-@media (max-width: 768px) { .wa-tooltip { display: none; } }
-
-/* ============================================================
    ROUND 3 UI ENHANCEMENTS
 ============================================================ */
 
@@ -578,7 +558,6 @@ mark.highlight-anim.active {
   font-size: 16px;
 }
 
-
 /* ============================================================
    RESPONSIVENESS (MOBILE)
 ============================================================ */
@@ -614,7 +593,6 @@ mark.highlight-anim.active {
   .price-v3-card { padding: 32px 24px; }
   .p-installment { font-size: 60px; }
   .btn-cta { width: 100%; padding: 16px; font-size: 1rem; }
-  .wa-float { bottom: 100px; }
 }
 
 @media (max-width: 480px) {
@@ -728,15 +706,12 @@ mark.highlight-anim.active {
   .btn-cta:hover,
   .hero-btn:hover,
   .price-v3-btn:hover,
-  .price-v3-card:hover,
-  .wa-float:hover { transform: none; }
-  .wa-float:hover .wa-tooltip { opacity: 0; }
+  .price-v3-card:hover { transform: none; }
 }
 
 /* --- Área segura: os dois elementos fixos ficavam sob o indicador
    de início do iPhone — inclusive o botão de compra. --- */
 .sticky-cta { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
-.wa-float { bottom: calc(72px + env(safe-area-inset-bottom)); }
 
 /* --- Telefone deitado: 375px de altura, e a barra fixa comia 76px
    deles. Aqui ela encolhe e o botão flutuante sai do caminho. --- */
@@ -767,10 +742,5 @@ mark.highlight-anim.active {
   .hero-btn { font-size: 16px; padding: 14px 32px; }
   .sticky-cta { padding-block: 6px; }
   .sticky-cta__btn { padding: 10px 24px; }
-  .wa-float {
-    width: 48px; height: 48px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    right: 12px;
-  }
   .footer { padding-bottom: 88px; }
 }
