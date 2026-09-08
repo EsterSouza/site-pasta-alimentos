@@ -1,5 +1,6 @@
 # Arquivos-fonte que não devem ir para o deploy
 input/
 scratchpad/
+scripts/
 node_modules/
 *.md

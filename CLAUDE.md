@@ -53,6 +53,23 @@ antes, e a duplicação literal é o que produz drift.
   teste antes de confiar no dado — foi o que se fez com o `sck` (confirmado em prod 2026-07-30).
 - **Imagens:** 22 rasters grandes soltos na raiz.
 
+## Rodar localmente COM o A/B
+`python3 -m http.server` serve os arquivos mas **não executa a edge function** — com ele só dá para
+abrir `/a/index.html` na mão, o que nunca testa o rewrite de `/`, o sorteio, o cookie nem o `?v=`.
+
+```bash
+node scripts/dev-server.mjs 3000
+```
+
+O `scripts/dev-server.mjs` **importa o `api/ab.js` real** e aplica os rewrites e headers do
+`vercel.json`: o que se vê ali é o mesmo código que a Vercel executa. Sem dependências — Node 18+
+já tem `Request`/`Response`/`fetch`.
+
+Descartável, sem instalar Node e sem construir imagem:
+```bash
+docker run --rm -v "$PWD":/app -w /app -p 3000:3000 node:22-alpine node scripts/dev-server.mjs
+```
+
 ## Deploy Vercel
 O commit **precisa** ser autorado como `EsterSouza <esterposte@hotmail.com>` — a identidade Git tem
 que bater com a conta conectada, senão a Vercel bloqueia o deploy (aprendido na `lp-vistoria`).
