@@ -560,6 +560,15 @@ sugeriria envolvimento da Vigilância Sanitária, que é o que o aviso da seçã
 sob o vermelho não é decoração: sobre foto o contraste é incontrolável, e só ela garante a
 legibilidade mesmo que a imagem por baixo seja preta (4,20:1, contra os 3:1 exigidos).
 
+**As avaliações são seção própria, na posição 3.** Antes viviam dentro do texto da especialista, e o
+bloco lia como uma coisa só. Como seção, elas ganham chão branco — a seção seguinte já é Névoa
+Lilás, e duas iguais coladas se borrariam numa só, então o ritmo fica navy-deep → branco → névoa.
+
+A coluna é contida em 760px e centrada: o container serve a duas colunas, e uma citação atravessando
+1150px estoura a linha de leitura. A 19,8px isso dá 77 caracteres por linha, dentro da faixa
+confortável. O título fica a 32px, um degrau abaixo do problema (40px) e das abas (44px) — a seção
+credencia, não faz o pitch, e não deve competir com eles.
+
 **A Regra da Foto Creditada.** Imagem de terceiro nesta página só entra com origem declarada ao lado
 dela, e qualquer marcação nossa sobre ela é identificada como nossa.
 
