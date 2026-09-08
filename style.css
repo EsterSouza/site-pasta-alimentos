@@ -790,17 +790,23 @@ mark.highlight-anim.active {
   box-shadow: 0 32px 48px rgba(0,0,0,0.5);   /* a sombra "Sobre Navy" do sistema */
 }
 .recorte__cabeca {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   padding-bottom: 14px; margin-bottom: 18px;
   border-bottom: 2px solid var(--navy);
 }
+/* Navy da própria página, não o azul da Prefeitura. Reproduzir a cor institucional
+   de um órgão numa página de venda puxa para o lado de parecer peça oficial — o
+   contrário do que o aviso da seção afirma. A etiqueta nomeia a fonte; não imita
+   a marca dela. Some também o vermelho daqui: agora ele aparece só no selo. */
 .recorte__veiculo {
-  background: #C4170C;              /* vermelho do g1 — cromo citado, nunca cor da marca */
+  background: var(--navy);
   color: var(--white);
   font-weight: 800; font-size: 14px;
   padding: 3px 10px; border-radius: 4px;
 }
-.recorte__data { font-size: 14px; color: var(--ink-muted); }
+.recorte__orgaos { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+/* Empurra a data para a direita, como numa linha de expediente. */
+.recorte__data { font-size: 14px; color: var(--ink-muted); margin-left: auto; }
 .recorte__manchete {
   font-size: 28px; font-weight: 800; line-height: 1.25;
   letter-spacing: -0.5px;
@@ -817,7 +823,7 @@ mark.highlight-anim.active {
 .colagem { position: relative; }
 .colagem__foto {
   display: block; width: 100%;
-  aspect-ratio: 4 / 3; object-fit: cover;
+  aspect-ratio: 3 / 2; object-fit: cover;   /* casa com o recorte 1413x942 gerado do PNG */
   border-radius: 12px;
   background: var(--chrome-border);
 }
