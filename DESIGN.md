@@ -406,10 +406,11 @@ deslocamento e desfoque — halo de raio zero (`0 0 0 15px`) é decoração, nã
 isso que os pulsos infinitos saíram.
 
 **A Regra do Momento Único.** A página tem **um** movimento autoral: a entrada escalonada do hero e a
-palavra que digita no `h1`. **Nada anima em laço.** A demonstração da janela de arquivos é a única
-exceção admitida, e mesmo ela roda uma vez e para — animação que se repete para sempre vira ruído de
-fundo e deixa de comunicar. Quem pede `prefers-reduced-motion` recebe a página parada, com a headline
-já escrita e a janela imóvel, mas ainda rolável à mão.
+palavra que digita no `h1`. Fora isso, **nada anima em repouso** — os quatro halos pulsantes saíram
+por isso. A janela de arquivos é a exceção **declarada**, e a razão é de natureza, não de licença:
+ela não é um elemento animado, é uma **gravação de tela** embutida na página, e gravação roda em
+laço. Quem pede `prefers-reduced-motion` recebe a página parada, com a headline já escrita e a janela
+imóvel no topo da lista.
 
 **Estado:** as três divergências registradas na primeira versão deste documento foram pagas — a
 janela de documentos e o botão do WhatsApp passaram a tinta navy, e o `drop-shadow` do hero perdeu o
@@ -479,20 +480,20 @@ branca a 13%. Barra de título com os três pontos do macOS (`#FF5F57`, `#FFBD2E
 destacada usa lilás a 30%. Ícones de tipo de arquivo carregam as cores dos aplicativos reais — Word
 `#2B5EBF`, PDF `#D93025`, Excel `#1E7E45`.
 
-Ela **não some no mobile** — some a metáfora que não se aplica ali. O comportamento é decidido pela
-largura, nunca pelo dispositivo (`min-width: 1025px`):
+**É uma gravação de tela, não um widget.** O ciclo de ~12s é o mesmo em qualquer largura, porque o
+que está sendo retratado é a mesma tela: o cursor anda até um arquivo, clica, a lista rola por 7s,
+volta ao topo e recomeça. O cursor de mouse faz parte da cena gravada — não é um controle da página,
+e por isso aparece também no celular.
 
-- **Desktop:** inclinada em `perspective(1000px) rotateY(-4deg) rotateX(2deg)`, lista de 480px. O
-  cursor falso do macOS demonstra **uma vez** — vai até um arquivo, clica, rola por 7s — e depois some
-  em fade, deixando a lista livre. Nunca repete.
-- **Mobile:** sem inclinação e sem cursor (não existe ponteiro de mouse no toque). A lista encolhe
-  para 260px e vira **rolável de verdade** (`overflow-y: auto`), posicionada abaixo do CTA porque não
-  há espaço acima da dobra. Um auto-scroll de 220px em ease-out-quart sinaliza que ela rola, e morre
-  no primeiro `touchstart`/`wheel`/`pointerdown` — nunca disputa o dedo do visitante.
+Só a moldura muda com a largura: no desktop ela ganha a inclinação
+`perspective(1000px) rotateY(-4deg) rotateX(2deg)` e lista de 480px; abaixo de 1024px fica reta, com
+lista de 260px, abaixo do CTA porque não há espaço acima da dobra.
 
-**A Regra do Gesto Real.** Onde houver toque, o visitante rola de verdade em vez de assistir a uma
-simulação. Interação autêntica é prova mais forte: quem chegou com a lista do fiscal na mão consegue
-conferir arquivo por arquivo.
+**A Regra da Vitrine Fechada.** A lista **nunca** é rolável pelo usuário: `overflow: hidden`
+obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo
+do visitante por 2.568px de conteúdo antes de a página voltar a andar — foi exatamente o defeito que
+`overflow-y: auto` com `overscroll-behavior: contain` produziu em produção. Rolagem programática
+segue funcionando com `overflow: hidden`; é ela que anima a gravação.
 
 **Clara (conteúdo).** A mesma silhueta, sem inclinação: barra `#EBEBEB`, corpo branco, abas no topo
 e rodapé `#F8F9FA`. Aqui a janela é navegável de verdade, com as abas trocando o conteúdo.
