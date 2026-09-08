@@ -10,3 +10,6 @@ build/
 
 # Fontes/insumos locais (catálogo de produto, briefings) — não vão para o repositório nem para o deploy
 input/
+
+# Cache por sessao do hook do Impeccable — guarda caminhos absolutos da maquina
+.impeccable/hook.cache.json
