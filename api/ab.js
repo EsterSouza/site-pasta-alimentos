@@ -90,7 +90,10 @@ export default async function handler(request) {
   }
 
   const target = new URL(`/${variant}/`, url.origin);
-  const res = await fetch(target);
+  // `no-store` é obrigatório aqui: sem ele o nó de borda pode devolver uma cópia
+  // do HTML buscada ANTES do último deploy, e a página fica atualizada numa região
+  // e velha noutra — sem nada no navegador do visitante explicar o motivo.
+  const res = await fetch(target, { cache: 'no-store' });
   const body = await res.text();
 
   const headers = new Headers({ 'Content-Type': 'text/html; charset=utf-8' });
