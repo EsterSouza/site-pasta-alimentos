@@ -146,7 +146,6 @@ rounded:
   full: "50%"
   chip: "3px"
   none: "0"
-  cursor: "50% 50% 50% 0"
 spacing:
   xs: "8px"
   sm: "12px"
