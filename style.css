@@ -241,7 +241,6 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
   position: relative;
   transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
-  filter: drop-shadow(0 32px 48px rgba(0,0,0,0.5));
   transition: transform 0.4s ease;
 }
 .finder-window {
@@ -251,7 +250,11 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.13);
-  backdrop-filter: blur(24px);
+  box-shadow: 0 32px 48px rgba(0,0,0,0.5);
+  /* Sem backdrop-filter: o fundo já é 97% opaco, então o desfoque não produzia
+     efeito visível — e `backdrop-filter` dentro de um ancestral com `filter`
+     (o drop-shadow de .hero__finder) faz o Firefox renderizar o elemento
+     inteiro como transparente. A janela ocupava o espaço sem pintar nada. */
 }
 .finder-titlebar {
   display: flex;
@@ -597,9 +600,9 @@ mark.highlight-anim.active {
   .hero__finder {
     margin-top: 40px;
     transform: none;
-    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.45));
+    box-shadow: none;
   }
-  .finder-window { max-width: 100%; }
+  .finder-window { max-width: 100%; box-shadow: 0 16px 32px rgba(0,0,0,0.45); }
   /* Rola de verdade com o dedo: interação vale mais que simulação, e quem tem a
      lista do fiscal na mão consegue conferir linha por linha. */
   .finder-filelist {
