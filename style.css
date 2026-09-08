@@ -11,6 +11,7 @@
 /* === TOKENS === */
 :root {
   --navy: #0A1F44;
+  --navy-deep: #060F24;   /* um degrau abaixo do navy: rodapé e o chão da notícia */
   --lilac-light: #C9B8E8;
   --lilac-mid: #7B61C4;
   --lilac-dark: #6449B0;
@@ -420,25 +421,31 @@ img { max-width: 100%; height: auto; display: block; }
    sem ela, o leitor de tela lia as seis respostas de uma vez, contrariando o
    aria-expanded="false" do botão. O atraso de 0.4s no visibility deixa a
    animação de altura terminar antes de a resposta sumir. */
+/* 0fr → 1fr em vez de um teto em pixels: a linha do grid mede a altura real da
+   resposta, então copy que cresce (revisão, tradução) nunca é cortada em silêncio.
+   `visibility` continua porque só ela tira a resposta fechada do foco e do leitor
+   de tela — altura zero não faz isso. */
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: minmax(0, 0fr);   /* `0fr` puro deixa piso de 24px: ver nota abaixo */
   visibility: hidden;
-  transition: max-height 0.4s, visibility 0s 0.4s;
+  transition: grid-template-rows 0.4s, visibility 0s 0.4s;
 }
-/* Teto com folga: a resposta mais longa mede 427px a 320px de largura, e copy
-   cresce (revisão, tradução). Um teto justo corta o texto sem avisar. */
+/* O `minmax(0, ...)` é obrigatório: sem ele a trilha herda mínimo automático igual
+   à contribuição min-content do <p>, e o `padding-bottom: 24px` — que `overflow:
+   hidden` não remove — deixa a resposta fechada com 24px de altura. Medido. */
+.faq-answer > p { overflow: hidden; }
 .faq-item.open .faq-answer {
-  max-height: 720px;
+  grid-template-rows: minmax(0, 1fr);
   visibility: visible;
-  transition: max-height 0.4s, visibility 0s;
+  transition: grid-template-rows 0.4s, visibility 0s;
 }
 .faq-answer p { padding: 0 24px 24px; color: var(--ink-muted); font-size: 1rem; }
 
 /* ============================================================
    FOOTER
 ============================================================ */
-.footer { background: #060f24; padding-block: 60px; padding-bottom: 120px; text-align: center; color: rgba(240,245,241,0.66); font-size: 14px; }
+.footer { background: var(--navy-deep); padding-block: 60px; padding-bottom: 120px; text-align: center; color: rgba(240,245,241,0.66); font-size: 14px; }
 .footer a { color: var(--lilac-mid); font-weight: 600; }
 .footer p + p { margin-top: 20px; }
 
@@ -464,26 +471,6 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 800;
   letter-spacing: 0.05em;
 }
-
-/* ============================================================
-   WHATSAPP FLOAT
-============================================================ */
-.wa-float {
-  position: fixed; bottom: 72px; right: 24px; width: 56px; height: 56px;
-  background: #25D366; border-radius: 50%; display: flex;
-  align-items: center; justify-content: center; z-index: 1000;
-  box-shadow: 0 8px 24px rgba(10,31,68,0.25);
-  transition: transform 0.2s;
-}
-.wa-float:hover { transform: scale(1.1); }
-.wa-tooltip {
-  position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
-  background: var(--near-black); color: var(--white); font-size: 13px; font-weight: 600;
-  padding: 8px 16px; border-radius: 6px; white-space: nowrap;
-  opacity: 0; pointer-events: none; transition: opacity 0.3s;
-}
-.wa-float:hover .wa-tooltip { opacity: 1; }
-@media (max-width: 768px) { .wa-tooltip { display: none; } }
 
 /* ============================================================
    ROUND 3 UI ENHANCEMENTS
@@ -578,7 +565,6 @@ mark.highlight-anim.active {
   font-size: 16px;
 }
 
-
 /* ============================================================
    RESPONSIVENESS (MOBILE)
 ============================================================ */
@@ -614,7 +600,6 @@ mark.highlight-anim.active {
   .price-v3-card { padding: 32px 24px; }
   .p-installment { font-size: 60px; }
   .btn-cta { width: 100%; padding: 16px; font-size: 1rem; }
-  .wa-float { bottom: 100px; }
 }
 
 @media (max-width: 480px) {
@@ -712,9 +697,10 @@ mark.highlight-anim.active {
   .tabs-nav,
   .list-finder-window .tabs-nav { gap: 12px; }
 
-  /* Links do rodapé: 17px de altura em linha de texto. Viram alvos
-     próprios sem esticar o bloco, porque o padding cresce só na vertical. */
-  .footer a {
+  /* Links dentro de linha de texto: 17px de altura. Viram alvos próprios sem
+     esticar o bloco, porque o padding cresce só na vertical. */
+  .footer a,
+  .noticia__link {
     display: inline-block;
     padding: 12px 6px;
     margin: -6px 0;
@@ -728,15 +714,12 @@ mark.highlight-anim.active {
   .btn-cta:hover,
   .hero-btn:hover,
   .price-v3-btn:hover,
-  .price-v3-card:hover,
-  .wa-float:hover { transform: none; }
-  .wa-float:hover .wa-tooltip { opacity: 0; }
+  .price-v3-card:hover { transform: none; }
 }
 
 /* --- Área segura: os dois elementos fixos ficavam sob o indicador
    de início do iPhone — inclusive o botão de compra. --- */
 .sticky-cta { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
-.wa-float { bottom: calc(72px + env(safe-area-inset-bottom)); }
 
 /* --- Telefone deitado: 375px de altura, e a barra fixa comia 76px
    deles. Aqui ela encolhe e o botão flutuante sai do caminho. --- */
@@ -767,10 +750,294 @@ mark.highlight-anim.active {
   .hero-btn { font-size: 16px; padding: 14px 32px; }
   .sticky-cta { padding-block: 6px; }
   .sticky-cta__btn { padding: 10px 24px; }
-  .wa-float {
-    width: 48px; height: 48px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    right: 12px;
-  }
   .footer { padding-bottom: 88px; }
 }
+
+/* ============================================================
+   FAIXA DA NOTÍCIA  (variante B)
+
+   Ela lia flat porque abria mão dos três movimentos mais fortes da
+   própria página: afirmar sobre escuro, usar a escala de display
+   cheia, e mostrar um documento real como objeto claro sobre o navy —
+   que é exatamente o papel da janela de arquivos no hero.
+
+   Agora o chão é Navy Fundo de Gaveta, um degrau abaixo do hero: o
+   bloco continua o mesmo compasso ("a fiscalização não avisa" → a
+   prova disso) e só depois a página quebra para o claro, onde explica
+   a exigência legal.
+
+   O vermelho vive DENTRO do recorte, nunca sobre o navy: sobre o
+   escuro ele mede 3,31:1 e reprova no AA. Os números seguem o
+   precedente do valor da parcela — Lilás Sereno sobre escuro.
+============================================================ */
+.sec-noticia { background: var(--navy-deep); padding-block: var(--section-pad-v); }
+/* `start`, não `center`: com o texto ganhando superfície própria, os dois viraram
+   painéis, e painel divide aresta de cima — centrar deixava o recorte boiando com
+   149px de navy em cima e embaixo. É a mesma escolha da `.authority-wrap`, que
+   também tem coluna de texto bem mais alta que o objeto ao lado. */
+.noticia-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 56px; align-items: start; }
+/* Precisa vir logo abaixo da regra base: este bloco foi acrescentado no fim do
+   arquivo, então a media query de 1024px lá de cima perde por ordem de fonte. */
+@media (max-width: 1024px) {
+  .noticia-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* --- o recorte: um documento claro sobre o escuro, como a janela de arquivos --- */
+.recorte {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 32px 48px rgba(0,0,0,0.5);   /* a sombra "Sobre Navy" do sistema */
+}
+.recorte__cabeca {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding-bottom: 14px; margin-bottom: 18px;
+  border-bottom: 2px solid var(--navy);
+}
+/* Navy da própria página, não o azul da Prefeitura. Reproduzir a cor institucional
+   de um órgão numa página de venda puxa para o lado de parecer peça oficial — o
+   contrário do que o aviso da seção afirma. A etiqueta nomeia a fonte; não imita
+   a marca dela. Some também o vermelho daqui: agora ele aparece só no selo. */
+.recorte__veiculo {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 800; font-size: 14px;
+  padding: 3px 10px; border-radius: 4px;
+}
+.recorte__orgaos { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+/* Empurra a data para a direita, como numa linha de expediente. */
+.recorte__data { font-size: 14px; color: var(--ink-muted); margin-left: auto; }
+.recorte__manchete {
+  font-size: 28px; font-weight: 800; line-height: 1.25;
+  letter-spacing: -0.5px;
+  color: var(--navy); margin-bottom: 20px;
+}
+.recorte__manchete::before { content: "\201C"; }
+.recorte__manchete::after  { content: "\201D"; }
+/* A colagem: a foto é o chão, o recorte do g1 pousa sobre ela. As duas fontes
+   ficam separadas de propósito — foto dentro do recorte daria a entender que
+   saiu da matéria, o que seria atribuição falsa. Por isso o crédito da foto é
+   uma linha própria, fora do cartão branco, dizendo que ela não é da matéria.
+   `aspect-ratio` trava a altura antes de a imagem carregar: sem isso a seção
+   pula quando ela chega. */
+.colagem { position: relative; }
+.colagem__foto {
+  display: block; width: 100%;
+  aspect-ratio: 3 / 2; object-fit: cover;   /* casa com o recorte 1413x942 gerado do PNG */
+  border-radius: 12px;
+  background: var(--chrome-border);
+}
+.colagem .recorte {
+  position: relative; z-index: 1;
+  margin: -56px 0 0 32px;
+}
+/* O selo é a segunda e última aparição do vermelho — e é estado, não superfície,
+   que é o uso que a Regra do Vermelho Contado nomeia. A chapa branca por baixo
+   não é decoração: sobre foto o contraste é incontrolável, e só ela garante os
+   4,91:1 do vermelho sobre branco independentemente do que esteja na imagem.
+   Deliberadamente tipográfico, sem brasão nem nome de órgão: é marcação
+   editorial, e ler como lacre oficial sugeriria envolvimento da Vigilância. */
+.colagem__selo {
+  position: absolute; top: 24px; right: 24px; z-index: 2;
+  transform: rotate(-6deg);
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.93);
+  border: 3px solid var(--accent-red);
+  border-radius: 4px;
+  color: var(--accent-red);
+  font-size: 22px; font-weight: 900;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+.colagem__credito {
+  margin: 14px 0 0; font-size: 14px; line-height: 1.5;
+  color: rgba(240,245,241,0.6);
+}
+.colagem__credito b { color: rgba(240,245,241,0.85); font-weight: 600; }
+.recorte__rodape { font-size: 14px; color: var(--ink-muted); }
+.noticia__link { color: var(--lilac-dark); font-weight: 600; text-decoration: underline; }
+
+/* A leitura ganha chão próprio: Navy do hero sobre o Navy Fundo de Gaveta da
+   seção — um degrau mais claro, não uma cor nova. Sem ele o texto encostava
+   direto no fundo enquanto o recorte ao lado era um objeto com superfície, e a
+   dupla lia como um cartão mais um texto solto em vez de dois blocos. */
+.leitura {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+/* --- a leitura: escala cheia, números na frase, nunca em caixas --- */
+.leitura__titulo {
+  /* 36px, não 44: a 44 a frase quebrava e sobrava "do Rio." sozinho a 25% da
+     largura da coluna. A 36 ela cabe inteira numa linha (576px de 603px).
+     `balance` cobre as larguras intermediárias, entre 1025px e 1280px, onde a
+     coluna estreita e a quebra volta — ali ela sai equilibrada, não órfã. */
+  font-size: 36px; font-weight: 800; line-height: 1.15;
+  text-wrap: balance;
+  letter-spacing: -1px;
+  color: var(--off-white); margin-bottom: 28px;
+}
+.leitura__numeros { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.leitura__numeros span { font-size: 20px; line-height: 1.4; color: rgba(240,245,241,0.8); }
+.leitura__numeros b {
+  font-size: 36px; font-weight: 900; color: var(--lilac-light);
+  margin-right: 6px; letter-spacing: -1px;
+}
+.leitura__texto { font-size: 1.1rem; line-height: 1.6; color: rgba(240,245,241,0.8); margin-bottom: 24px; }
+.leitura__texto strong { color: var(--off-white); font-weight: 700; }
+.leitura__aviso {
+  font-size: 14px; line-height: 1.55; color: rgba(240,245,241,0.6);
+  padding-top: 18px; border-top: 1px solid rgba(201,184,232,0.25);
+}
+.leitura__aviso strong { color: rgba(240,245,241,0.85); }
+
+/* ============================================================
+   ANCORAGEM E GARANTIA NO PONTO DE COMPRA  (variante B)
+============================================================ */
+.preco-ancora {
+  max-width: 540px;
+  margin: 0 auto 32px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(240,245,241,0.85);
+}
+.preco-ancora strong { color: var(--off-white); font-weight: 800; }
+
+.preco-garantia {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: rgba(201,184,232,0.08);
+  border: 1px solid rgba(201,184,232,0.25);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(240,245,241,0.85);
+}
+.preco-garantia svg { flex-shrink: 0; margin-top: 2px; color: var(--lilac-light); }
+.preco-garantia strong { color: var(--lilac-light); }
+
+@media (max-width: 768px) {
+  .preco-ancora { font-size: 16px; }
+  .leitura__titulo { font-size: 32px; }
+  .leitura__numeros b { font-size: 32px; }
+  .leitura__numeros span { font-size: 18px; }
+  .recorte { padding: 24px; }
+  .recorte__manchete { font-size: 22px; }
+  .colagem .recorte { margin: -40px 0 0 16px; }
+  .colagem__selo { top: 14px; right: 14px; font-size: 16px; padding: 8px 14px; border-width: 2px; }
+  .leitura { padding: 24px; }
+}
+
+/* ============================================================
+   AVALIAÇÕES DA CONSULTORIA  (variante B) — seção própria, posição 3
+   Sem cartões: o craft-floor recusa fileiras de caixas iguais, e
+   três blocos idênticos fariam três opiniões parecerem um formulário.
+   Aqui é lista com fio de separação — registro editorial, o mesmo
+   da página, e o olho lê em sequência em vez de comparar.
+============================================================ */
+/* Branco, não Névoa Lilás: a seção seguinte já é Névoa, e duas iguais
+   coladas se borrariam numa só. O ritmo fica navy-deep → branco → névoa. */
+.sec-avaliacoes { background: var(--white); padding-block: var(--section-pad-v); }
+
+/* Medida de leitura contida e centrada: o container serve a duas colunas,
+   e uma citação atravessando 1150px estoura a linha de leitura. */
+.avaliacoes { max-width: 940px; margin-inline: auto; }
+
+/* 32px: um degrau abaixo do problema (40px) e das abas (44px). A seção
+   credencia, não faz o pitch — o título não deve competir com eles. */
+.avaliacoes__titulo {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+/* Duas colunas de cartões, não lista. O card do Google não é decoração: é
+   FORMATO DE CITAÇÃO, a mesma lógica que já justifica a janela de arquivos do
+   hero e o recorte da notícia — copiar o cromo de um sistema para que a fonte
+   seja reconhecível. Por isso ele sobrevive à recusa de fileiras de caixas
+   iguais: a caixa aqui é a citação, não o enfeite. */
+.avaliacoes__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.aval {
+  background: var(--white);
+  border: 1px solid rgba(123,97,196,0.16);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 16px 40px rgba(10,31,68,0.10);   /* "Flutuante" do sistema */
+}
+
+.aval__cabeca { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+/* Inicial em disco, como no Google. Lilás Profundo sobre Névoa Lilás. */
+.aval__avatar {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--lilac-bg);
+  color: var(--lilac-dark);
+  font-size: 18px; font-weight: 800;
+}
+
+.aval__autor { font-size: 1rem; font-weight: 700; color: var(--navy); margin: 0 0 2px; }
+.aval__meta { display: flex; align-items: center; gap: 8px; margin: 0; }
+.aval__meta span { font-size: 14px; color: var(--ink-muted); }
+
+/* As estrelas herdam o Lilás Confiança: é a voz da página, não o
+   amarelo genérico de avaliação, que traria uma cor nova ao sistema. */
+.aval__estrelas { display: block; }
+.aval__estrelas svg { fill: var(--lilac-mid); display: block; }
+
+.aval__texto { font-size: 1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+/* A resposta da consultoria é o que faz o bloco ler como print do Google em vez
+   de peça de marketing.
+
+   Sem filete lateral. Tentei 3px em Lilás Sereno, depois 2px neutro, e o
+   detector acusou `side-tab` nas duas — barra colorida na lateral de um cartão
+   é o tique mais reconhecível de interface gerada por IA. Ele estava certo e
+   eu estava defendendo: o que diz "isto é resposta" no Google é o RECUO, e o
+   fundo tingido mais o rótulo já cumprem o resto. O filete não carregava
+   informação nenhuma. */
+.aval__resposta {
+  margin: 14px 0 0 20px;
+  padding: 12px 14px;
+  background: var(--lilac-bg);
+  border-radius: 8px;
+}
+.aval__resposta-quem { font-size: 14px; font-weight: 700; color: var(--navy); margin: 0 0 4px; }
+.aval__resposta-quem span { font-weight: 400; color: var(--ink-muted); }
+.aval__resposta-texto { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+
+/* --- entrada suave, ARMADA SÓ PELO JS ---
+   Nada nasce invisível: `.revelar-armado` só entra no <html> depois que o
+   reveal.js confirma que sabe revelar. Sem JS, sem observer ou com o script
+   quebrado, os cartões continuam visíveis. */
+.revelar-armado [data-revelar] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.4,0,.2,1) var(--atraso, 0ms),
+              transform .6s cubic-bezier(.4,0,.2,1) var(--atraso, 0ms);
+}
+.revelar-armado [data-revelar].e-visivel { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .avaliacoes__lista { grid-template-columns: 1fr; }
+}
+
+/* Sem redução no mobile: a 32px o título cabe em 309px dos 327px disponíveis, e
+   26px quebrava no mesmo ponto — o degrau a menos não comprava nada. */

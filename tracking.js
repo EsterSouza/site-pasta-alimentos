@@ -2,16 +2,24 @@
 // Carregado pelas duas variantes (a/index.html e b/index.html): não duplicar este bloco nelas.
 //
 // Atribuição Hotmart:
-//   sck  = alimentos|<variante>  → aba SCK do Dashboard de Origem de Vendas; chega no webhook em
+//   sck  = e2|<variante>  → aba SCK do Dashboard de Origem de Vendas; chega no webhook em
 //          purchase.origin.sck. Limite de 30 chars, e `_` é reservado pela Hotmart — daí o pipe.
 //   utm_* = origem paga repassada ao checkout → alimenta o Hotmart Analytics, mas a Hotmart NÃO
 //          envia UTM no webhook.
-//   xcod = alimentos|<variante>|<campaign.id>|<ad.id> → é o que chega no webhook com os IDs do
+//   xcod = e2|<variante>|<campaign.id>|<ad.id> → é o que chega no webhook com os IDs do
 //          anúncio. Repete slug e variante de propósito: a Hotmart às vezes sobrescreve o sck com
 //          valor próprio (HOTMART_*, NEW_CLUB_*), e nesse caso o xcod preserva a atribuição.
 (function () {
-  var LP_SLUG = 'alimentos';
-  var COOKIE = 'ab-alimentos';
+  // Duas identidades distintas, e confundi-las quebra um dos dois relatórios:
+  //   LP_PAGE     — qual PÁGINA é esta. Vai para o Clarity, cujo projeto é compartilhado por nove
+  //                 repos da casa; ali um código de experimento não significaria nada.
+  //   EXPERIMENTO — qual TESTE está rodando. É o código emitido pelo ERP, e é ele que a venda casa
+  //                 em `experimento.codigo || '|' || variante`. Sem ele, a tag fica órfã.
+  var LP_PAGE = 'alimentos';
+  var EXPERIMENTO = 'e2';
+  // Cookie por experimento: teste novo re-sorteia todo mundo. Reaproveitar o cookie faria o
+  // visitante recorrente carregar a atribuição do teste anterior e nascer enviesado.
+  var COOKIE = 'ab-' + EXPERIMENTO;
   var CHECKOUT_BASE = 'https://pay.hotmart.com/H104875140X?checkoutMode=10';
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   var UTM_STORE = 'lp_utm'; // mesma chave da frota (lp-vistoria/lib/tracking.ts)
@@ -48,7 +56,7 @@
   }
 
   var variant = getVariant();
-  var sck = LP_SLUG + '|' + variant;
+  var sck = EXPERIMENTO + '|' + variant;
   var utms = captureUtms();
 
   var params = new URLSearchParams();
@@ -60,7 +68,7 @@
   if (utms.utm_campaign || utms.utm_content) {
     params.set(
       'xcod',
-      [LP_SLUG, variant, utms.utm_campaign || '', utms.utm_content || ''].join('|')
+      [EXPERIMENTO, variant, utms.utm_campaign || '', utms.utm_content || ''].join('|')
     );
   }
   var href = CHECKOUT_BASE + '&' + params.toString();
@@ -71,7 +79,7 @@
   // Clarity: o projeto y109t0glph é compartilhado por nove repos, e o rewrite de `/` deixa a URL
   // idêntica em A e B — sem estas tags não há como filtrar página nem variante no painel.
   if (window.clarity) {
-    window.clarity('set', 'lp_page', LP_SLUG);
+    window.clarity('set', 'lp_page', LP_PAGE);
     window.clarity('set', 'ab_variant', variant);
   }
 

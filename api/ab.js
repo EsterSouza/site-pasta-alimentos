@@ -1,6 +1,7 @@
 export const config = { runtime: 'edge' };
 
-const COOKIE = 'ab-alimentos';
+// Cookie por experimento — ver tracking.js. Trocar o código aqui e lá em conjunto.
+const COOKIE = 'ab-e2';
 
 const MARKDOWN = `# Kit Pasta Sanitária para Serviço de Alimentação
 

@@ -3,7 +3,7 @@ name: Kit Pasta Sanitária — Alimentos
 description: Navy institucional e lilás sereno em torno de uma janela de arquivos que mostra o produto antes da compra.
 colors:
   navy: "#0A1F44"
-  navy-deep: "#060F24"
+  navy-deep: "#060F24"   # token no CSS desde a amplificação da faixa; antes era literal no rodapé
   lilac: "#7B61C4"
   lilac-deep: "#6449B0"
   lilac-pale: "#C9B8E8"
@@ -30,6 +30,7 @@ colors:
   chrome-word: "#2B5EBF"
   chrome-excel: "#1E7E45"
   chrome-pdf: "#D93025"
+  # chrome-g1 removido: a faixa não cita mais o g1 (fonte agora é a nota da Prefeitura)
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -271,6 +272,11 @@ Existem só dentro do componente:
   de arquivo. São as cores dos programas de verdade; alterá-las quebra o reconhecimento.
 - **Superfícies da janela** (`rgba(28,28,36,0.97)`, `rgba(55,55,65,0.95)` na encarnação escura;
   `#EBEBEB`, `#F8F9FA`, `#EEEEEE` na clara).
+- ~~**Vermelho do g1** (`#C4170C`)~~: **removido.** A faixa de notícia deixou de citar o g1 quando a
+  fonte passou a ser a nota oficial da Prefeitura do Rio. A etiqueta da fonte hoje usa o Navy da
+  própria página: reproduzir o azul institucional de um órgão numa página de venda puxa para o lado
+  de parecer peça oficial, o contrário do que o aviso da seção afirma. Ela nomeia a fonte sem imitar
+  a marca dela — e por isso o vermelho aparece uma vez só na página, no selo.
 
 **A Regra do Cromo Emprestado.** Nenhuma cor desta lista pode migrar para fora da janela de arquivos.
 O vermelho do PDF não é um vermelho de marca; o verde do Excel não é um verde de sucesso. Elas são
@@ -512,6 +518,94 @@ e rodapé `#F8F9FA`. Aqui a janela é navegável de verdade, com as abas trocand
 
 O realismo é o argumento — os nomes de arquivo são reais. Falsificar o conteúdo dessa janela quebra a
 única prova que a página oferece.
+
+### Faixa de Notícia (variante B)
+
+Prova social do **problema**, não do produto: uma fiscalização real, citada.
+
+**O título mede uma linha, não um degrau da escala.** "Num único dia, na Zona Sul do Rio." tem oito
+palavras; a 44px ela quebrava e deixava "do Rio." sozinho numa segunda linha a 25% da largura da
+coluna. A 36px cabe inteira (576px de 603px). O tamanho saiu da medição da frase real, não do topo
+da escala — e `text-wrap: balance` cobre as larguras onde a coluna estreita e a quebra volta.
+
+**Ela afirma, então vive no escuro.** O chão é Navy Fundo de Gaveta (`#060F24`), um degrau abaixo do
+hero. O bloco continua o mesmo compasso — "a fiscalização não avisa" seguido da prova disso — e só
+depois a página quebra para o claro, onde explica a exigência legal. Duas seções claras coladas se
+borravam numa só; duas escuras em degraus diferentes leem como uma passagem contínua.
+
+**São dois painéis, não um cartão e um texto.** A leitura tem chão próprio: Navy (`#0A1F44`), o
+mesmo do hero, um degrau acima do Navy Fundo de Gaveta da seção. Sem ele o texto encostava direto no
+fundo enquanto o recorte ao lado era um objeto com superfície, e a dupla lia torta. Sendo dois
+painéis, eles dividem a aresta de cima (`align-items: start`) — a mesma escolha da seção da
+especialista, onde a coluna de texto também é bem mais alta que o objeto ao lado.
+
+**A colagem: a foto é o chão, o recorte pousa sobre ela.** Foto e título vêm da mesma nota oficial da
+Prefeitura do Rio (SEOP / IVISA-Rio), e o crédito ao lado diz isso. A fonte é o poder público, não um
+veículo de imprensa — o que muda tanto o que a página pode afirmar quanto o que ela precisa negar.
+
+**A foto é recorte da fotografia, nunca o card inteiro.** O material de origem vem como um card
+completo, com título e resumo já tipografados. Usá-lo como imagem transformaria o texto da seção em
+pixel: não escala, não é lido por leitor de tela, não entra em busca. O card é remontado em HTML e
+só a fotografia vira imagem, no mesmo `aspect-ratio` do slot para o `cover` não cortar de novo.
+
+**Os números ficam na leitura, não no recorte.** A nota oficial traz 11 fiscalizados, 10 multados e
+~R$ 4 mil por multa já no próprio resumo. Repeti-los dentro do recorte e de novo ao lado faria a
+seção dizer a mesma coisa duas vezes, em duas vozes. O recorte cita o título; a leitura conta os
+números. A composição existe porque o recorte sozinho media 309px contra 607px da
+coluna de texto e ficava pequeno demais; empilhado sobre a foto, a diferença cai para 72px.
+
+**O selo `Interditado` é grafismo editorial, e a página admite isso na legenda.** Ele é
+deliberadamente tipográfico — sem brasão, sem nome de órgão — porque ler como lacre oficial
+sugeriria envolvimento da Vigilância Sanitária, que é o que o aviso da seção nega. A chapa branca
+sob o vermelho não é decoração: sobre foto o contraste é incontrolável, e só ela garante a
+legibilidade mesmo que a imagem por baixo seja preta (4,20:1, contra os 3:1 exigidos).
+
+**As avaliações são seção própria, na posição 3.** Antes viviam dentro do texto da especialista, e o
+bloco lia como uma coisa só. Como seção, elas ganham chão branco — a seção seguinte já é Névoa
+Lilás, e duas iguais coladas se borrariam numa só, então o ritmo fica navy-deep → branco → névoa.
+
+A coluna é contida em 760px e centrada: o container serve a duas colunas, e uma citação atravessando
+1150px estoura a linha de leitura. A 19,8px isso dá 77 caracteres por linha, dentro da faixa
+confortável. O título fica a 32px, um degrau abaixo do problema (40px) e das abas (44px) — a seção
+credencia, não faz o pitch, e não deve competir com eles.
+
+**A nota de origem saiu por decisão do dono.** Com ela foi embora a única menção de que as avaliações
+vêm do Google. O que segura a honestidade agora é só o título — "O que dizem sobre a **consultoria**"
+—, que continua dizendo que os relatos não são sobre o kit. Se o título mudar, a ressalva precisa
+voltar em algum lugar, senão quatro cinco-estrelas numa página de venda passam a ler como prova do
+produto.
+
+**A Regra da Citação Intocada.** Texto de avaliação real nunca é editado para caber na página. Uma
+das avaliações citava "Ester" — sócia da Treinavisa, mas não a profissional que a página apresenta.
+Trocar o nome resolveria a estranheza e produziria um depoimento falso, ainda por cima checável
+contra o original, que segue público no Google. **A avaliação foi removida, não reescrita.** Quando
+um relato verdadeiro não serve à página, ele sai; o que não acontece é ele mudar de texto para
+servir. Restam duas avaliações, e a seção ficou menor — esse é o preço, e é o preço certo.
+
+**A Regra da Foto Creditada.** Imagem de terceiro nesta página só entra com origem declarada ao lado
+dela, e qualquer marcação nossa sobre ela é identificada como nossa.
+
+**O recorte é um documento claro sobre o escuro** — o mesmo papel que a janela de arquivos cumpre no
+hero, e a mesma sombra `Sobre Navy`. Etiqueta do veículo, filete navy sob o cabeçalho, manchete entre
+aspas a 28px. Não é screenshot: é a citação tipografada na voz da página.
+
+**O vermelho vive dentro do recorte, nunca sobre o navy.** Sobre o escuro ele mede 3,31:1 e reprova
+no AA; sobre o branco do recorte, 4,91:1 e passa. Os números da leitura seguem o precedente do valor
+da parcela: Lilás Sereno sobre escuro, a 36px.
+
+- **Os números vivem dentro da frase, nunca em caixas.** "11 estabelecimentos fiscalizados. 10 saíram
+  multados. Cerca de R$ 4 mil cada multa." O craft-floor recusa o template de métrica — número grande,
+  rótulo pequeno, fileira de caixas iguais —, e foi exatamente nele que a primeira versão caiu. O
+  bloco de preço depois retoma esses R$ 4 mil como âncora.
+- **A ressalva não é rodapé, é parte do componente.** "Não é endosso ao produto — nem o veículo nem
+  a Vigilância Sanitária têm qualquer relação com este kit." Sem ela, citar jornalismo ao lado de um
+  botão de compra sugere um aval que não existe.
+- **A fonte é clicável e verificável.** Veículo, data e manchete literal. Um número sem link de
+  volta à matéria é uma estatística inventada do ponto de vista de quem lê.
+
+**A Regra da Notícia Emprestada.** A página pode citar um fato externo, nunca vesti-lo de aval.
+Manchete entre aspas, veículo nomeado, link para a origem e a ressalva no mesmo bloco — os quatro,
+sempre juntos. Retirar qualquer um transforma reportagem em endosso.
 
 ## Do's and Don'ts
 
