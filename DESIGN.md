@@ -489,6 +489,11 @@ competia com o conteúdo pela atenção. **O assunto da gravação é a lista de
 ela que prova o que o comprador está levando. Uma linha permanece destacada, como um arquivo
 selecionado numa pasta aberta de verdade.
 
+**Só documentos, nada de contêiner.** A janela lista exatamente **54 linhas — os 54 documentos**, um
+para um com o número anunciado na página. A linha da pasta que os continha foi removida: ela não é
+um item do kit, inflava a contagem de quem confere, e seu ícone era o emoji `📁` fazendo as vezes de
+ícone. Toda linha da janela tem de ser um arquivo que o comprador recebe.
+
 O laço é **baseado em tempo**, não em quadros: um passo fixo por frame correria ao dobro num monitor
 de 120Hz.
 
@@ -498,7 +503,7 @@ lista de 260px, abaixo do CTA porque não há espaço acima da dobra.
 
 **A Regra da Vitrine Fechada.** A lista **nunca** é rolável pelo usuário: `overflow: hidden`
 obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo
-do visitante por 2.568px de conteúdo antes de a página voltar a andar — foi exatamente o defeito que
+do visitante por ~2.500px de conteúdo antes de a página voltar a andar — foi exatamente o defeito que
 `overflow-y: auto` com `overscroll-behavior: contain` produziu em produção. Rolagem programática
 segue funcionando com `overflow: hidden`; é ela que anima a gravação.
 

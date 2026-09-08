@@ -480,7 +480,7 @@
       },
       {
         "name": "A Regra da Vitrine Fechada",
-        "body": "A lista nunca é rolável pelo usuário: overflow: hidden obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo do visitante por 2.568px de conteúdo antes de a página voltar a andar. Rolagem programática segue funcionando com overflow: hidden; é ela que anima a gravação.",
+        "body": "A lista nunca é rolável pelo usuário: overflow: hidden obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo do visitante por ~2.500px de conteúdo antes de a página voltar a andar. Rolagem programática segue funcionando com overflow: hidden; é ela que anima a gravação.",
         "section": "components"
       }
     ],

@@ -1,7 +1,7 @@
 // Janela de arquivos do hero — componente-assinatura da página.
 // Carregada pelas duas variantes (a/index.html e b/index.html): não duplicar este bloco nelas.
 //
-// Ela não ilustra o produto, ela é o argumento dele: as 55 linhas são os nomes reais dos arquivos,
+// Ela não ilustra o produto, ela é o argumento dele: as 54 linhas são os nomes reais dos arquivos,
 // e o comprador que tem a lista do fiscal na mão consegue conferir uma a uma.
 //
 // É uma GRAVAÇÃO DE TELA, não um widget: a lista percorre o conteúdo em laço contínuo, volta ao
