@@ -20,7 +20,7 @@
   // O inventário completo continua acessível e navegável na seção #conteudo.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var SCROLL_SPEED = 0.7;         // px por frame
+  var SCROLL_SPEED = 1.3;         // px por frame — a lista é o assunto, tem de correr
   var PAUSE_BEFORE_SCROLL = 1200; // ms entre o "clique" e o início da rolagem
   var SCROLL_DURATION = 7000;     // ms de rolagem
   var RESET_PAUSE = 1000;         // ms antes de voltar ao topo
@@ -79,9 +79,9 @@
     cursor.style.transition = 'top 0.9s cubic-bezier(0.4,0,0.2,1), left 0.9s cubic-bezier(0.4,0,0.2,1)';
 
     setTimeout(function () {
-      cursor.style.transform = 'rotate(-45deg) scale(0.75)';
+      cursor.style.transform = 'scale(0.8)';
       clickTarget.classList.add('finder-file--highlight');
-      setTimeout(function () { cursor.style.transform = 'rotate(-45deg) scale(1)'; }, 150);
+      setTimeout(function () { cursor.style.transform = 'scale(1)'; }, 150);
 
       setTimeout(function () {
         totalContentHeight = filelist.scrollHeight - filelist.clientHeight;
