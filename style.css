@@ -771,7 +771,11 @@ mark.highlight-anim.active {
    precedente do valor da parcela — Lilás Sereno sobre escuro.
 ============================================================ */
 .sec-noticia { background: var(--navy-deep); padding-block: var(--section-pad-v); }
-.noticia-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 56px; align-items: center; }
+/* `start`, não `center`: com o texto ganhando superfície própria, os dois viraram
+   painéis, e painel divide aresta de cima — centrar deixava o recorte boiando com
+   149px de navy em cima e embaixo. É a mesma escolha da `.authority-wrap`, que
+   também tem coluna de texto bem mais alta que o objeto ao lado. */
+.noticia-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 56px; align-items: start; }
 /* Precisa vir logo abaixo da regra base: este bloco foi acrescentado no fim do
    arquivo, então a media query de 1024px lá de cima perde por ordem de fonte. */
 @media (max-width: 1024px) {
@@ -806,6 +810,16 @@ mark.highlight-anim.active {
 .recorte__manchete::after  { content: "\201D"; }
 .recorte__rodape { font-size: 14px; color: var(--ink-muted); }
 .noticia__link { color: var(--lilac-dark); font-weight: 600; text-decoration: underline; }
+
+/* A leitura ganha chão próprio: Navy do hero sobre o Navy Fundo de Gaveta da
+   seção — um degrau mais claro, não uma cor nova. Sem ele o texto encostava
+   direto no fundo enquanto o recorte ao lado era um objeto com superfície, e a
+   dupla lia como um cartão mais um texto solto em vez de dois blocos. */
+.leitura {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 40px;
+}
 
 /* --- a leitura: escala cheia, números na frase, nunca em caixas --- */
 .leitura__titulo {
@@ -868,6 +882,7 @@ mark.highlight-anim.active {
   .leitura__numeros span { font-size: 18px; }
   .recorte { padding: 24px; }
   .recorte__manchete { font-size: 22px; }
+  .leitura { padding: 24px; }
 }
 
 /* ============================================================

@@ -532,6 +532,12 @@ hero. O bloco continua o mesmo compasso — "a fiscalização não avisa" seguid
 depois a página quebra para o claro, onde explica a exigência legal. Duas seções claras coladas se
 borravam numa só; duas escuras em degraus diferentes leem como uma passagem contínua.
 
+**São dois painéis, não um cartão e um texto.** A leitura tem chão próprio: Navy (`#0A1F44`), o
+mesmo do hero, um degrau acima do Navy Fundo de Gaveta da seção. Sem ele o texto encostava direto no
+fundo enquanto o recorte ao lado era um objeto com superfície, e a dupla lia torta. Sendo dois
+painéis, eles dividem a aresta de cima (`align-items: start`) — a mesma escolha da seção da
+especialista, onde a coluna de texto também é bem mais alta que o objeto ao lado.
+
 **O recorte é um documento claro sobre o escuro** — o mesmo papel que a janela de arquivos cumpre no
 hero, e a mesma sombra `Sobre Navy`. Etiqueta do veículo, filete navy sob o cabeçalho, manchete entre
 aspas a 28px. Não é screenshot: é a citação tipografada na voz da página.
