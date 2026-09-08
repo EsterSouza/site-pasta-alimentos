@@ -948,7 +948,7 @@ mark.highlight-anim.active {
 
 /* Medida de leitura contida e centrada: o container serve a duas colunas,
    e uma citação atravessando 1150px estoura a linha de leitura. */
-.avaliacoes { max-width: 760px; margin-inline: auto; }
+.avaliacoes { max-width: 940px; margin-inline: auto; }
 
 /* 32px: um degrau abaixo do problema (40px) e das abas (44px). A seção
    credencia, não faz o pitch — o título não deve competir com eles. */
@@ -960,29 +960,76 @@ mark.highlight-anim.active {
   color: var(--navy);
   margin-bottom: 8px;
 }
-.avaliacoes__lista { display: flex; flex-direction: column; }
-.aval { padding: 22px 0; border-bottom: 1px solid rgba(201,184,232,0.45); }
-.aval:last-child { border-bottom: none; }
+/* Duas colunas de cartões, não lista. O card do Google não é decoração: é
+   FORMATO DE CITAÇÃO, a mesma lógica que já justifica a janela de arquivos do
+   hero e o recorte da notícia — copiar o cromo de um sistema para que a fonte
+   seja reconhecível. Por isso ele sobrevive à recusa de fileiras de caixas
+   iguais: a caixa aqui é a citação, não o enfeite. */
+.avaliacoes__lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.aval {
+  background: var(--white);
+  border: 1px solid rgba(123,97,196,0.16);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 16px 40px rgba(10,31,68,0.10);   /* "Flutuante" do sistema */
+}
+
+.aval__cabeca { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+/* Inicial em disco, como no Google. Lilás Profundo sobre Névoa Lilás. */
+.aval__avatar {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--lilac-bg);
+  color: var(--lilac-dark);
+  font-size: 18px; font-weight: 800;
+}
+
+.aval__autor { font-size: 1rem; font-weight: 700; color: var(--navy); margin: 0 0 2px; }
+.aval__meta { display: flex; align-items: center; gap: 8px; margin: 0; }
+.aval__meta span { font-size: 14px; color: var(--ink-muted); }
 
 /* As estrelas herdam o Lilás Confiança: é a voz da página, não o
    amarelo genérico de avaliação, que traria uma cor nova ao sistema. */
-.aval__estrelas { display: block; margin-bottom: 8px; }
+.aval__estrelas { display: block; }
 .aval__estrelas svg { fill: var(--lilac-mid); display: block; }
 
-/* Sem escopo em `.authority-text`: as avaliações saíram de lá e viraram
-   seção própria, então a especificidade que existia só para vencer
-   `.authority-text p` deixou de ter motivo. */
-.aval__texto { font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin-bottom: 6px; }
-.aval__autor { font-size: 14px; font-weight: 600; color: var(--navy); margin: 0; }
-.aval__autor span { font-weight: 400; color: var(--ink-muted); }
+.aval__texto { font-size: 1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
 
-.avaliacoes__origem {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--chrome-border);
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--ink-muted);
+/* A resposta da consultoria é o que faz o bloco ler como print do Google em vez
+   de peça de marketing. Recuada e com filete, como a hierarquia de resposta lá. */
+.aval__resposta {
+  margin-top: 14px; padding: 12px 14px;
+  border-left: 3px solid var(--lilac-light);
+  background: var(--lilac-bg);
+  border-radius: 0 8px 8px 0;
+}
+.aval__resposta-quem { font-size: 14px; font-weight: 700; color: var(--navy); margin: 0 0 4px; }
+.aval__resposta-quem span { font-weight: 400; color: var(--ink-muted); }
+.aval__resposta-texto { font-size: 14px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+
+/* --- entrada suave, ARMADA SÓ PELO JS ---
+   Nada nasce invisível: `.revelar-armado` só entra no <html> depois que o
+   reveal.js confirma que sabe revelar. Sem JS, sem observer ou com o script
+   quebrado, os cartões continuam visíveis. */
+.revelar-armado [data-revelar] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s cubic-bezier(.4,0,.2,1) var(--atraso, 0ms),
+              transform .6s cubic-bezier(.4,0,.2,1) var(--atraso, 0ms);
+}
+.revelar-armado [data-revelar].e-visivel { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .avaliacoes__lista { grid-template-columns: 1fr; }
 }
 
 /* Sem redução no mobile: a 32px o título cabe em 309px dos 327px disponíveis, e
