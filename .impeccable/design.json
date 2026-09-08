@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T00:51:16.834Z",
+  "generatedAt": "2026-09-08T01:52:24.705Z",
   "title": "Design System: Kit Pasta Sanitária — Alimentos",
   "extensions": {
     "colorMeta": {
@@ -416,7 +416,7 @@
       "name": "Janela de Arquivos (assinatura)",
       "kind": "custom",
       "refersTo": null,
-      "description": "A peça que define o sistema: prova o conteúdo mostrando os arquivos reais. Não some no mobile — some a metáfora: no desktop o cursor falso demonstra uma vez, no toque a lista encolhe para 260px e vira rolável de verdade.",
+      "description": "A peça que define o sistema: prova o conteúdo mostrando os arquivos reais. É uma gravação de tela — ciclo de ~12s em laço, cursor de mouse como parte da cena, idêntica no desktop e no celular; só a moldura muda.",
       "html": "<div class=\"ds-finder\"><div class=\"ds-finder__bar\"><span class=\"ds-finder__dot\" style=\"background:#FF5F57\"></span><span class=\"ds-finder__dot\" style=\"background:#FFBD2E\"></span><span class=\"ds-finder__dot\" style=\"background:#28C840\"></span><span class=\"ds-finder__title\">Pasta Sanitária — 54 itens</span></div><div class=\"ds-finder__body\"><div class=\"ds-finder__row\"><span class=\"ds-finder__ico\" style=\"background:#2B5EBF\"></span>Manual de Boas Práticas<span class=\"ds-finder__ext\">DOCX</span></div><div class=\"ds-finder__row ds-finder__row--on\"><span class=\"ds-finder__ico\" style=\"background:#1E7E45\"></span>Controle de Temperatura<span class=\"ds-finder__ext\">XLSX</span></div><div class=\"ds-finder__row\"><span class=\"ds-finder__ico\" style=\"background:#D93025\"></span>Checklist de Auditoria<span class=\"ds-finder__ext\">PDF</span></div></div></div>",
       "css": ".ds-finder{width:100%;max-width:560px;background:rgba(28,28,36,.97);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(24px);font-family:Inter,sans-serif;box-shadow:0 24px 48px rgba(10,31,68,.16)}.ds-finder__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(55,55,65,.95);border-bottom:1px solid rgba(255,255,255,.08)}.ds-finder__dot{width:12px;height:12px;border-radius:50%}.ds-finder__title{font-size:12px;color:rgba(255,255,255,.7);margin-left:8px}.ds-finder__row{display:flex;align-items:center;gap:8px;padding:8px 16px;font-size:12px;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.04)}.ds-finder__row--on{background:rgba(123,97,196,.3);color:#fff}.ds-finder__ico{width:16px;height:18px;border-radius:3px;flex-shrink:0}.ds-finder__ext{font-size:10px;background:rgba(255,255,255,.1);padding:2px 4px;border-radius:2px;margin-left:auto}"
     }
@@ -465,13 +465,8 @@
       },
       {
         "name": "A Regra do Momento Unico",
-        "body": "A página tem um movimento autoral: a entrada escalonada do hero e a palavra que digita no h1. Nada anima em laço. A demonstração da janela de arquivos é a única exceção admitida, e mesmo ela roda uma vez e para — animação que se repete para sempre vira ruído de fundo e deixa de comunicar. Quem pede prefers-reduced-motion recebe a página parada, com a headline já escrita e a janela imóvel, mas ainda rolável à mão.",
+        "body": "A página tem um movimento autoral: a entrada escalonada do hero e a palavra que digita no h1. Fora isso, nada anima em repouso. A janela de arquivos é a exceção declarada, e a razão é de natureza, não de licença: ela não é um elemento animado, é uma gravação de tela embutida na página, e gravação roda em laço.",
         "section": "elevation"
-      },
-      {
-        "name": "A Regra do Gesto Real",
-        "body": "Onde houver toque, o visitante rola de verdade em vez de assistir a uma simulação. Interação autêntica é prova mais forte: quem chegou com a lista do fiscal na mão consegue conferir arquivo por arquivo.",
-        "section": "components"
       },
       {
         "name": "A Regra do Cromo Emprestado",
@@ -482,6 +477,11 @@
         "name": "A Regra do Degrau Perceptível",
         "body": "Tamanho novo só entra se a diferença for visível a olho nu contra o degrau vizinho. 1.1rem ao lado de 20px é a prova do que acontece quando essa regra não vale.",
         "section": "typography"
+      },
+      {
+        "name": "A Regra da Vitrine Fechada",
+        "body": "A lista nunca é rolável pelo usuário: overflow: hidden obrigatório. A janela fica no caminho do scroll da página, e um contêiner rolável ali captura o dedo do visitante por 2.568px de conteúdo antes de a página voltar a andar. Rolagem programática segue funcionando com overflow: hidden; é ela que anima a gravação.",
+        "section": "components"
       }
     ],
     "dos": [
@@ -493,8 +493,8 @@
       "Do manter os nomes de arquivo da janela reais e verificáveis.",
       "Do deixar a janela do Finder sumir abaixo de 1024px em vez de comprimi-la.",
       "Do vestir as superfícies do navegador com a paleta: ::selection em Lilás Sereno e um :focus-visible visível. outline: none sem substituto é proibido.",
-      "Do deixar o visitante rolar a lista de arquivos com o dedo no mobile, em vez de assistir a uma simulação.",
-      "Do referenciar cor por token (var(--ink-soft)) em vez de literal; nenhum hex com token equivalente vive fora do :root."
+      "Do referenciar cor por token (var(--ink-soft)) em vez de literal; nenhum hex com token equivalente vive fora do :root.",
+      "Do tratar a janela de arquivos como gravação de tela: laço contínuo, cursor visível, zero interação, overflow hidden."
     ],
     "donts": [
       "Don't adotar o registro de LP de lançamento agressiva: contador regressivo, setas amarelas, frase inteira em caixa alta, \"últimas vagas\". O produto é documentação séria e a autoridade da autora é o ativo — esse registro a destrói.",
