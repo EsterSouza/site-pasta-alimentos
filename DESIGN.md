@@ -569,6 +569,12 @@ A coluna é contida em 760px e centrada: o container serve a duas colunas, e uma
 confortável. O título fica a 32px, um degrau abaixo do problema (40px) e das abas (44px) — a seção
 credencia, não faz o pitch, e não deve competir com eles.
 
+**A nota de origem saiu por decisão do dono.** Com ela foi embora a única menção de que as avaliações
+vêm do Google. O que segura a honestidade agora é só o título — "O que dizem sobre a **consultoria**"
+—, que continua dizendo que os relatos não são sobre o kit. Se o título mudar, a ressalva precisa
+voltar em algum lugar, senão quatro cinco-estrelas numa página de venda passam a ler como prova do
+produto.
+
 **A Regra da Citação Intocada.** Texto de avaliação real nunca é editado para caber na página. Uma
 das avaliações citava "Ester" — sócia da Treinavisa, mas não a profissional que a página apresenta.
 Trocar o nome resolveria a estranheza e produziria um depoimento falso, ainda por cima checável
