@@ -748,65 +748,68 @@ mark.highlight-anim.active {
 
 /* ============================================================
    FAIXA DA NOTÍCIA  (variante B)
-   Prova social do PROBLEMA, não do produto: uma fiscalização real,
-   citada com veículo, data e manchete. O vermelho do g1 é cor de
-   CROMO — citação de outra marca, como os ícones de Word e Excel
-   na janela de arquivos — e nunca migra para fora deste bloco.
-============================================================ */
-.sec-noticia { background: var(--lilac-bg); padding-block: var(--section-pad-v); }
+   Segue a gramática da página: duas colunas, uma "peça" de um lado e
+   o texto do outro — como o hero (55/45), o problema (60/40) e a
+   autoridade (40/60). Sem isso a seção lia como cartão avulso jogado
+   no meio da rolagem, sem pertencer a nada.
 
-.noticia {
-  max-width: 760px;
-  margin-inline: auto;
-  background: var(--white);
-  border: 1px solid rgba(201,184,232,0.4);
+   Fundo BRANCO de propósito: a seção do problema logo abaixo é Névoa
+   Lilás, e duas claras iguais coladas se borram numa só.
+============================================================ */
+.sec-noticia { background: var(--white); padding-block: var(--section-pad-v); }
+.noticia-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 56px; align-items: center; }
+/* Precisa vir logo abaixo da regra base: este bloco foi acrescentado no fim do
+   arquivo, então a media query de 1024px lá de cima perde por ordem de fonte. */
+@media (max-width: 1024px) {
+  .noticia-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* --- o recorte: a matéria como objeto citado --- */
+.recorte {
+  background: var(--lilac-bg);
+  border: 1px solid rgba(201,184,232,0.5);
   border-radius: 12px;
-  padding: 32px;
+  padding: 28px;
   box-shadow: 0 10px 30px rgba(10,31,68,0.05);
 }
-
-.noticia__fonte { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.noticia__veiculo {
-  background: #C4170C;              /* vermelho do g1 — cromo citado, não cor da marca */
+.recorte__cabeca { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.recorte__veiculo {
+  background: #C4170C;              /* vermelho do g1 — cromo citado, nunca cor da marca */
   color: var(--white);
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  padding: 3px 10px;
-  border-radius: 4px;
+  font-weight: 800; font-size: 14px;
+  padding: 3px 10px; border-radius: 4px;
 }
-.noticia__meta { font-size: 14px; color: var(--ink-muted); }
+.recorte__data { font-size: 14px; color: var(--ink-muted); }
+.recorte__manchete {
+  font-size: 22px; font-weight: 700; line-height: 1.35;
+  color: var(--navy); margin-bottom: 18px;
+}
+.recorte__manchete::before { content: "\201C"; }
+.recorte__manchete::after  { content: "\201D"; }
+.recorte__rodape { font-size: 14px; color: var(--ink-muted); }
 
-.noticia__titulo {
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--navy);
-  margin-bottom: 24px;
+/* --- a leitura: os números vivem DENTRO da frase, não em caixas --- */
+.leitura__titulo {
+  font-size: 40px; font-weight: 800; line-height: 1.15;
+  color: var(--navy); margin-bottom: 24px;
 }
-
-/* Os três números são o argumento: é a ancoragem que o bloco de preço
-   depois retoma. Vermelho aqui é ESTADO (urgência), nunca superfície. */
-.noticia__numeros { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
-.noticia__numeros li {
-  flex: 1;
-  min-width: 128px;
-  background: var(--lilac-bg);
-  border-radius: 8px;
-  padding: 14px 16px;
+.leitura__numeros { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.leitura__numeros span { font-size: 20px; line-height: 1.4; color: var(--ink-soft); }
+.leitura__numeros b {
+  font-size: 32px; font-weight: 900; color: var(--accent-red);
+  margin-right: 4px; letter-spacing: -0.5px;
 }
-.noticia__numeros strong {
-  display: block;
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--accent-red);
+.leitura__texto { font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin-bottom: 20px; }
+.leitura__texto strong { color: var(--navy); font-weight: 700; }
+.leitura__aviso {
+  font-size: 14px; line-height: 1.55; color: var(--ink-muted);
+  padding-top: 16px; border-top: 1px solid rgba(201,184,232,0.5);
 }
-.noticia__numeros span { font-size: 14px; color: var(--ink-soft); }
-
-.noticia__aviso { font-size: 14px; line-height: 1.6; color: var(--ink-muted); }
-.noticia__aviso strong { color: var(--ink-soft); }
-.noticia__link { color: var(--lilac-mid); font-weight: 600; text-decoration: underline; }
+.leitura__aviso strong { color: var(--ink-soft); }
+/* Lilás Profundo, não o Confiança: sobre a Névoa Lilás do recorte o #7B61C4 mede
+   4,39:1 e reprova no AA por pouco. O #6449B0 dá 6,11:1 e segue sendo lilás,
+   então a Regra da Voz Única continua valendo. */
+.noticia__link { color: var(--lilac-dark); font-weight: 600; text-decoration: underline; }
 
 /* ============================================================
    ANCORAGEM E GARANTIA NO PONTO DE COMPRA  (variante B)
@@ -838,10 +841,12 @@ mark.highlight-anim.active {
 .preco-garantia strong { color: var(--lilac-light); }
 
 @media (max-width: 768px) {
-  .noticia { padding: 24px 20px; }
-  .noticia__titulo { font-size: 20px; }
-  .noticia__numeros li { min-width: 100%; }
   .preco-ancora { font-size: 16px; }
+  .leitura__titulo { font-size: 32px; }
+  .leitura__numeros b { font-size: 28px; }
+  .leitura__numeros span { font-size: 18px; }
+  .recorte { padding: 22px; }
+  .recorte__manchete { font-size: 20px; }
 }
 
 /* ============================================================

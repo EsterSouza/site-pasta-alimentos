@@ -55,7 +55,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=28" />
+  <link rel="stylesheet" href="../style.css?v=31" />
   <link rel="preload" as="image" href="../hero-v3.webp" />
 
   <style>
@@ -321,30 +321,46 @@
 ============================================================ -->
   <section class="sec-noticia" aria-labelledby="noticia-titulo">
     <div class="container">
-      <article class="noticia">
-        <div class="noticia__fonte">
-          <span class="noticia__veiculo">g1</span>
-          <span class="noticia__meta">Rio de Janeiro &middot; 6 de dezembro de 2025</span>
+      <div class="noticia-grid">
+
+        <!-- Lado do recorte: a matéria como objeto citado, não como cartão -->
+        <figure class="recorte">
+          <div class="recorte__cabeca">
+            <span class="recorte__veiculo">g1</span>
+            <span class="recorte__data">Rio de Janeiro &middot; 6 de dezembro de 2025</span>
+          </div>
+          <blockquote class="recorte__manchete" id="noticia-titulo">
+            Com baratas e fezes de roedores, dois bares e restaurante japonês são interditados em Botafogo
+          </blockquote>
+          <figcaption class="recorte__rodape">
+            Manchete reproduzida da matéria original.
+            <a class="noticia__link" href="#" data-preencher="url-da-materia" target="_blank"
+              rel="noopener nofollow">Ler no g1</a>
+          </figcaption>
+        </figure>
+
+        <!-- Lado da leitura: o que aquele dia significa para quem está lendo -->
+        <div class="leitura">
+          <h2 class="leitura__titulo">Num único dia, na Zona Sul do Rio.</h2>
+
+          <p class="leitura__numeros">
+            <span><b>11</b> estabelecimentos fiscalizados.</span>
+            <span><b>10</b> saíram multados.</span>
+            <span>Cerca de <b>R$&nbsp;4&nbsp;mil</b> cada multa.</span>
+          </p>
+
+          <p class="leitura__texto">
+            Nenhum deles sabia que a fiscalização chegaria naquela manhã. O que separa quem foi multado de
+            quem não foi é a documentação estar pronta <strong>antes</strong> — não depois.
+          </p>
+
+          <p class="leitura__aviso">
+            Matéria do g1 sobre fiscalização sanitária. <strong>Não é endosso ao produto</strong> &mdash; nem o
+            veículo nem a Vigilância Sanitária têm qualquer relação com este kit.
+          </p>
         </div>
 
-        <h2 class="noticia__titulo" id="noticia-titulo">
-          &ldquo;Com baratas e fezes de roedores, dois bares e restaurante japonês são interditados em Botafogo&rdquo;
-        </h2>
-
-        <ul class="noticia__numeros">
-          <li><strong>11</strong><span>locais fiscalizados</span></li>
-          <li><strong>10</strong><span>foram multados</span></li>
-          <li><strong>~R$&nbsp;4&nbsp;mil</strong><span>por multa</span></li>
-        </ul>
-
-        <p class="noticia__aviso">
-          Matéria do g1 sobre fiscalização sanitária na Zona Sul do Rio.
-          <strong>Não é endosso ao produto</strong> &mdash; nem o veículo nem a Vigilância Sanitária têm qualquer
-          relação com este kit.
-          <a class="noticia__link" href="#" data-preencher="url-da-materia" target="_blank" rel="noopener nofollow">Ler
-            a matéria no g1</a>
-        </p>
-      </article>
+      </div>
     </div>
   </section>
 
