@@ -808,6 +808,28 @@ mark.highlight-anim.active {
 }
 .recorte__manchete::before { content: "\201C"; }
 .recorte__manchete::after  { content: "\201D"; }
+/* A colagem: a foto é o chão, o recorte do g1 pousa sobre ela. As duas fontes
+   ficam separadas de propósito — foto dentro do recorte daria a entender que
+   saiu da matéria, o que seria atribuição falsa. Por isso o crédito da foto é
+   uma linha própria, fora do cartão branco, dizendo que ela não é da matéria.
+   `aspect-ratio` trava a altura antes de a imagem carregar: sem isso a seção
+   pula quando ela chega. */
+.colagem { position: relative; }
+.colagem__foto {
+  display: block; width: 100%;
+  aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: 12px;
+  background: var(--chrome-border);
+}
+.colagem .recorte {
+  position: relative; z-index: 1;
+  margin: -56px 0 0 32px;
+}
+.colagem__credito {
+  margin: 14px 0 0; font-size: 14px; line-height: 1.5;
+  color: rgba(240,245,241,0.6);
+}
+.colagem__credito b { color: rgba(240,245,241,0.85); font-weight: 600; }
 .recorte__rodape { font-size: 14px; color: var(--ink-muted); }
 .noticia__link { color: var(--lilac-dark); font-weight: 600; text-decoration: underline; }
 
@@ -882,6 +904,7 @@ mark.highlight-anim.active {
   .leitura__numeros span { font-size: 18px; }
   .recorte { padding: 24px; }
   .recorte__manchete { font-size: 22px; }
+  .colagem .recorte { margin: -40px 0 0 16px; }
   .leitura { padding: 24px; }
 }
 

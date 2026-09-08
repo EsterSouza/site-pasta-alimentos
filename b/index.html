@@ -55,7 +55,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=36" />
+  <link rel="stylesheet" href="../style.css?v=38" />
   <link rel="preload" as="image" href="../hero-v3.webp" />
 
   <style>
@@ -324,20 +324,33 @@
       <div class="noticia-grid">
 
         <!-- Lado do recorte: a matéria como objeto citado, não como cartão -->
-        <figure class="recorte">
-          <div class="recorte__cabeca">
-            <span class="recorte__veiculo">g1</span>
-            <span class="recorte__data">Rio de Janeiro &middot; 6 de dezembro de 2025</span>
-          </div>
-          <blockquote class="recorte__manchete" id="noticia-titulo">
-            Com baratas e fezes de roedores, dois bares e restaurante japonês são interditados em Botafogo
-          </blockquote>
-          <figcaption class="recorte__rodape">
-            Manchete reproduzida da matéria original.
-            <a class="noticia__link" href="#" data-preencher="url-da-materia" target="_blank"
-              rel="noopener nofollow">Ler no g1</a>
-          </figcaption>
-        </figure>
+        <!-- Colagem: a foto é o chão, o recorte do g1 pousa sobre ela. As duas fontes
+             ficam separadas de propósito — foto dentro do cartão do g1 daria a
+             entender que ela saiu da matéria, o que não é verdade. -->
+        <div class="colagem">
+          <img class="colagem__foto" src="../cozinha-suja.webp"
+            alt="Cozinha comercial em mau estado de conservação: gordura acumulada no fogão e nas superfícies de trabalho."
+            loading="lazy" decoding="async">
+
+          <figure class="recorte">
+            <div class="recorte__cabeca">
+              <span class="recorte__veiculo">g1</span>
+              <span class="recorte__data">Rio de Janeiro &middot; 6 de dezembro de 2025</span>
+            </div>
+            <blockquote class="recorte__manchete" id="noticia-titulo">
+              Com baratas e fezes de roedores, dois bares e restaurante japonês são interditados em Botafogo
+            </blockquote>
+            <figcaption class="recorte__rodape">
+              Manchete reproduzida da matéria original.
+              <a class="noticia__link" href="#" data-preencher="url-da-materia" target="_blank"
+                rel="noopener nofollow">Ler no g1</a>
+            </figcaption>
+          </figure>
+
+          <p class="colagem__credito" data-preencher="credito-da-foto">
+            Foto: <b>[definir origem]</b> &mdash; não pertence à matéria citada acima.
+          </p>
+        </div>
 
         <!-- Lado da leitura: o que aquele dia significa para quem está lendo -->
         <div class="leitura">
@@ -618,6 +631,7 @@
       </div> <!-- Fechamento do .finder-window -->
 
     </div>
+  </div>
   </section>
 
 

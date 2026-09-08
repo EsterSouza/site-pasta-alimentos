@@ -538,6 +538,14 @@ fundo enquanto o recorte ao lado era um objeto com superfície, e a dupla lia to
 painéis, eles dividem a aresta de cima (`align-items: start`) — a mesma escolha da seção da
 especialista, onde a coluna de texto também é bem mais alta que o objeto ao lado.
 
+**A colagem separa as fontes de propósito.** A foto é o chão; o recorte do g1 pousa sobre ela. Foto
+dentro do cartão do g1 daria a entender que saiu da matéria — atribuição falsa, e a seção já carrega
+um aviso justamente para não sugerir endosso. Por isso o crédito da foto é linha própria, fora do
+cartão branco, e diz explicitamente que ela não pertence à matéria citada.
+
+**A Regra da Foto Creditada.** Imagem de terceiro nesta página só entra com origem declarada ao lado
+dela, e nunca dentro de um artefato que sugira outra procedência.
+
 **O recorte é um documento claro sobre o escuro** — o mesmo papel que a janela de arquivos cumpre no
 hero, e a mesma sombra `Sobre Navy`. Etiqueta do veículo, filete navy sob o cabeçalho, manchete entre
 aspas a 28px. Não é screenshot: é a citação tipografada na voz da página.
