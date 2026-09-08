@@ -602,7 +602,7 @@ mark.highlight-anim.active {
      uma lista rolável captura o dedo do visitante por 2.568px de conteúdo antes
      de a página voltar a andar. Rolagem programática segue funcionando — é assim
      que a gravação de tela se anima. */
-  .finder-filelist { height: 260px; overflow: hidden; }
+  .finder-filelist { height: 360px; overflow: hidden; }
 }
 
 @media (max-width: 768px) {
