@@ -271,8 +271,10 @@ deslocamento e desfoque — halo de raio zero (`0 0 0 15px`) é decoração, nã
 isso que os pulsos infinitos saíram.
 
 **A Regra do Momento Único.** A página tem **um** movimento autoral: a entrada escalonada do hero e a
-palavra que digita no `h1`. Nada mais anima em repouso. Quem pede `prefers-reduced-motion` recebe a
-página parada, com a headline já escrita.
+palavra que digita no `h1`. **Nada anima em laço.** A demonstração da janela de arquivos é a única
+exceção admitida, e mesmo ela roda uma vez e para — animação que se repete para sempre vira ruído de
+fundo e deixa de comunicar. Quem pede `prefers-reduced-motion` recebe a página parada, com a headline
+já escrita e a janela imóvel, mas ainda rolável à mão.
 
 **Estado:** as três divergências registradas na primeira versão deste documento foram pagas — a
 janela de documentos e o botão do WhatsApp passaram a tinta navy, e o `drop-shadow` do hero perdeu o
@@ -338,10 +340,24 @@ borda superior de 2px em lilás, entrando por `translateY` em 0.4s.
 A peça que define o sistema, em duas encarnações:
 
 **Escura (hero).** Janela `rgba(28,28,36,0.97)` com `backdrop-filter: blur(24px)`, raio 12px, borda
-branca a 13%, inclinada em `perspective(1000px) rotateY(-4deg) rotateX(2deg)`. Barra de título com os
-três pontos do macOS (`#FF5F57`, `#FFBD2E`, `#28C840`). As linhas rolam sozinhas; a linha destacada
-usa lilás a 30%. Ícones de tipo de arquivo carregam as cores dos aplicativos reais — Word `#2B5EBF`,
-PDF `#D93025`, Excel `#1E7E45`. **Some abaixo de 1024px.**
+branca a 13%. Barra de título com os três pontos do macOS (`#FF5F57`, `#FFBD2E`, `#28C840`); a linha
+destacada usa lilás a 30%. Ícones de tipo de arquivo carregam as cores dos aplicativos reais — Word
+`#2B5EBF`, PDF `#D93025`, Excel `#1E7E45`.
+
+Ela **não some no mobile** — some a metáfora que não se aplica ali. O comportamento é decidido pela
+largura, nunca pelo dispositivo (`min-width: 1025px`):
+
+- **Desktop:** inclinada em `perspective(1000px) rotateY(-4deg) rotateX(2deg)`, lista de 480px. O
+  cursor falso do macOS demonstra **uma vez** — vai até um arquivo, clica, rola por 7s — e depois some
+  em fade, deixando a lista livre. Nunca repete.
+- **Mobile:** sem inclinação e sem cursor (não existe ponteiro de mouse no toque). A lista encolhe
+  para 260px e vira **rolável de verdade** (`overflow-y: auto`), posicionada abaixo do CTA porque não
+  há espaço acima da dobra. Um auto-scroll de 220px em ease-out-quart sinaliza que ela rola, e morre
+  no primeiro `touchstart`/`wheel`/`pointerdown` — nunca disputa o dedo do visitante.
+
+**A Regra do Gesto Real.** Onde houver toque, o visitante rola de verdade em vez de assistir a uma
+simulação. Interação autêntica é prova mais forte: quem chegou com a lista do fiscal na mão consegue
+conferir arquivo por arquivo.
 
 **Clara (conteúdo).** A mesma silhueta, sem inclinação: barra `#EBEBEB`, corpo branco, abas no topo
 e rodapé `#F8F9FA`. Aqui a janela é navegável de verdade, com as abas trocando o conteúdo.
