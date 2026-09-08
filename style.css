@@ -825,6 +825,26 @@ mark.highlight-anim.active {
   position: relative; z-index: 1;
   margin: -56px 0 0 32px;
 }
+/* O selo é a segunda e última aparição do vermelho — e é estado, não superfície,
+   que é o uso que a Regra do Vermelho Contado nomeia. A chapa branca por baixo
+   não é decoração: sobre foto o contraste é incontrolável, e só ela garante os
+   4,91:1 do vermelho sobre branco independentemente do que esteja na imagem.
+   Deliberadamente tipográfico, sem brasão nem nome de órgão: é marcação
+   editorial, e ler como lacre oficial sugeriria envolvimento da Vigilância. */
+.colagem__selo {
+  position: absolute; top: 24px; right: 24px; z-index: 2;
+  transform: rotate(-6deg);
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.93);
+  border: 3px solid var(--accent-red);
+  border-radius: 4px;
+  color: var(--accent-red);
+  font-size: 22px; font-weight: 900;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
 .colagem__credito {
   margin: 14px 0 0; font-size: 14px; line-height: 1.5;
   color: rgba(240,245,241,0.6);
@@ -905,6 +925,7 @@ mark.highlight-anim.active {
   .recorte { padding: 24px; }
   .recorte__manchete { font-size: 22px; }
   .colagem .recorte { margin: -40px 0 0 16px; }
+  .colagem__selo { top: 14px; right: 14px; font-size: 16px; padding: 8px 14px; border-width: 2px; }
   .leitura { padding: 24px; }
 }
 
