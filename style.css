@@ -1005,12 +1005,19 @@ mark.highlight-anim.active {
 .aval__texto { font-size: 1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
 
 /* A resposta da consultoria é o que faz o bloco ler como print do Google em vez
-   de peça de marketing. Recuada e com filete, como a hierarquia de resposta lá. */
+   de peça de marketing.
+
+   Sem filete lateral. Tentei 3px em Lilás Sereno, depois 2px neutro, e o
+   detector acusou `side-tab` nas duas — barra colorida na lateral de um cartão
+   é o tique mais reconhecível de interface gerada por IA. Ele estava certo e
+   eu estava defendendo: o que diz "isto é resposta" no Google é o RECUO, e o
+   fundo tingido mais o rótulo já cumprem o resto. O filete não carregava
+   informação nenhuma. */
 .aval__resposta {
-  margin-top: 14px; padding: 12px 14px;
-  border-left: 3px solid var(--lilac-light);
+  margin: 14px 0 0 20px;
+  padding: 12px 14px;
   background: var(--lilac-bg);
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
 }
 .aval__resposta-quem { font-size: 14px; font-weight: 700; color: var(--navy); margin: 0 0 4px; }
 .aval__resposta-quem span { font-weight: 400; color: var(--ink-muted); }
