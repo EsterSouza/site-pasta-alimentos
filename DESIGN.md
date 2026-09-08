@@ -474,15 +474,23 @@ borda superior de 2px em lilás, entrando por `translateY` em 0.4s.
 ### Signature Component — A Janela de Arquivos
 A peça que define o sistema, em duas encarnações:
 
-**Escura (hero).** Janela `rgba(28,28,36,0.97)` com `backdrop-filter: blur(24px)`, raio 12px, borda
-branca a 13%. Barra de título com os três pontos do macOS (`#FF5F57`, `#FFBD2E`, `#28C840`); a linha
+**Escura (hero).** Janela `rgba(28,28,36,0.97)`, raio 12px, borda branca a 13%, com a sombra em
+`box-shadow` na própria janela — nunca `filter` no pai, que achata o 3D e apaga o elemento no Firefox. Barra de título com os três pontos do macOS (`#FF5F57`, `#FFBD2E`, `#28C840`); a linha
 destacada usa lilás a 30%. Ícones de tipo de arquivo carregam as cores dos aplicativos reais — Word
 `#2B5EBF`, PDF `#D93025`, Excel `#1E7E45`.
 
-**É uma gravação de tela, não um widget.** O ciclo de ~12s é o mesmo em qualquer largura, porque o
-que está sendo retratado é a mesma tela: o cursor anda até um arquivo, clica, a lista rola por 7s,
-volta ao topo e recomeça. O cursor de mouse faz parte da cena gravada — não é um controle da página,
-e por isso aparece também no celular.
+**É uma gravação de tela, não um widget.** A lista percorre o conteúdo a **100px/s** — cerca de 2,7
+linhas por segundo, ritmo em que ainda se leem os nomes —, pausa no fim, rebobina e recomeça. Ciclo
+de ~29s, igual em qualquer largura, porque o que está sendo retratado é a mesma tela.
+
+**Sem cursor e sem encenação.** O componente já teve um ponteiro que caminhava até um arquivo e
+clicava antes de a lista rolar. Foi removido: a encenação atrasava o que interessa e o ponteiro
+competia com o conteúdo pela atenção. **O assunto da gravação é a lista de arquivos correndo** — é
+ela que prova o que o comprador está levando. Uma linha permanece destacada, como um arquivo
+selecionado numa pasta aberta de verdade.
+
+O laço é **baseado em tempo**, não em quadros: um passo fixo por frame correria ao dobro num monitor
+de 120Hz.
 
 Só a moldura muda com a largura: no desktop ela ganha a inclinação
 `perspective(1000px) rotateY(-4deg) rotateX(2deg)` e lista de 480px; abaixo de 1024px fica reta, com
