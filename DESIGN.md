@@ -30,7 +30,7 @@ colors:
   chrome-word: "#2B5EBF"
   chrome-excel: "#1E7E45"
   chrome-pdf: "#D93025"
-  chrome-g1: "#C4170C"
+  # chrome-g1 removido: a faixa não cita mais o g1 (fonte agora é a nota da Prefeitura)
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -272,10 +272,11 @@ Existem só dentro do componente:
   de arquivo. São as cores dos programas de verdade; alterá-las quebra o reconhecimento.
 - **Superfícies da janela** (`rgba(28,28,36,0.97)`, `rgba(55,55,65,0.95)` na encarnação escura;
   `#EBEBEB`, `#F8F9FA`, `#EEEEEE` na clara).
-- **Vermelho do g1** (`#C4170C`): fundo da etiqueta do veículo na faixa de notícia, sempre sobre o
-  branco do recorte. É a cor da marca
-  do jornal, citada para que a fonte seja reconhecível — e é justamente por ser reconhecível que ela
-  não pode aparecer em nenhum outro lugar da página.
+- ~~**Vermelho do g1** (`#C4170C`)~~: **removido.** A faixa de notícia deixou de citar o g1 quando a
+  fonte passou a ser a nota oficial da Prefeitura do Rio. A etiqueta da fonte hoje usa o Navy da
+  própria página: reproduzir o azul institucional de um órgão numa página de venda puxa para o lado
+  de parecer peça oficial, o contrário do que o aviso da seção afirma. Ela nomeia a fonte sem imitar
+  a marca dela — e por isso o vermelho aparece uma vez só na página, no selo.
 
 **A Regra do Cromo Emprestado.** Nenhuma cor desta lista pode migrar para fora da janela de arquivos.
 O vermelho do PDF não é um vermelho de marca; o verde do Excel não é um verde de sucesso. Elas são
@@ -538,8 +539,19 @@ fundo enquanto o recorte ao lado era um objeto com superfície, e a dupla lia to
 painéis, eles dividem a aresta de cima (`align-items: start`) — a mesma escolha da seção da
 especialista, onde a coluna de texto também é bem mais alta que o objeto ao lado.
 
-**A colagem: a foto é o chão, o recorte pousa sobre ela.** Foto e manchete vêm da mesma matéria, e o
-crédito ao lado diz isso. A composição existe porque o recorte sozinho media 309px contra 607px da
+**A colagem: a foto é o chão, o recorte pousa sobre ela.** Foto e título vêm da mesma nota oficial da
+Prefeitura do Rio (SEOP / IVISA-Rio), e o crédito ao lado diz isso. A fonte é o poder público, não um
+veículo de imprensa — o que muda tanto o que a página pode afirmar quanto o que ela precisa negar.
+
+**A foto é recorte da fotografia, nunca o card inteiro.** O material de origem vem como um card
+completo, com título e resumo já tipografados. Usá-lo como imagem transformaria o texto da seção em
+pixel: não escala, não é lido por leitor de tela, não entra em busca. O card é remontado em HTML e
+só a fotografia vira imagem, no mesmo `aspect-ratio` do slot para o `cover` não cortar de novo.
+
+**Os números ficam na leitura, não no recorte.** A nota oficial traz 11 fiscalizados, 10 multados e
+~R$ 4 mil por multa já no próprio resumo. Repeti-los dentro do recorte e de novo ao lado faria a
+seção dizer a mesma coisa duas vezes, em duas vozes. O recorte cita o título; a leitura conta os
+números. A composição existe porque o recorte sozinho media 309px contra 607px da
 coluna de texto e ficava pequeno demais; empilhado sobre a foto, a diferença cai para 72px.
 
 **O selo `Interditado` é grafismo editorial, e a página admite isso na legenda.** Ele é
