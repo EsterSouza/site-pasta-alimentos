@@ -58,6 +58,23 @@
   <link rel="stylesheet" href="../style.css?v=24" />
   <link rel="preload" as="image" href="../hero-v3.webp" />
 
+  <style>
+    .hero-btn--price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 18px 36px 14px;
+    }
+    .hero-btn__price {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+      letter-spacing: 0.02em;
+    }
+  </style>
+
 
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
@@ -159,9 +176,10 @@
         <div class="hero__divider"></div>
 
         <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
-          target="_blank" rel="noopener" class="btn-cta hero-btn" id="cta-hero"
+          target="_blank" rel="noopener" class="btn-cta hero-btn hero-btn--price" id="cta-hero"
 >
           GARANTIR MEU KIT AGORA
+          <span class="hero-btn__price">6x de R$ 9,00 ou R$ 47,99 à vista</span>
         </a>
       </div>
 
@@ -868,6 +886,8 @@
     }, { threshold: 0.8 });
     document.querySelectorAll('.highlight-anim').forEach(el => highlightObserver.observe(el));
   </script>
+
+
 
   <script>
     (function () {
