@@ -17,8 +17,12 @@
   --off-white: #F0F5F1;
   --near-black: #1A1A1A;
   --lilac-bg: #F5F3FA;
-  --white: #ffffff;
+  --white: #FFFFFF;
   --accent-red: #D4321F;
+  --ink-soft: #333333;          /* parágrafos secundários das seções claras */
+  --ink-muted: #555555;         /* respostas do FAQ */
+  --chrome-border: #DDDDDD;     /* divisória da janela clara */
+  --chrome-border-alt: #CCCCCC; /* borda dos chips na janela clara */
   --section-pad-v: 80px;
 }
 
@@ -51,7 +55,7 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-cta {
   display: inline-block;
   background: var(--lilac-mid);
-  color: #fff;
+  color: var(--white);
   font-weight: 800;
   font-size: 1.1rem;
   padding: 18px 36px;
@@ -268,7 +272,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 8px 16px; font-size: 12px; color: rgba(255,255,255,0.8);
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
-.finder-file--highlight { background: rgba(123,97,196,0.3) !important; color: #fff; }
+.finder-file--highlight { background: rgba(123,97,196,0.3) !important; color: var(--white); }
 .finder-icon { width: 16px; height: 18px; border-radius: 3px; }
 .finder-icon.doc { background: #2B5EBF; }
 .finder-icon.pdf { background: #D93025; }
@@ -276,7 +280,7 @@ img { max-width: 100%; height: auto; display: block; }
 .finder-ext { font-size: 10px; background: rgba(255,255,255,0.1); padding: 2px 4px; border-radius: 2px; }
 .finder-cursor {
   width: 20px; height: 20px; border-radius: 50% 50% 50% 0;
-  background: #fff; position: absolute; transform: rotate(-45deg);
+  background: var(--white); position: absolute; transform: rotate(-45deg);
   box-shadow: 0 2px 8px rgba(0,0,0,0.5); z-index: 10;
 }
 
@@ -287,7 +291,7 @@ img { max-width: 100%; height: auto; display: block; }
 .problem-grid { display: grid; grid-template-columns: 60fr 40fr; gap: 48px; align-items: center; }
 .problem-img-col img { width: 100%; height: 480px; object-fit: cover; border-radius: 12px; }
 .problem-text h2 { font-size: 40px; color: var(--navy); margin-bottom: 24px; }
-.problem-text p { font-size: 1.1rem; color: #333; margin-bottom: 18px; }
+.problem-text p { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 18px; }
 
 /* ============================================================
    ABAS - CONTEÚDO
@@ -368,7 +372,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .price-v3-btn {
   width: 100%; display: block;
-  background: var(--lilac-mid); color: #fff;
+  background: var(--lilac-mid); color: var(--white);
   padding: 22px; font-size: 20px; font-weight: 800; border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -401,7 +405,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .authority-text h2 { font-size: 40px; color: var(--navy); margin-bottom: 8px; }
 .role { font-size: 1rem; color: var(--lilac-mid); font-weight: 600; margin-bottom: 24px; display: block; letter-spacing: 0.01em; }
-.authority-text p { font-size: 1.1rem; margin-bottom: 20px; color: #333; }
+.authority-text p { font-size: 1.1rem; margin-bottom: 20px; color: var(--ink-soft); }
 
 /* ============================================================
    FAQ
@@ -414,9 +418,24 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex; justify-content: space-between; align-items: center;
   font-size: 1.1rem; font-weight: 700; cursor: pointer; text-align: left;
 }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s; }
-.faq-item.open .faq-answer { max-height: 400px; }
-.faq-answer p { padding: 0 24px 24px; color: #555; font-size: 1rem; }
+/* `visibility: hidden` tira a resposta fechada da árvore de acessibilidade —
+   sem ela, o leitor de tela lia as seis respostas de uma vez, contrariando o
+   aria-expanded="false" do botão. O atraso de 0.4s no visibility deixa a
+   animação de altura terminar antes de a resposta sumir. */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.4s, visibility 0s 0.4s;
+}
+/* Teto com folga: a resposta mais longa mede 427px a 320px de largura, e copy
+   cresce (revisão, tradução). Um teto justo corta o texto sem avisar. */
+.faq-item.open .faq-answer {
+  max-height: 720px;
+  visibility: visible;
+  transition: max-height 0.4s, visibility 0s;
+}
+.faq-answer p { padding: 0 24px 24px; color: var(--ink-muted); font-size: 1rem; }
 
 /* ============================================================
    FOOTER
@@ -461,7 +480,7 @@ img { max-width: 100%; height: auto; display: block; }
 .wa-float:hover { transform: scale(1.1); }
 .wa-tooltip {
   position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
-  background: #1A1A1A; color: #fff; font-size: 13px; font-weight: 600;
+  background: var(--near-black); color: var(--white); font-size: 13px; font-weight: 600;
   padding: 8px 16px; border-radius: 6px; white-space: nowrap;
   opacity: 0; pointer-events: none; transition: opacity 0.3s;
 }
@@ -503,7 +522,7 @@ mark.highlight-anim.active {
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--chrome-border);
 }
 .list-finder-window .finder-toolbar {
   display: flex;
@@ -515,7 +534,7 @@ mark.highlight-anim.active {
 .list-finder-window .finder-title {
   font-size: 14px;
   font-weight: 600;
-  color: #333;
+  color: var(--ink-soft);
   margin: 0 auto;
   transform: translateX(-15px); /* Offset to balance traffic lights */
 }
@@ -530,8 +549,8 @@ mark.highlight-anim.active {
 }
 .list-finder-window .tab-btn {
   background: var(--white) !important;
-  border: 1px solid #ccc !important;
-  color: #555 !important;
+  border: 1px solid var(--chrome-border-alt) !important;
+  color: var(--ink-muted) !important;
   padding: 8px 16px !important;
   font-size: 13px !important;
   border-radius: 6px !important;
@@ -568,9 +587,29 @@ mark.highlight-anim.active {
 @media (max-width: 1024px) {
   .hero__inner { grid-template-columns: 1fr; padding-block: 60px; text-align: center; }
   .hero__text { align-items: center; max-width: 100%; }
-  .hero__finder { display: none; }
   .problem-grid, .authority-wrap { grid-template-columns: 1fr; gap: 40px; }
   .ntf-grid { grid-template-columns: 1fr 1fr; }
+
+  /* A janela de arquivos é a única prova que a página oferece — ela não some no
+     celular, onde vive a maior parte do tráfego pago. Vai ABAIXO do CTA (não há
+     espaço acima da dobra) e perde a inclinação 3D, que em tela estreita custa
+     legibilidade e lê como enfeite. */
+  .hero__finder {
+    margin-top: 40px;
+    transform: none;
+    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.45));
+  }
+  .finder-window { max-width: 100%; }
+  /* Rola de verdade com o dedo: interação vale mais que simulação, e quem tem a
+     lista do fiscal na mão consegue conferir linha por linha. */
+  .finder-filelist {
+    height: 260px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  /* Não existe ponteiro de mouse no toque. */
+  .finder-cursor { display: none !important; }
 }
 
 @media (max-width: 768px) {
@@ -617,4 +656,128 @@ mark.highlight-anim.active {
     scroll-behavior: auto !important;
   }
   .cursor { display: none; }
+}
+
+/* ============================================================
+   RESILIÊNCIA DE ACESSIBILIDADE
+============================================================ */
+
+/* Link de pulo: a página tem 12 viewports e nenhuma navegação. Sem isto,
+   quem usa teclado atravessa o hero inteiro antes de chegar ao conteúdo. */
+.skip-link {
+  position: absolute;
+  left: 24px;
+  top: -100px;
+  z-index: 200;
+  background: var(--lilac-mid);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  transition: top 0.2s;
+}
+.skip-link:focus-visible {
+  top: 24px;
+  outline: 3px solid var(--lilac-light);
+  outline-offset: 3px;
+}
+
+/* Alvo do link de pulo: sem isto o foco salta mas a âncora fica sob o CTA fixo. */
+#conteudo { scroll-margin-top: 24px; }
+
+/* Alto contraste (Windows/forced-colors): o sistema descarta os fundos, então a
+   aba ativa — que se distingue SÓ por cor de fundo — ficaria idêntica às demais. */
+@media (forced-colors: active) {
+  .tab-btn[aria-selected="true"] {
+    border-bottom: 3px solid;
+    font-weight: 800;
+  }
+  .btn-cta, .price-v3-btn { border: 2px solid; }
+  .finder-file--highlight { outline: 2px solid; }
+}
+
+/* Sem JavaScript, o acordeão nunca abre e três das quatro abas ficam
+   inalcançáveis. Aqui tudo aparece de uma vez: menos elegante, porém legível. */
+
+/* ============================================================
+   ADAPTAÇÃO POR CONTEXTO DE ENTRADA E DE TELA
+   Tamanho de tela não diz método de entrada: um notebook pode ter
+   toque e um tablet, teclado. As regras abaixo perguntam pelo
+   ponteiro, não pela largura.
+============================================================ */
+
+/* --- Ponteiro grosso (dedo, caneta): alvos de 44px e mais respiro --- */
+@media (pointer: coarse) {
+  /* As abas carregam a única prova da página e mediam 33px de altura,
+     com 8px entre elas — combinação que produz toque errado. */
+  .tab-btn,
+  .list-finder-window .tab-btn {
+    min-height: 44px;
+    padding: 12px 20px !important;
+  }
+  .tabs-nav,
+  .list-finder-window .tabs-nav { gap: 12px; }
+
+  /* Links do rodapé: 17px de altura em linha de texto. Viram alvos
+     próprios sem esticar o bloco, porque o padding cresce só na vertical. */
+  .footer a {
+    display: inline-block;
+    padding: 12px 6px;
+    margin: -6px 0;
+  }
+
+  /* Perguntas do FAQ já têm 24px de padding — acima do mínimo. */
+}
+
+/* --- Sem hover (toque): o estado "pairando" gruda depois do tap --- */
+@media (hover: none) {
+  .btn-cta:hover,
+  .hero-btn:hover,
+  .price-v3-btn:hover,
+  .price-v3-card:hover,
+  .wa-float:hover { transform: none; }
+  .wa-float:hover .wa-tooltip { opacity: 0; }
+}
+
+/* --- Área segura: os dois elementos fixos ficavam sob o indicador
+   de início do iPhone — inclusive o botão de compra. --- */
+.sticky-cta { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+.wa-float { bottom: calc(72px + env(safe-area-inset-bottom)); }
+
+/* --- Telefone deitado: 375px de altura, e a barra fixa comia 76px
+   deles. Aqui ela encolhe e o botão flutuante sai do caminho. --- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { min-height: auto; }
+  /* Telefone deitado tem largura de sobra e altura nenhuma. Empilhar a janela
+     sob o texto — certo no retrato — joga o botão de compra para 535px numa
+     dobra de 375. Aqui as duas colunas voltam, usando a forma real da tela. */
+  .hero__inner {
+    padding-block: 24px;
+    grid-template-columns: 58fr 42fr;
+    gap: 32px;
+    text-align: left;
+  }
+  .hero__text { align-items: flex-start; }
+  .hero__finder { margin-top: 0; }
+  .finder-filelist { height: 200px; }
+  .hero__sub { margin-bottom: 20px; }
+  .hero__social-proof, .hero__divider { margin-bottom: 16px; }
+  .hero__badge { margin-bottom: 16px; }
+  /* A tipografia do hero foi calibrada para retrato. Em 375px de altura ela
+     sozinha ocupa metade da tela, então recua um degrau — sem achatar, para
+     a headline continuar sendo a headline. */
+  .hero__line1 { font-size: 32px; margin-bottom: 6px; }
+  .hero__line2, .hero__line3 { font-size: 22px; }
+  .hero__headline { margin-bottom: 16px; letter-spacing: -1px; }
+  .hero__sub { font-size: 16px; margin-bottom: 16px; }
+  .hero-btn { font-size: 16px; padding: 14px 32px; }
+  .sticky-cta { padding-block: 6px; }
+  .sticky-cta__btn { padding: 10px 24px; }
+  .wa-float {
+    width: 48px; height: 48px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    right: 12px;
+  }
+  .footer { padding-bottom: 88px; }
 }
