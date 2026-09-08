@@ -79,11 +79,14 @@ nenhuma. O preço (R$ 47,99) existe dentro dessa comparação.
 - Imagens somente `.webp` (`scripts/to-webp.mjs`, sharp).
 - Tracking centralizado em `tracking.js` — grupo ANA: Meta Pixel `1429926872242671`, Google Ads
   `AW-18030262622`, GA4 `G-L1SR8V2ECY`, Clarity `y109t0glph` (compartilhado com outros oito repos da
-  casa). Slug `alimentos`; atribuição Hotmart por `sck=alimentos|<variante>`.
+  casa). Slug de página `alimentos` (usado na tag `lp_page` do Clarity); atribuição de venda por
+  `sck=e2|<variante>`, onde `e2` é o código do experimento emitido pelo ERP.
 
-**Em aberto**
-- Não há experimento cadastrado no ERP para este produto, então a atribuição de venda por variante
-  ainda não fecha. Decisão pendente do dono.
+**Experimento em curso**
+- Experimento `e2` cadastrado no ERP. A tag `e2|<variante>` casa em
+  `experimento.codigo || '|' || variante`, então a venda passa a ser atribuível por variante.
+- O cookie de sorteio leva o código do experimento (`ab-e2`): teste novo re-sorteia todo mundo, em
+  vez de herdar a atribuição do anterior.
 
 ## Brand Commitments
 

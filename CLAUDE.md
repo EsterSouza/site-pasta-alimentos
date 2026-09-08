@@ -26,25 +26,28 @@ e daí saiu um status "A APOSENTAR" sem fundamento. A confusão provavelmente ve
 
 ## Tracking — tudo em `tracking.js` (raiz)
 Ponto único de link de checkout e de eventos, carregado pelas duas variantes com
-`<script defer src="../tracking.js?v=1">`. **Não duplicar o bloco dentro dos HTMLs** — era assim
+`<script defer src="../tracking.js?v=2">`. **Não duplicar o bloco dentro dos HTMLs** — era assim
 antes, e a duplicação literal é o que produz drift.
 
-- `sck=alimentos|<variante>` — pipe, sem `_` (a Hotmart reserva `_` para o sistema), ≤30 chars.
+- `sck=e2|<variante>` — `e2` é o código do experimento emitido pelo ERP, e é o que faz a venda
+  casar. Pipe, sem `_` (a Hotmart reserva `_` para o sistema), ≤30 chars.
   Chega no webhook em `purchase.origin.sck`.
 - `utm_*` de origem paga repassados ao checkout → alimentam o Hotmart Analytics. A Hotmart **não**
   envia UTM no webhook.
-- `xcod=alimentos|<variante>|<campaign.id>|<ad.id>` → é o que leva os IDs do anúncio até o webhook.
+- `xcod=e2|<variante>|<campaign.id>|<ad.id>` → é o que leva os IDs do anúncio até o webhook.
   Emitido só quando há campanha ou anúncio.
-- A variante sai do `data-variant` do `<html>`, com o cookie `ab-alimentos` como fallback.
+- A variante sai do `data-variant` do `<html>`, com o cookie `ab-e2` como fallback. **O cookie leva
+  o código do experimento**: teste novo re-sorteia todo mundo, em vez de herdar a atribuição do
+  anterior — que nasceria enviesado.
 - Clarity recebe `lp_page` e `ab_variant` — o rewrite de `/` deixa a URL idêntica em A e B, então
   sem essas tags não há como separar as variantes no painel.
 
 ## Pendências conhecidas
-- **Atribuição de venda no ERP está órfã.** O ERP casa a venda por `site.codigo == sck` ou por
-  `experimento.codigo || '|' || variante`. Não há experimento cadastrado para este produto
-  (`experimentos_ativos: []`), então `alimentos|a` não casa com nada. O `xcod` faz o dado *chegar*,
-  mas o relatório por página/variante depende desse cadastro. Há também **dois registros de site**
-  para o mesmo host (`lp7` e `lp4`, um com `www.` e outro sem) — conferir qual é o bom.
+- **Atribuição de venda: resolvida.** O ERP casa a venda por `site.codigo == sck` ou por
+  `experimento.codigo || '|' || variante`. Com o experimento `e2` cadastrado, `e2|a` e `e2|b` casam
+  pelo segundo caminho. Antes a tag era `alimentos|<variante>` e não casava com nada.
+  Segue em aberto: há **dois registros de site** para o mesmo host (`lp7` e `lp4`, um com `www.` e
+  outro sem) — conferir qual é o bom.
 - **`xcod` não foi confirmado em payload real.** Documentado na ajuda da Hotmart como o caminho que
   chega no webhook, mas ainda não verificado aqui. Conferir o `payload_bruto` de uma transação de
   teste antes de confiar no dado — foi o que se fez com o `sck` (confirmado em prod 2026-07-30).
