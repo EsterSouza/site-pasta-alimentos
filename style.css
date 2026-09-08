@@ -843,3 +843,42 @@ mark.highlight-anim.active {
   .noticia__numeros li { min-width: 100%; }
   .preco-ancora { font-size: 16px; }
 }
+
+/* ============================================================
+   AVALIAÇÕES DA CONSULTORIA  (variante B)
+   Sem cartões: o craft-floor recusa fileiras de caixas iguais, e
+   três blocos idênticos fariam três opiniões parecerem um formulário.
+   Aqui é lista com fio de separação — registro editorial, o mesmo
+   da página, e o olho lê em sequência em vez de comparar.
+============================================================ */
+.avaliacoes { margin: 32px 0; }
+.avaliacoes__titulo {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+.avaliacoes__lista { display: flex; flex-direction: column; }
+.aval { padding: 18px 0; border-bottom: 1px solid rgba(201,184,232,0.45); }
+.aval:last-child { border-bottom: none; }
+
+/* As estrelas herdam o Lilás Confiança: é a voz da página, não o
+   amarelo genérico de avaliação, que traria uma cor nova ao sistema. */
+.aval__estrelas { display: block; margin-bottom: 8px; }
+.aval__estrelas svg { fill: var(--lilac-mid); display: block; }
+
+/* `.authority-text p` tem especificidade maior e vencia estes dois: sem o escopo,
+   o nome do autor saía do mesmo tamanho da citação. */
+.authority-text .aval__texto {
+  font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin-bottom: 6px;
+}
+.authority-text .aval__autor { font-size: 14px; font-weight: 600; color: var(--navy); margin: 0; }
+.aval__autor span { font-weight: 400; color: var(--ink-muted); }
+
+.avaliacoes__origem {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
