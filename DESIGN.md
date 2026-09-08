@@ -13,44 +13,129 @@ colors:
   ink-soft: "#333333"
   white: "#FFFFFF"
   alert-red: "#D4321F"
+  ink-muted: "#555555"
   whatsapp-green: "#25D366"
+  chrome-window: "rgba(28, 28, 36, 0.97)"
+  chrome-titlebar: "rgba(55, 55, 65, 0.95)"
+  chrome-surface: "#EBEBEB"
+  chrome-panel: "#F8F9FA"
+  chrome-divider: "#EEEEEE"
+  chrome-border: "#DDDDDD"
+  chrome-border-alt: "#CCCCCC"
+  chrome-shadow: "rgba(0,0,0,0.1)"
+  chrome-mac-red: "#FF5F57"
+  chrome-mac-yellow: "#FFBD2E"
+  chrome-mac-green: "#28C840"
+  chrome-mac-green-alt: "#27C93F"
+  chrome-word: "#2B5EBF"
+  chrome-excel: "#1E7E45"
+  chrome-pdf: "#D93025"
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
     fontSize: "80px"
     fontWeight: 700
     lineHeight: 1
-    letterSpacing: "normal"
+  display-mobile:
+    fontFamily: "Playfair Display, Georgia, serif"
+    fontSize: "60px"
+    fontWeight: 700
+    lineHeight: 1
   headline:
     fontFamily: "Inter, sans-serif"
     fontSize: "clamp(40px, 6vw, 76px)"
     fontWeight: 900
     lineHeight: 1.1
     letterSpacing: "-2px"
+  headline-mobile:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "42px"
+    fontWeight: 900
+    lineHeight: 1.1
+    letterSpacing: "-1px"
+  headline-sub:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "clamp(28px, 4vw, 48px)"
+    fontWeight: 900
+    lineHeight: 1.1
+    letterSpacing: "-0.5px"
+  headline-sub-mobile:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "32px"
+    fontWeight: 900
+    lineHeight: 1.1
   title:
     fontFamily: "Inter, sans-serif"
     fontSize: "44px"
     fontWeight: 800
     lineHeight: 1.2
-    letterSpacing: "normal"
+  title-lg:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "48px"
+    fontWeight: 900
+    lineHeight: 1.2
+  title-sm:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "40px"
+    fontWeight: 800
+    lineHeight: 1.2
+  title-mobile:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "36px"
+    fontWeight: 900
+    lineHeight: 1.2
+  subtitle:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "20px"
+    fontWeight: 500
+    lineHeight: 1.6
+  card-title:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "22px"
+    fontWeight: 700
+    lineHeight: 1.3
   body:
     fontFamily: "Inter, sans-serif"
     fontSize: "1.1rem"
     fontWeight: 400
     lineHeight: 1.6
-    letterSpacing: "normal"
+  body-base:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1.6
+  body-alt:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.6
+  list:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.6
   label:
     fontFamily: "Inter, sans-serif"
     fontSize: "14px"
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: "0.01em"
+  label-alt:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "13px"
+    fontWeight: 600
+    lineHeight: 1.4
   label-sm:
     fontFamily: "Inter, sans-serif"
     fontSize: "12px"
     fontWeight: 700
     lineHeight: 1.2
     letterSpacing: "1.5px"
+  micro:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "10px"
+    fontWeight: 400
+    lineHeight: 1.2
 rounded:
   xs: "2px"
   sm: "4px"
@@ -59,6 +144,9 @@ rounded:
   xl: "12px"
   xxl: "20px"
   full: "50%"
+  chip: "3px"
+  none: "0"
+  cursor: "50% 50% 50% 0"
 spacing:
   xs: "8px"
   sm: "12px"
@@ -173,6 +261,22 @@ exclusivamente à urgência.
 - **Tinta Branda** (`#333333`): parágrafos secundários nas seções de explicação.
 - **Branco** (`#FFFFFF`): fundo das seções de conteúdo e FAQ, e texto dentro de botões.
 
+### Paleta de cromo (componente, não marca)
+
+Estas cores não pertencem à identidade — elas **imitam um sistema operacional e
+aplicativos reais**, e é justamente esse realismo que faz a janela de arquivos funcionar como prova.
+Existem só dentro do componente:
+
+- **Semáforo do macOS** (`#FF5F57`, `#FFBD2E`, `#28C840`): os três pontos da barra de título.
+- **Cores de aplicativo** — Word (`#2B5EBF`), Excel (`#1E7E45`), PDF (`#D93025`): os ícones de tipo
+  de arquivo. São as cores dos programas de verdade; alterá-las quebra o reconhecimento.
+- **Superfícies da janela** (`rgba(28,28,36,0.97)`, `rgba(55,55,65,0.95)` na encarnação escura;
+  `#EBEBEB`, `#F8F9FA`, `#EEEEEE` na clara).
+
+**A Regra do Cromo Emprestado.** Nenhuma cor desta lista pode migrar para fora da janela de arquivos.
+O vermelho do PDF não é um vermelho de marca; o verde do Excel não é um verde de sucesso. Elas são
+citações de outro software, e perdem o sentido — e ganham ruído — fora do componente que as cita.
+
 ### Named Rules
 
 **A Regra da Voz Única.** O lilás é a única cor interativa. Nada mais no sistema pode sinalizar
@@ -218,6 +322,37 @@ e o preço; espalhado, vira enfeite e o contraste com o Inter se dissolve.
 **A Regra da Caixa Alta Curta.** Caixa alta só em rótulos de até quatro palavras, sempre com
 `letter-spacing` de 1,5px ou mais. Frase inteira em caixa alta é o registro de LP agressiva que este
 sistema recusa.
+
+### A escala real, e o que nela é débito
+
+Os degraus acima **descrevem o CSS como ele é hoje**, não como deveria ser. São 21 tamanhos distintos
+numa única página, e vários são redundantes:
+
+| Redundância | Situação |
+|---|---|
+| `18px` e `1rem` | **O mesmo valor.** A base é 18px, então `1rem` = 18px. Dois nomes, um degrau. |
+| `1.1rem` (19,8px) e `20px` | Separados por 0,2px — diferença invisível, decisão sem intenção. |
+| `40px` · `42px` · `44px` · `48px` | Quatro degraus de título em oito pixels de intervalo. |
+| `32px` e `36px` | Aglomerado de título em mobile, mesma função. |
+| `13px` e `14px` | Dois rótulos pequenos onde um bastaria. |
+
+**A grafia dupla das cores foi resolvida.** O CSS escrevia o mesmo branco de dois jeitos (`#FFF` e
+`#FFFFFF`) e a mesma tinta de dois jeitos (`#333` e `#333333`). Hoje `ink-soft`, `ink-muted`,
+`chrome-border` e `chrome-border-alt` são tokens de verdade no `:root`, e nenhum literal de cor com
+token equivalente sobrou fora dele. Verificado por comparação das cores computadas de 671 elementos
+antes e depois: **zero divergências**.
+
+**O que ainda é dívida de cor:** 38 declarações `rgba()` repetem à mão um token com opacidade —
+`rgba(240,245,241,0.8)` é o off-white a 80%. A técnica já está decidida para quando isso for feito:
+canais RGB (`--off-white-rgb: 240, 245, 241`), pela compatibilidade com navegadores antigos.
+
+**Isto é dívida, não sistema.** Uma escala com propósito teria cerca de oito degraus com saltos
+perceptíveis. Consolidar exige refatorar o CSS e revalidar a página inteira — trabalho de
+`/impeccable typeset`, não de documentação. Até lá, este documento diz a verdade sobre o código em
+vez de fingir uma escala que não existe.
+
+**A Regra do Degrau Perceptível.** Tamanho novo só entra se a diferença for visível a olho nu contra
+o degrau vizinho. `1.1rem` ao lado de `20px` é a prova do que acontece quando essa regra não vale.
 
 ## Layout
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T00:10:54.753Z",
+  "generatedAt": "2026-09-08T00:51:16.834Z",
   "title": "Design System: Kit Pasta Sanitária — Alimentos",
   "extensions": {
     "colorMeta": {
@@ -153,32 +153,142 @@
           "#C4C4C4",
           "#EEEEEE"
         ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Tinta Apagada",
+        "canonical": "oklch(45.0% 0.0000 89)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242424",
+          "#404040",
+          "#5D5D5D",
+          "#7D7D7D",
+          "#9E9E9E",
+          "#C4C4C4",
+          "#EEEEEE"
+        ]
+      },
+      "chrome-window": {
+        "role": "chrome",
+        "displayName": "Janela escura",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-titlebar": {
+        "role": "chrome",
+        "displayName": "Barra de título escura",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-surface": {
+        "role": "chrome",
+        "displayName": "Barra de título clara",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-panel": {
+        "role": "chrome",
+        "displayName": "Painel claro",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-divider": {
+        "role": "chrome",
+        "displayName": "Divisória clara",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-border": {
+        "role": "chrome",
+        "displayName": "Borda clara",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-border-alt": {
+        "role": "chrome",
+        "displayName": "Borda de chip claro",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-shadow": {
+        "role": "chrome",
+        "displayName": "Sombra da janela clara",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-mac-red": {
+        "role": "chrome",
+        "displayName": "Semáforo macOS — fechar",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-mac-yellow": {
+        "role": "chrome",
+        "displayName": "Semáforo macOS — minimizar",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-mac-green": {
+        "role": "chrome",
+        "displayName": "Semáforo macOS — expandir",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-mac-green-alt": {
+        "role": "chrome",
+        "displayName": "Semáforo macOS — variante",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-word": {
+        "role": "chrome",
+        "displayName": "Ícone Word",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-excel": {
+        "role": "chrome",
+        "displayName": "Ícone Excel",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
+      },
+      "chrome-pdf": {
+        "role": "chrome",
+        "displayName": "Ícone PDF",
+        "note": "Cor de realismo, citada de sistema operacional ou aplicativo real. Vive só dentro da janela de arquivos e nunca migra para a marca."
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display — Playfair",
-        "purpose": "Somente o número da parcela no card de preço. Cai para 60px em mobile."
+        "displayName": "Display — Playfair 80px",
+        "purpose": "Número da parcela no card de preço; 60px em mobile."
       },
       "headline": {
-        "displayName": "Headline — Inter Black",
-        "purpose": "Primeira linha do hero, a que anima. Linhas de apoio ficam em clamp(28px,4vw,48px)."
+        "displayName": "Headline — Inter Black fluida",
+        "purpose": "Primeira linha do hero, a que anima; 42px em mobile."
+      },
+      "headline-sub": {
+        "displayName": "Headline de apoio",
+        "purpose": "Linhas 2 e 3 do hero, deliberadamente menores; 32px em mobile."
       },
       "title": {
-        "displayName": "Title — Inter 800",
-        "purpose": "h2 de seção: navy sobre claro, off-white sobre navy."
+        "displayName": "Title — Inter 800 44px",
+        "purpose": "h2 de seção. Variantes de 40px, 48px e 36px em mobile são dispersão, não sistema."
+      },
+      "subtitle": {
+        "displayName": "Subtitle — 20px",
+        "purpose": "Subtítulo do hero e do bloco de preço."
+      },
+      "card-title": {
+        "displayName": "Card title — 22px",
+        "purpose": "Título dos cartões de segmento."
       },
       "body": {
-        "displayName": "Body — Inter",
-        "purpose": "Parágrafos e listas. Base de 18px: 1.1rem = 19,8px."
+        "displayName": "Body — 1.1rem",
+        "purpose": "Parágrafos. Base de 18px: 1.1rem = 19,8px."
+      },
+      "list": {
+        "displayName": "List — 16px",
+        "purpose": "Itens das listas de documento."
       },
       "label": {
-        "displayName": "Label — Inter 600",
-        "purpose": "Degrau dominante de rotulo (14px): rodape, selos, badge do hero, rotulo de funcao."
+        "displayName": "Label — 14px",
+        "purpose": "Degrau dominante de rótulo: rodapé, selos, badge do hero."
       },
       "label-sm": {
-        "displayName": "Label-sm — Inter caixa alta",
-        "purpose": "12px, ate quatro palavras, tracking 1,5px: selo do preco e cromo da janela de arquivos."
+        "displayName": "Label-sm — 12px caixa alta",
+        "purpose": "Até quatro palavras: selo do preço e cromo da janela."
+      },
+      "micro": {
+        "displayName": "Micro — 10px",
+        "purpose": "Etiqueta de extensão de arquivo dentro da janela."
       }
     },
     "shadows": [
@@ -362,6 +472,16 @@
         "name": "A Regra do Gesto Real",
         "body": "Onde houver toque, o visitante rola de verdade em vez de assistir a uma simulação. Interação autêntica é prova mais forte: quem chegou com a lista do fiscal na mão consegue conferir arquivo por arquivo.",
         "section": "components"
+      },
+      {
+        "name": "A Regra do Cromo Emprestado",
+        "body": "Nenhuma cor da paleta de cromo pode migrar para fora da janela de arquivos. O vermelho do PDF não é um vermelho de marca; o verde do Excel não é um verde de sucesso. Elas são citações de outro software, e perdem o sentido — e ganham ruído — fora do componente que as cita.",
+        "section": "colors"
+      },
+      {
+        "name": "A Regra do Degrau Perceptível",
+        "body": "Tamanho novo só entra se a diferença for visível a olho nu contra o degrau vizinho. 1.1rem ao lado de 20px é a prova do que acontece quando essa regra não vale.",
+        "section": "typography"
       }
     ],
     "dos": [
@@ -373,7 +493,8 @@
       "Do manter os nomes de arquivo da janela reais e verificáveis.",
       "Do deixar a janela do Finder sumir abaixo de 1024px em vez de comprimi-la.",
       "Do vestir as superfícies do navegador com a paleta: ::selection em Lilás Sereno e um :focus-visible visível. outline: none sem substituto é proibido.",
-      "Do deixar o visitante rolar a lista de arquivos com o dedo no mobile, em vez de assistir a uma simulação."
+      "Do deixar o visitante rolar a lista de arquivos com o dedo no mobile, em vez de assistir a uma simulação.",
+      "Do referenciar cor por token (var(--ink-soft)) em vez de literal; nenhum hex com token equivalente vive fora do :root."
     ],
     "donts": [
       "Don't adotar o registro de LP de lançamento agressiva: contador regressivo, setas amarelas, frase inteira em caixa alta, \"últimas vagas\". O produto é documentação séria e a autoridade da autora é o ativo — esse registro a destrói.",
