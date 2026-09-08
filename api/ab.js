@@ -8,7 +8,7 @@ const MARKDOWN = `# Kit Pasta Sanitária para Serviço de Alimentação
 
 ## Produto
 
-Kit digital com +54 documentos editáveis (Word e Excel) para regularização sanitária de serviços de alimentação conforme RDC ANVISA 216/2004.
+Kit digital com 54 documentos editáveis (Word e Excel) para regularização sanitária de serviços de alimentação conforme RDC ANVISA 216/2004.
 
 - **Preço:** R$ 47,99 à vista ou 6x de R$ 9,00
 - **Formato:** digital (download imediato)

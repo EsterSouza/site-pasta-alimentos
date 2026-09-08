@@ -414,8 +414,23 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex; justify-content: space-between; align-items: center;
   font-size: 1.1rem; font-weight: 700; cursor: pointer; text-align: left;
 }
-.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s; }
-.faq-item.open .faq-answer { max-height: 400px; }
+/* `visibility: hidden` tira a resposta fechada da árvore de acessibilidade —
+   sem ela, o leitor de tela lia as seis respostas de uma vez, contrariando o
+   aria-expanded="false" do botão. O atraso de 0.4s no visibility deixa a
+   animação de altura terminar antes de a resposta sumir. */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.4s, visibility 0s 0.4s;
+}
+/* Teto com folga: a resposta mais longa mede 427px a 320px de largura, e copy
+   cresce (revisão, tradução). Um teto justo corta o texto sem avisar. */
+.faq-item.open .faq-answer {
+  max-height: 720px;
+  visibility: visible;
+  transition: max-height 0.4s, visibility 0s;
+}
 .faq-answer p { padding: 0 24px 24px; color: #555; font-size: 1rem; }
 
 /* ============================================================
@@ -568,9 +583,29 @@ mark.highlight-anim.active {
 @media (max-width: 1024px) {
   .hero__inner { grid-template-columns: 1fr; padding-block: 60px; text-align: center; }
   .hero__text { align-items: center; max-width: 100%; }
-  .hero__finder { display: none; }
   .problem-grid, .authority-wrap { grid-template-columns: 1fr; gap: 40px; }
   .ntf-grid { grid-template-columns: 1fr 1fr; }
+
+  /* A janela de arquivos é a única prova que a página oferece — ela não some no
+     celular, onde vive a maior parte do tráfego pago. Vai ABAIXO do CTA (não há
+     espaço acima da dobra) e perde a inclinação 3D, que em tela estreita custa
+     legibilidade e lê como enfeite. */
+  .hero__finder {
+    margin-top: 40px;
+    transform: none;
+    filter: drop-shadow(0 16px 32px rgba(0,0,0,0.45));
+  }
+  .finder-window { max-width: 100%; }
+  /* Rola de verdade com o dedo: interação vale mais que simulação, e quem tem a
+     lista do fiscal na mão consegue conferir linha por linha. */
+  .finder-filelist {
+    height: 260px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  /* Não existe ponteiro de mouse no toque. */
+  .finder-cursor { display: none !important; }
 }
 
 @media (max-width: 768px) {
@@ -618,3 +653,45 @@ mark.highlight-anim.active {
   }
   .cursor { display: none; }
 }
+
+/* ============================================================
+   RESILIÊNCIA DE ACESSIBILIDADE
+============================================================ */
+
+/* Link de pulo: a página tem 12 viewports e nenhuma navegação. Sem isto,
+   quem usa teclado atravessa o hero inteiro antes de chegar ao conteúdo. */
+.skip-link {
+  position: absolute;
+  left: 24px;
+  top: -100px;
+  z-index: 200;
+  background: var(--lilac-mid);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  transition: top 0.2s;
+}
+.skip-link:focus-visible {
+  top: 24px;
+  outline: 3px solid var(--lilac-light);
+  outline-offset: 3px;
+}
+
+/* Alvo do link de pulo: sem isto o foco salta mas a âncora fica sob o CTA fixo. */
+#conteudo { scroll-margin-top: 24px; }
+
+/* Alto contraste (Windows/forced-colors): o sistema descarta os fundos, então a
+   aba ativa — que se distingue SÓ por cor de fundo — ficaria idêntica às demais. */
+@media (forced-colors: active) {
+  .tab-btn[aria-selected="true"] {
+    border-bottom: 3px solid;
+    font-weight: 800;
+  }
+  .btn-cta, .price-v3-btn { border: 2px solid; }
+  .finder-file--highlight { outline: 2px solid; }
+}
+
+/* Sem JavaScript, o acordeão nunca abre e três das quatro abas ficam
+   inalcançáveis. Aqui tudo aparece de uma vez: menos elegante, porém legível. */

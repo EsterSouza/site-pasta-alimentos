@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0A1F44" />
   <title>Kit Pasta Sanitária para Serviço de Alimentação | RDC 216/04 ANVISA</title>
   <meta name="description"
-    content="Kit Pasta Sanitária para Serviço de Alimentação com +54 documentos editáveis em Word e Excel: POPs, Manual de Boas Práticas e planilhas conforme RDC ANVISA 216/2004. Acesso imediato via Hotmart. +100 estabelecimentos aprovados." />
+    content="Kit Pasta Sanitária para Serviço de Alimentação com 54 documentos editáveis em Word e Excel: POPs, Manual de Boas Práticas e planilhas conforme RDC ANVISA 216/2004. Acesso imediato via Hotmart. +100 estabelecimentos aprovados." />
   <meta name="keywords"
     content="pasta sanitária, vigilância sanitária, RDC 216/04, ANVISA, POPs, manual de boas práticas, documentos sanitários, restaurante, padaria, serviço de alimentação" />
   <meta name="author" content="Ana Roberta Ribeiro" />
@@ -36,7 +36,7 @@
   <meta property="og:url" content="https://lp-pasta-alimentos.consultorasanitaria.com.br/" />
   <meta property="og:title" content="Kit Pasta Sanitária para Serviço de Alimentação | RDC 216/04 ANVISA" />
   <meta property="og:description"
-    content="Evite multas e notificações. +54 documentos em Word e Excel: POPs, Manual de Boas Práticas, planilhas conforme RDC 216. Acesso imediato via Hotmart." />
+    content="Evite multas e notificações. 54 documentos em Word e Excel: POPs, Manual de Boas Práticas, planilhas conforme RDC 216. Acesso imediato via Hotmart." />
   <meta property="og:image" content="https://lp-pasta-alimentos.consultorasanitaria.com.br/hero-v3.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -47,7 +47,7 @@
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="Kit Pasta Sanitária para Serviço de Alimentação | RDC 216/04 ANVISA" />
   <meta property="twitter:description"
-    content="Evite multas e notificações. +54 documentos em Word e Excel. Acesso imediato via Hotmart." />
+    content="Evite multas e notificações. 54 documentos em Word e Excel. Acesso imediato via Hotmart." />
   <meta property="twitter:image" content="https://lp-pasta-alimentos.consultorasanitaria.com.br/hero-v3.webp" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,7 +55,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css?v=12" />
+  <link rel="stylesheet" href="../style.css?v=13" />
   <link rel="preload" as="image" href="../hero-v3.webp" />
 
 
@@ -91,6 +91,15 @@
 
 <body>
 
+  <!-- Sem JS: abre tudo, para o conteudo nao ficar inalcancavel. -->
+  <noscript>
+    <style>
+      .faq-answer { max-height: none !important; visibility: visible !important; }
+      .tab-pane { display: block !important; }
+      .tabs-nav, .skip-link { display: none !important; }
+    </style>
+  </noscript>
+
   <!-- DECORATIVE SVGS (SITE WIDE) -->
   <svg class="site-deco svg-1" viewBox="0 0 24 24" stroke="#000" fill="none" stroke-width="1.5" stroke-linecap="round"
     stroke-linejoin="round">
@@ -111,6 +120,9 @@
   <!-- ============================================================
      BLOCO 1 . HERO
 ============================================================ -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo do kit</a>
+
+  <main id="pagina">
   <section class="hero" id="hero">
     <!-- Imagem cobrindo todo o fundo (Full Bleed) -->
     <img class="hero__bg_full" src="../hero-v3.webp" alt="Fundo Kit Pasta Sanitária" loading="eager" width="1600"
@@ -328,7 +340,7 @@
           <p>A RDC ANVISA 216/2004 exige POPs, Manual de Boas Práticas, planilhas de controle e registros de
             capacitação. Não ter esses documentos <mark class="highlight-anim">pode gerar penalidades, como multa.</mark></p>
           <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
-            target="_blank" rel="noopener" class="btn-cta btn-small-cta" style="margin-top:24px;">VER O KIT COMPLETO</a>
+            target="_blank" rel="noopener" class="btn-cta btn-small-cta" style="margin-top:24px;">GARANTIR MEU KIT AGORA</a>
         </div>
       </div>
     </div>
@@ -344,7 +356,7 @@
     <div class="container">
       <div class="tabs-header">
         <h2>O que você recebe no kit</h2>
-        <p class="subtitle">Mais de 50 documentos organizados por categoria</p>
+        <p class="subtitle">54 documentos organizados por categoria</p>
       </div>
 
       <div class="finder-window list-finder-window">
@@ -358,16 +370,16 @@
           </div>
           <span class="finder-title">O que você recebe no kit</span>
         </div>
-        <div class="finder-toolbar tabs-nav">
-          <button class="tab-btn active" data-target="tab1">POPs (11)</button>
-          <button class="tab-btn" data-target="tab2">Planilhas (14)</button>
-          <button class="tab-btn" data-target="tab3">Checklists (7)</button>
-          <button class="tab-btn" data-target="tab4">Treinamentos e Modelos</button>
+        <div class="finder-toolbar tabs-nav" role="tablist" aria-label="Categorias de documentos do kit">
+          <button class="tab-btn active" data-target="tab1" id="tabbtn1" role="tab" aria-controls="tab1" aria-selected="true" tabindex="0">POPs (11)</button>
+          <button class="tab-btn" data-target="tab2" id="tabbtn2" role="tab" aria-controls="tab2" aria-selected="false" tabindex="-1">Planilhas (24)</button>
+          <button class="tab-btn" data-target="tab3" id="tabbtn3" role="tab" aria-controls="tab3" aria-selected="false" tabindex="-1">Checklists (7)</button>
+          <button class="tab-btn" data-target="tab4" id="tabbtn4" role="tab" aria-controls="tab4" aria-selected="false" tabindex="-1">Treinamentos e Modelos (12)</button>
         </div>
 
         <div class="tabs-content list-finder-body">
           <!-- ABA 1 -->
-        <div class="tab-pane active" id="tab1">
+        <div class="tab-pane active" id="tab1" role="tabpanel" aria-labelledby="tabbtn1" tabindex="0">
           <ul class="tab-list scrollable">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
@@ -406,7 +418,7 @@
         </div>
 
         <!-- ABA 2 -->
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tabbtn2" tabindex="0">
           <ul class="tab-list scrollable">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
@@ -426,6 +438,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
               </svg> Planilha de Controle da Qualidade do Óleo</li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg> Planilha de Controle da Qualidade do Óleo 2</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
               </svg> Planilha de Controle da Temperatura de Resfriamento</li>
@@ -481,7 +497,7 @@
         </div>
 
         <!-- ABA 3 -->
-        <div class="tab-pane" id="tab3">
+        <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tabbtn3" tabindex="0">
           <ul class="tab-list scrollable">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
@@ -508,7 +524,7 @@
         </div>
 
         <!-- ABA 4 -->
-        <div class="tab-pane" id="tab4">
+        <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tabbtn4" tabindex="0">
           <ul class="tab-list scrollable">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="#7B61C4" stroke-width="2" width="16">
                 <path d="M20 6L9 17l-5-5"></path>
@@ -555,7 +571,7 @@
           <div class="center-btn">
             <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
               class="btn-cta hero-btn" target="_blank" rel="noopener"
-    >QUERO TODO ESSE CONTEÚDO AGORA</a>
+    >GARANTIR MEU KIT AGORA</a>
           </div>
         </div>
 
@@ -640,7 +656,7 @@
             </svg> 11 POPs Completos: <strong>arquivos Word editáveis</strong></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#C9B8E8" stroke-width="2" width="16">
               <path d="M20 6L9 17l-5-5"></path>
-            </svg> +30 Planilhas e Checklists: <strong>100% em Word e Excel</strong></li>
+            </svg> 31 Planilhas e Checklists: <strong>100% em Word e Excel</strong></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#C9B8E8" stroke-width="2" width="16">
               <path d="M20 6L9 17l-5-5"></path>
             </svg> Todos os 54 arquivos entregues <strong>em Word e Excel (.docx/.xlsx)</strong></li>
@@ -654,7 +670,7 @@
 
         <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
           class="btn-cta price-v3-btn" target="_blank" rel="noopener">
-          QUERO MEU ACESSO AGORA
+          GARANTIR MEU KIT AGORA
         </a>
 
         <div class="price-v3-seals">
@@ -725,44 +741,45 @@
       <ul class="faq-list">
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp1" id="faqbtn1">
             Como vou receber os documentos?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp1" role="region" aria-labelledby="faqbtn1">
             <p>Após a confirmação do pagamento, você receberá e baixará o produto direto da Hotmart, na sua área de
               membros. O acesso é imediato e os arquivos ficam disponíveis para download nos formatos Word e Excel.</p>
           </div>
         </li>
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp2" id="faqbtn2">
             Preciso ter algum conhecimento técnico para usar?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp2" role="region" aria-labelledby="faqbtn2">
             <p>Não. Os documentos já estão escritos e formatados. Você abre no Word, substitui os campos indicados com
               os dados do seu estabelecimento (nome, responsável, endereço) e está pronto para usar.</p>
           </div>
         </li>
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp3" id="faqbtn3">
             Esses documentos atendem à legislação vigente?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp3" role="region" aria-labelledby="faqbtn3">
             <p>Sim. Os documentos foram elaborados com base na RDC ANVISA nº&nbsp;216/2004, que regulamenta as boas
-              práticas para serviços de alimentação no Brasil.</p>
+              práticas para serviços de alimentação no Brasil. Ela é uma norma federal: exigências municipais e
+              estaduais podem somar itens específicos, então vale conferir com a Vigilância Sanitária do seu município.</p>
           </div>
         </li>
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp4" id="faqbtn4">
             Serve para qualquer tipo de serviço de alimentação?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp4" role="region" aria-labelledby="faqbtn4">
             <p>O kit foi desenvolvido para serviços de alimentação em geral: restaurantes, lanchonetes, padarias,
               buffets, cozinhas industriais e similares. Não é indicado para indústria de alimentos, que segue
               legislação específica diferente.</p>
@@ -770,22 +787,22 @@
         </li>
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp5" id="faqbtn5">
             E se eu não gostar?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp5" role="region" aria-labelledby="faqbtn5">
             <p>Você tem 7 dias de garantia. Se acessar o material e entender que não é o que precisava, solicite o
               reembolso direto na plataforma da Hotmart. Sem burocracia.</p>
           </div>
         </li>
 
         <li class="faq-item">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faqresp6" id="faqbtn6">
             Posso usar em mais de um estabelecimento?
             <span class="arrow" aria-hidden="true">▾</span>
           </button>
-          <div class="faq-answer" role="region">
+          <div class="faq-answer" id="faqresp6" role="region" aria-labelledby="faqbtn6">
             <p>A licença é para uso pessoal em estabelecimentos sob sua responsabilidade. Para uso em múltiplos CNPJ de
               terceiros, entre em contato pelo Instagram @aconsultora.nutri.</p>
           </div>
@@ -801,6 +818,8 @@
      BLOCO 10 . CTA FINAL + RODAPÉ
 ============================================================ -->
 
+
+  </main>
 
   <footer class="footer">
     <p>
@@ -821,11 +840,11 @@
   </footer>
 
   <!-- STICKY CTA -->
-  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
     <a href="https://pay.hotmart.com/H104875140X?checkoutMode=10&sck=alimentos|a"
       target="_blank" rel="noopener" class="btn-cta sticky-cta__btn" id="cta-sticky"
 >
-      GARANTIR MINHA PASTA
+      GARANTIR MEU KIT AGORA
     </a>
   </div>
 
@@ -855,9 +874,11 @@
         if (!entries[0].isIntersecting) {
           stickyCta.classList.add('visible');
           stickyCta.removeAttribute('aria-hidden');
+          stickyCta.removeAttribute('inert');
         } else {
           stickyCta.classList.remove('visible');
           stickyCta.setAttribute('aria-hidden', 'true');
+          stickyCta.setAttribute('inert', '');
         }
       }, { threshold: 0.1 }).observe(hero);
     }
@@ -886,17 +907,34 @@
   </a>
 
   <script>
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // remove active from all
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    (function () {
+      var abas = [].slice.call(document.querySelectorAll('.tab-btn'));
 
-        // add to current
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.target).classList.add('active');
+      function ativar(btn, focar) {
+        abas.forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle('active', on);
+          // aria-selected e o que o leitor de tela anuncia; a cor sozinha nao conta.
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+          // tabindex rotativo: o grupo de abas e UMA parada de Tab, as setas navegam dentro.
+          b.setAttribute('tabindex', on ? '0' : '-1');
+          document.getElementById(b.dataset.target).classList.toggle('active', on);
+        });
+        if (focar) btn.focus();
+      }
+
+      abas.forEach(function (btn, i) {
+        btn.addEventListener('click', function () { ativar(btn, false); });
+        btn.addEventListener('keydown', function (e) {
+          var destino = null;
+          if (e.key === 'ArrowRight') destino = abas[(i + 1) % abas.length];
+          else if (e.key === 'ArrowLeft') destino = abas[(i - 1 + abas.length) % abas.length];
+          else if (e.key === 'Home') destino = abas[0];
+          else if (e.key === 'End') destino = abas[abas.length - 1];
+          if (destino) { e.preventDefault(); ativar(destino, true); }
+        });
       });
-    });
+    })();
   </script>
 
   <!-- JSON-LD Structured Data -->
@@ -926,7 +964,7 @@
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Kit Pasta Sanitária para Serviço de Alimentação",
-  "description": "+54 documentos editáveis em Word e Excel para Vigilância Sanitária conforme RDC ANVISA 216/2004.",
+  "description": "54 documentos editáveis em Word e Excel para Vigilância Sanitária conforme RDC ANVISA 216/2004.",
   "brand": {
     "@type": "Brand",
     "name": "Consultora Sanitária"
@@ -965,7 +1003,7 @@
       "name": "Esses documentos atendem à legislação vigente?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sim. Os documentos foram elaborados com base na RDC ANVISA nº 216/2004, que regulamenta as boas práticas para serviços de alimentação no Brasil."
+        "text": "Sim. Os documentos foram elaborados com base na RDC ANVISA nº 216/2004, que regulamenta as boas práticas para serviços de alimentação no Brasil. Ela é uma norma federal: exigências municipais e estaduais podem somar itens específicos, então vale conferir com a Vigilância Sanitária do seu município."
       }
     },
     {
@@ -1047,110 +1085,8 @@
     });
   </script>
 
-  <!-- FINDER ANIMATION JS -->
-  <script>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const filelist = document.getElementById('finder-filelist');
-      const cursor = document.getElementById('finder-cursor');
-      const clickTarget = document.getElementById('finder-click-target');
-
-      if (!filelist || !cursor || !clickTarget) return;
-
-      cursor.style.display = 'block';
-
-      // Scroll speed (px per frame)
-      const SCROLL_SPEED = 0.7;
-      const PAUSE_BEFORE_SCROLL = 1200; // ms after "click" before scrolling starts
-      const SCROLL_DURATION = 7000;     // ms of scrolling
-      const RESET_PAUSE = 1000;         // ms before resetting
-
-      let scrollRAF = null;
-      let phase = 'move-to-target'; // phases: move-to-target → click → scroll → reset
-      let scrollStart = null;
-      let totalContentHeight = 0;
-
-      function getRelativePos(el) {
-        const parentRect = filelist.getBoundingClientRect();
-        const elRect = el.getBoundingClientRect();
-        return {
-          x: elRect.left - parentRect.left + elRect.width / 2,
-          y: elRect.top - parentRect.top + elRect.height / 2,
-        };
-      }
-
-      // Position cursor in top-left of the filelist initially
-      cursor.style.left = '60px';
-      cursor.style.top = '30px';
-
-      function runClickAnimation() {
-        // 1. Move cursor toward the click target
-        const pos = getRelativePos(clickTarget);
-        cursor.style.left = pos.x + 'px';
-        cursor.style.top = pos.y + 'px';
-        cursor.style.transition = 'top 0.9s cubic-bezier(0.4,0,0.2,1), left 0.9s cubic-bezier(0.4,0,0.2,1)';
-
-        // 2. After moving, simulate click (scale pulse)
-        setTimeout(() => {
-          cursor.style.transform = 'rotate(-45deg) scale(0.75)';
-          clickTarget.classList.add('finder-file--highlight');
-          setTimeout(() => {
-            cursor.style.transform = 'rotate(-45deg) scale(1)';
-          }, 150);
-
-          // 3. Start scrolling after a pause
-          setTimeout(() => {
-            phase = 'scroll';
-            totalContentHeight = filelist.scrollHeight - filelist.clientHeight;
-            scrollStart = null;
-            startScroll();
-          }, PAUSE_BEFORE_SCROLL);
-
-        }, 950); // after cursor arrives
-      }
-
-      function startScroll() {
-        function tick(ts) {
-          if (!scrollStart) scrollStart = ts;
-          const elapsed = ts - scrollStart;
-
-          // Scroll amount
-          const newScrollTop = Math.min(filelist.scrollTop + SCROLL_SPEED, totalContentHeight);
-          filelist.scrollTop = newScrollTop;
-
-          // Move cursor down slightly to follow scroll feel
-          const cursorY = parseFloat(cursor.style.top) || 0;
-          const newCursorY = Math.min(cursorY + 0.2, filelist.clientHeight - 30);
-          cursor.style.top = newCursorY + 'px';
-          cursor.style.transition = 'none';
-
-          if (elapsed >= SCROLL_DURATION || newScrollTop >= totalContentHeight) {
-            // Reset phase
-            setTimeout(resetAnimation, RESET_PAUSE);
-            return;
-          }
-          scrollRAF = requestAnimationFrame(tick);
-        }
-        scrollRAF = requestAnimationFrame(tick);
-      }
-
-      function resetAnimation() {
-        // Snap scroll back to top smoothly
-        filelist.scrollTo({ top: 0, behavior: 'smooth' });
-        clickTarget.classList.remove('finder-file--highlight');
-
-        // Move cursor back to start position
-        cursor.style.transition = 'top 0.5s ease, left 0.5s ease';
-        cursor.style.top = '30px';
-        cursor.style.left = '60px';
-
-        setTimeout(runClickAnimation, 1200);
-      }
-
-      // Kick off after a short initial delay
-      setTimeout(runClickAnimation, 800);
-    })();
-  </script>
+  <!-- Janela de arquivos do hero (fonte única: ../finder.js) -->
+  <script defer src="../finder.js?v=1"></script>
 
 </body>
 
